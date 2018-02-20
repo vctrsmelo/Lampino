@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE15FDC4203C928B00C90705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDC3203C928B00C90705 /* AppDelegate.swift */; };
-		EE15FDC6203C928B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDC5203C928B00C90705 /* ViewController.swift */; };
-		EE15FDC9203C928B00C90705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDC7203C928B00C90705 /* Main.storyboard */; };
-		EE15FDCB203C928B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCA203C928B00C90705 /* Assets.xcassets */; };
-		EE15FDCE203C928B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */; };
-		EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */; };
-		EE15FDE0203C976700C90705 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDDF203C976700C90705 /* Lamp.swift */; };
+		EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDED203C987B00C90705 /* AppDelegate.swift */; };
+		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
+		EE15FDF3203C987B00C90705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF1203C987B00C90705 /* Main.storyboard */; };
+		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
+		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
+		EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */; };
+		EE15FE05203C988500C90705 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE03203C988500C90705 /* Lamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EE15FDC0203C928B00C90705 /* Lampino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampino.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE15FDC3203C928B00C90705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EE15FDC5203C928B00C90705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EE15FDC8203C928B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EE15FDCA203C928B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE15FDCD203C928B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EE15FDCF203C928B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
-		EE15FDDF203C976700C90705 /* Lamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
+		EE15FDEA203C987B00C90705 /* Lampino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE15FDED203C987B00C90705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE15FDEF203C987B00C90705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE15FDF2203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE15FDF4203C987B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
+		EE15FE03203C988500C90705 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EE15FDBD203C928B00C90705 /* Frameworks */ = {
+		EE15FDE7203C987B00C90705 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,111 +39,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EE15FDB7203C928B00C90705 = {
+		EE15FDE1203C987B00C90705 = {
 			isa = PBXGroup;
 			children = (
-				EE15FDC2203C928B00C90705 /* Lampino */,
-				EE15FDC1203C928B00C90705 /* Products */,
+				EE15FDEC203C987B00C90705 /* Lampino */,
+				EE15FDEB203C987B00C90705 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EE15FDC1203C928B00C90705 /* Products */ = {
+		EE15FDEB203C987B00C90705 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDC0203C928B00C90705 /* Lampino.app */,
+				EE15FDEA203C987B00C90705 /* Lampino.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE15FDC2203C928B00C90705 /* Lampino */ = {
+		EE15FDEC203C987B00C90705 /* Lampino */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDDE203C95D500C90705 /* Model */,
-				EE15FDDB203C93DF00C90705 /* Application Delegate */,
-				EE15FDDD203C93FC00C90705 /* Storyboard */,
-				EE15FDDC203C93ED00C90705 /* View Controllers */,
-				EE15FDDA203C93CD00C90705 /* Resources */,
-				EE15FDD9203C936100C90705 /* Supporting Files */,
+				EE15FDFF203C988500C90705 /* Model */,
+				EE15FDED203C987B00C90705 /* AppDelegate.swift */,
+				EE15FDEF203C987B00C90705 /* ViewController.swift */,
+				EE15FDF1203C987B00C90705 /* Main.storyboard */,
+				EE15FDF4203C987B00C90705 /* Assets.xcassets */,
+				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
+				EE15FDF9203C987B00C90705 /* Info.plist */,
 			);
 			path = Lampino;
 			sourceTree = "<group>";
 		};
-		EE15FDD5203C931D00C90705 /* Arduino */ = {
+		EE15FDFF203C988500C90705 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDD8203C933E00C90705 /* Protocols */,
+				EE15FE00203C988500C90705 /* Arduino */,
+				EE15FE03203C988500C90705 /* Lamp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE15FE00203C988500C90705 /* Arduino */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FE01203C988500C90705 /* Protocols */,
 			);
 			path = Arduino;
 			sourceTree = "<group>";
 		};
-		EE15FDD8203C933E00C90705 /* Protocols */ = {
+		EE15FE01203C988500C90705 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */,
+				EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		EE15FDD9203C936100C90705 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDCF203C928B00C90705 /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EE15FDDA203C93CD00C90705 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDCA203C928B00C90705 /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		EE15FDDB203C93DF00C90705 /* Application Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDC3203C928B00C90705 /* AppDelegate.swift */,
-			);
-			path = "Application Delegate";
-			sourceTree = "<group>";
-		};
-		EE15FDDC203C93ED00C90705 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDC5203C928B00C90705 /* ViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		EE15FDDD203C93FC00C90705 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDC7203C928B00C90705 /* Main.storyboard */,
-				EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		EE15FDDE203C95D500C90705 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EE15FDD5203C931D00C90705 /* Arduino */,
-				EE15FDDF203C976700C90705 /* Lamp.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EE15FDBF203C928B00C90705 /* Lampino */ = {
+		EE15FDE9203C987B00C90705 /* Lampino */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE15FDD2203C928B00C90705 /* Build configuration list for PBXNativeTarget "Lampino" */;
+			buildConfigurationList = EE15FDFC203C987B00C90705 /* Build configuration list for PBXNativeTarget "Lampino" */;
 			buildPhases = (
-				EE15FDBC203C928B00C90705 /* Sources */,
-				EE15FDBD203C928B00C90705 /* Frameworks */,
-				EE15FDBE203C928B00C90705 /* Resources */,
+				EE15FDE6203C987B00C90705 /* Sources */,
+				EE15FDE7203C987B00C90705 /* Frameworks */,
+				EE15FDE8203C987B00C90705 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -151,26 +111,26 @@
 			);
 			name = Lampino;
 			productName = Lampino;
-			productReference = EE15FDC0203C928B00C90705 /* Lampino.app */;
+			productReference = EE15FDEA203C987B00C90705 /* Lampino.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EE15FDB8203C928B00C90705 /* Project object */ = {
+		EE15FDE2203C987B00C90705 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Victor S Melo";
+				ORGANIZATIONNAME = "Lampino Organization";
 				TargetAttributes = {
-					EE15FDBF203C928B00C90705 = {
+					EE15FDE9203C987B00C90705 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = EE15FDBB203C928B00C90705 /* Build configuration list for PBXProject "Lampino" */;
+			buildConfigurationList = EE15FDE5203C987B00C90705 /* Build configuration list for PBXProject "Lampino" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -178,56 +138,56 @@
 				en,
 				Base,
 			);
-			mainGroup = EE15FDB7203C928B00C90705;
-			productRefGroup = EE15FDC1203C928B00C90705 /* Products */;
+			mainGroup = EE15FDE1203C987B00C90705;
+			productRefGroup = EE15FDEB203C987B00C90705 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EE15FDBF203C928B00C90705 /* Lampino */,
+				EE15FDE9203C987B00C90705 /* Lampino */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EE15FDBE203C928B00C90705 /* Resources */ = {
+		EE15FDE8203C987B00C90705 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE15FDCE203C928B00C90705 /* LaunchScreen.storyboard in Resources */,
-				EE15FDCB203C928B00C90705 /* Assets.xcassets in Resources */,
-				EE15FDC9203C928B00C90705 /* Main.storyboard in Resources */,
+				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
+				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
+				EE15FDF3203C987B00C90705 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EE15FDBC203C928B00C90705 /* Sources */ = {
+		EE15FDE6203C987B00C90705 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE15FDC6203C928B00C90705 /* ViewController.swift in Sources */,
-				EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */,
-				EE15FDC4203C928B00C90705 /* AppDelegate.swift in Sources */,
-				EE15FDE0203C976700C90705 /* Lamp.swift in Sources */,
+				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
+				EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */,
+				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
+				EE15FE05203C988500C90705 /* Lamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EE15FDC7203C928B00C90705 /* Main.storyboard */ = {
+		EE15FDF1203C987B00C90705 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EE15FDC8203C928B00C90705 /* Base */,
+				EE15FDF2203C987B00C90705 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */ = {
+		EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EE15FDCD203C928B00C90705 /* Base */,
+				EE15FDF7203C987B00C90705 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -235,7 +195,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EE15FDD0203C928B00C90705 /* Debug */ = {
+		EE15FDFA203C987B00C90705 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -292,7 +252,7 @@
 			};
 			name = Debug;
 		};
-		EE15FDD1203C928B00C90705 /* Release */ = {
+		EE15FDFB203C987B00C90705 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -342,7 +302,7 @@
 			};
 			name = Release;
 		};
-		EE15FDD3203C928B00C90705 /* Debug */ = {
+		EE15FDFD203C987B00C90705 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -350,14 +310,14 @@
 				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = Lampino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		EE15FDD4203C928B00C90705 /* Release */ = {
+		EE15FDFE203C987B00C90705 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -365,7 +325,7 @@
 				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = Lampino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,25 +335,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EE15FDBB203C928B00C90705 /* Build configuration list for PBXProject "Lampino" */ = {
+		EE15FDE5203C987B00C90705 /* Build configuration list for PBXProject "Lampino" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE15FDD0203C928B00C90705 /* Debug */,
-				EE15FDD1203C928B00C90705 /* Release */,
+				EE15FDFA203C987B00C90705 /* Debug */,
+				EE15FDFB203C987B00C90705 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE15FDD2203C928B00C90705 /* Build configuration list for PBXNativeTarget "Lampino" */ = {
+		EE15FDFC203C987B00C90705 /* Build configuration list for PBXNativeTarget "Lampino" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE15FDD3203C928B00C90705 /* Debug */,
-				EE15FDD4203C928B00C90705 /* Release */,
+				EE15FDFD203C987B00C90705 /* Debug */,
+				EE15FDFE203C987B00C90705 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EE15FDB8203C928B00C90705 /* Project object */;
+	rootObject = EE15FDE2203C987B00C90705 /* Project object */;
 }
