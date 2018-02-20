@@ -58,13 +58,12 @@
 		EE15FDEC203C987B00C90705 /* Lampino */ = {
 			isa = PBXGroup;
 			children = (
+				EE15FE0F203C9A1E00C90705 /* Storyboards */,
+				EE15FE0E203C9A1500C90705 /* View Controllers */,
+				EE15FE0D203C9A0D00C90705 /* Supporting Files */,
+				EE15FE0C203C9A0500C90705 /* Resources */,
+				EE15FE0B203C99FB00C90705 /* Application Delegate */,
 				EE15FDFF203C988500C90705 /* Model */,
-				EE15FDED203C987B00C90705 /* AppDelegate.swift */,
-				EE15FDEF203C987B00C90705 /* ViewController.swift */,
-				EE15FDF1203C987B00C90705 /* Main.storyboard */,
-				EE15FDF4203C987B00C90705 /* Assets.xcassets */,
-				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
-				EE15FDF9203C987B00C90705 /* Info.plist */,
 			);
 			path = Lampino;
 			sourceTree = "<group>";
@@ -92,6 +91,47 @@
 				EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EE15FE0B203C99FB00C90705 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDED203C987B00C90705 /* AppDelegate.swift */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		EE15FE0C203C9A0500C90705 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDF4203C987B00C90705 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EE15FE0D203C9A0D00C90705 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDF9203C987B00C90705 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE15FE0E203C9A1500C90705 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDEF203C987B00C90705 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EE15FE0F203C9A1E00C90705 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDF1203C987B00C90705 /* Main.storyboard */,
+				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
