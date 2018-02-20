@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ArduinoCommunicator {
-    func getLamp(atIndex: Int) -> Lamp
+    func getLamp(atIndex: Int) -> Lamp?
     func numberOfLamps() -> Int
     func setBrightness(lampId: Int, brightness: Double)
-    func getBrightness(lampId: Int, brightness: Double)
+    func getBrightness(lampId: Int) -> Double?
 }

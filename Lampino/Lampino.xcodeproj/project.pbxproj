@@ -14,6 +14,7 @@
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
 		EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */; };
 		EE15FE05203C988500C90705 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE03203C988500C90705 /* Lamp.swift */; };
+		EE15FE14203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EE15FE03203C988500C90705 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
+		EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				EE15FE01203C988500C90705 /* Protocols */,
+				EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */,
 			);
 			path = Arduino;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
+				EE15FE14203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift in Sources */,
 				EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
 				EE15FE05203C988500C90705 /* Lamp.swift in Sources */,
