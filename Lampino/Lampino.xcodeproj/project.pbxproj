@@ -15,6 +15,7 @@
 		EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */; };
 		EE15FE05203C988500C90705 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE03203C988500C90705 /* Lamp.swift */; };
 		EE15FE14203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */; };
+		EE15FE17203CA82D00C90705 /* ArduinoPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FE16203CA82D00C90705 /* ArduinoPeripheral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EE15FE02203C988500C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EE15FE03203C988500C90705 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
+		EE15FE16203CA82D00C90705 /* ArduinoPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoPeripheral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,8 @@
 		EE15FE00203C988500C90705 /* Arduino */ = {
 			isa = PBXGroup;
 			children = (
+				EE15FE15203CA7C900C90705 /* Bluetooth */,
 				EE15FE01203C988500C90705 /* Protocols */,
-				EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */,
 			);
 			path = Arduino;
 			sourceTree = "<group>";
@@ -135,6 +137,15 @@
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EE15FE15203CA7C900C90705 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FE13203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift */,
+				EE15FE16203CA82D00C90705 /* ArduinoPeripheral.swift */,
+			);
+			path = Bluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			files = (
 				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
 				EE15FE14203C9E6E00C90705 /* ArduinoCommunicatorBluetooth.swift in Sources */,
+				EE15FE17203CA82D00C90705 /* ArduinoPeripheral.swift in Sources */,
 				EE15FE04203C988500C90705 /* ArduinoCommunicator.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
 				EE15FE05203C988500C90705 /* Lamp.swift in Sources */,

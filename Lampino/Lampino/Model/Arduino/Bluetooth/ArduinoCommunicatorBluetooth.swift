@@ -32,14 +32,10 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     static let sharedInstance: ArduinoCommunicator = ArduinoCommunicatorBluetooth()
     
+    private var peripheralDelegate: ArduinoPeripheral = ArduinoPeripheral()
+    
     // MARK: - Private Properties
     private var centralManager: CBCentralManager?
-    private var peripheral: CBPeripheral?
-    private var characterist: CBCharacteristic?
-    
-    private let expectedPeripheralName = "BLE-LinkV1.8"
-    private let expectedCharacteristicUUIDString = "DFB1"
-    private(set) var isReady: Bool = false
     
     // MARK: - Private Methods
     override private init() {
@@ -103,48 +99,10 @@ extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
 //        self.delegate?.communicatorDidConnect(self)
         
         // Once connection is stabilished, we can begin discovering services
-        peripheral.delegate = self
+        peripheral.delegate = self.peripheralDelegate
         
         print("Discovering Services...")
         peripheral.discoverServices(nil)
-    }
-}
-
-extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        
-        for service in peripheral.services ?? [] {
-            peripheral.discoverCharacteristics(nil, for: service)
-        }
-    }
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        
-        for characterist in service.characteristics ?? []  {
-            if( characterist.uuid.uuidString == self.expectedCharacteristicUUIDString ) {
-                print("Discovered Characteristic \(characterist), for Service \(service)")
-                self.characterist = characterist
-                self.isReady = true
-                peripheral.setNotifyValue(true, for: characterist)
-            }
-        }
-    }
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value  else { return }
-        if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
-            
-            // Allows the delegate to handle data exchange (read)
-//            self.delegate?.communicator(self, didRead: data)
-        }
-    }
-    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        
-        guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value else { return }
-        if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
-            
-            // Allows the delegate to handle data exchange (write)
-//            self.delegate?.communicator(self, didWrite: data)
-        }
-        
     }
 }
 
