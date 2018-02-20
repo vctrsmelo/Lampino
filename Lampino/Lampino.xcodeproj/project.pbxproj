@@ -12,6 +12,7 @@
 		EE15FDC9203C928B00C90705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDC7203C928B00C90705 /* Main.storyboard */; };
 		EE15FDCB203C928B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCA203C928B00C90705 /* Assets.xcassets */; };
 		EE15FDCE203C928B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */; };
+		EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EE15FDCA203C928B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE15FDCD203C928B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDCF203C928B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,71 @@
 		EE15FDC2203C928B00C90705 /* Lampino */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDC3203C928B00C90705 /* AppDelegate.swift */,
-				EE15FDC5203C928B00C90705 /* ViewController.swift */,
-				EE15FDC7203C928B00C90705 /* Main.storyboard */,
-				EE15FDCA203C928B00C90705 /* Assets.xcassets */,
-				EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */,
-				EE15FDCF203C928B00C90705 /* Info.plist */,
+				EE15FDDB203C93DF00C90705 /* Application Delegate */,
+				EE15FDD5203C931D00C90705 /* Arduino */,
+				EE15FDDD203C93FC00C90705 /* Storyboard */,
+				EE15FDDC203C93ED00C90705 /* View Controllers */,
+				EE15FDDA203C93CD00C90705 /* Resources */,
+				EE15FDD9203C936100C90705 /* Supporting Files */,
 			);
 			path = Lampino;
+			sourceTree = "<group>";
+		};
+		EE15FDD5203C931D00C90705 /* Arduino */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDD8203C933E00C90705 /* Protocols */,
+			);
+			path = Arduino;
+			sourceTree = "<group>";
+		};
+		EE15FDD8203C933E00C90705 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EE15FDD9203C936100C90705 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDCF203C928B00C90705 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE15FDDA203C93CD00C90705 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDCA203C928B00C90705 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EE15FDDB203C93DF00C90705 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDC3203C928B00C90705 /* AppDelegate.swift */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		EE15FDDC203C93ED00C90705 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDC5203C928B00C90705 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EE15FDDD203C93FC00C90705 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDC7203C928B00C90705 /* Main.storyboard */,
+				EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE15FDC6203C928B00C90705 /* ViewController.swift in Sources */,
+				EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */,
 				EE15FDC4203C928B00C90705 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
