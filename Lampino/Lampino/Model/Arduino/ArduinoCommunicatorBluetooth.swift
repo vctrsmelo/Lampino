@@ -166,6 +166,7 @@ extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
     
     func getBrightness(lampId: Int) -> Double? {
         // TODO: implement
+        return nil
     }
     
     
