@@ -13,6 +13,7 @@
 		EE15FDCB203C928B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCA203C928B00C90705 /* Assets.xcassets */; };
 		EE15FDCE203C928B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */; };
 		EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */; };
+		EE15FDE0203C976700C90705 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDDF203C976700C90705 /* Lamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EE15FDCD203C928B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDCF203C928B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE15FDD6203C933300C90705 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
+		EE15FDDF203C976700C90705 /* Lamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,8 @@
 		EE15FDC2203C928B00C90705 /* Lampino */ = {
 			isa = PBXGroup;
 			children = (
+				EE15FDDE203C95D500C90705 /* Model */,
 				EE15FDDB203C93DF00C90705 /* Application Delegate */,
-				EE15FDD5203C931D00C90705 /* Arduino */,
 				EE15FDDD203C93FC00C90705 /* Storyboard */,
 				EE15FDDC203C93ED00C90705 /* View Controllers */,
 				EE15FDDA203C93CD00C90705 /* Resources */,
@@ -121,6 +123,15 @@
 				EE15FDCC203C928B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		EE15FDDE203C95D500C90705 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE15FDD5203C931D00C90705 /* Arduino */,
+				EE15FDDF203C976700C90705 /* Lamp.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				EE15FDC6203C928B00C90705 /* ViewController.swift in Sources */,
 				EE15FDD7203C933300C90705 /* ArduinoCommunicator.swift in Sources */,
 				EE15FDC4203C928B00C90705 /* AppDelegate.swift in Sources */,
+				EE15FDE0203C976700C90705 /* Lamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

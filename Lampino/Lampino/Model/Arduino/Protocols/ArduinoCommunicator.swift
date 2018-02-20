@@ -9,5 +9,6 @@
 import Foundation
 
 protocol ArduinoCommunicator {
-    
+    func getLamp(atIndex: Int) -> Lamp
+    func numberOfLamps() -> Int
 }
