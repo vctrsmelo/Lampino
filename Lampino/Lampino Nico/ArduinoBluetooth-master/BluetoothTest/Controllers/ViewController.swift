@@ -27,7 +27,8 @@ final class ViewController: UIViewController {
         
         self.loadingComponent = LoadingComponent()
         
-        self.communicator = ArduinoCommunicator(delegate: self)
+        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
+        communicator.delegate = self
         
         self.loadingComponent.addLoadingIndicator(to: self.view)
     }
@@ -39,6 +40,7 @@ final class ViewController: UIViewController {
             lastValue = newValue
             var bytes: [UInt8] = Array("A".utf8)
             bytes.append(UInt8(lastValue * 255))
+            self.communicator.send(value:Data(bytes:bytes))
         }
     }
     

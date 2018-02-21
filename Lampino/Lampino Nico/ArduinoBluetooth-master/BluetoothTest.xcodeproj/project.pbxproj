@@ -12,8 +12,10 @@
 		0C380C131FE4467200BBCB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C380C111FE4467200BBCB96 /* Main.storyboard */; };
 		0C380C151FE4467200BBCB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C380C141FE4467200BBCB96 /* Assets.xcassets */; };
 		0C380C181FE4467200BBCB96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C380C161FE4467200BBCB96 /* LaunchScreen.storyboard */; };
-		0C380C221FE7D81100BBCB96 /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C380C211FE7D81100BBCB96 /* ArduinoCommunicator.swift */; };
 		0C971C892035FD36008EEA39 /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C971C882035FD36008EEA39 /* LoadingComponent.swift */; };
+		EEA75019203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75015203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift */; };
+		EEA7501A203DEF4C00E84FAC /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75017203DEF4C00E84FAC /* ArduinoCommunicator.swift */; };
+		EEA7501B203DEF4C00E84FAC /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75018203DEF4C00E84FAC /* Lamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +26,10 @@
 		0C380C141FE4467200BBCB96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C380C171FE4467200BBCB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C380C191FE4467300BBCB96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C380C211FE7D81100BBCB96 /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		0C971C882035FD36008EEA39 /* LoadingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
+		EEA75015203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
+		EEA75017203DEF4C00E84FAC /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
+		EEA75018203DEF4C00E84FAC /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				0C971C872035FD24008EEA39 /* View */,
-				0C971C852035EAF9008EEA39 /* Arduino */,
+				EEA75012203DEF4C00E84FAC /* Model */,
 				0C971C842035EAB0008EEA39 /* Support */,
 				0C971C862035EB02008EEA39 /* Controllers */,
 				0C380C111FE4467200BBCB96 /* Main.storyboard */,
@@ -78,14 +82,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		0C971C852035EAF9008EEA39 /* Arduino */ = {
-			isa = PBXGroup;
-			children = (
-				0C380C211FE7D81100BBCB96 /* ArduinoCommunicator.swift */,
-			);
-			path = Arduino;
-			sourceTree = "<group>";
-		};
 		0C971C862035EB02008EEA39 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +96,41 @@
 				0C971C882035FD36008EEA39 /* LoadingComponent.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EEA75012203DEF4C00E84FAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEA75013203DEF4C00E84FAC /* Arduino */,
+				EEA75018203DEF4C00E84FAC /* Lamp.swift */,
+			);
+			name = Model;
+			path = ../../../Lampino/Model;
+			sourceTree = "<group>";
+		};
+		EEA75013203DEF4C00E84FAC /* Arduino */ = {
+			isa = PBXGroup;
+			children = (
+				EEA75014203DEF4C00E84FAC /* Bluetooth */,
+				EEA75016203DEF4C00E84FAC /* Protocols */,
+			);
+			path = Arduino;
+			sourceTree = "<group>";
+		};
+		EEA75014203DEF4C00E84FAC /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				EEA75015203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		EEA75016203DEF4C00E84FAC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EEA75017203DEF4C00E84FAC /* ArduinoCommunicator.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C380C101FE4467200BBCB96 /* ViewController.swift in Sources */,
+				EEA7501A203DEF4C00E84FAC /* ArduinoCommunicator.swift in Sources */,
+				EEA7501B203DEF4C00E84FAC /* Lamp.swift in Sources */,
+				EEA75019203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift in Sources */,
 				0C971C892035FD36008EEA39 /* LoadingComponent.swift in Sources */,
 				0C380C0E1FE4467200BBCB96 /* AppDelegate.swift in Sources */,
-				0C380C221FE7D81100BBCB96 /* ArduinoCommunicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

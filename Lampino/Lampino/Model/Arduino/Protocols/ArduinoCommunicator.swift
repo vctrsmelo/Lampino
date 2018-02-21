@@ -8,9 +8,16 @@
 
 import Foundation
 
+protocol ArduinoCommunicatorDelegate {
+    func communicatorDidConnect(_ communicator: ArduinoCommunicator)
+    func communicator(_ communicator: ArduinoCommunicator, didRead data: Data)
+    func communicator(_ communicator: ArduinoCommunicator, didWrite data: Data)
+}
+
 protocol ArduinoCommunicator {
+    var delegate: ArduinoCommunicatorDelegate? { get set }
     func getLamp(atIndex: Int) -> Lamp?
     func numberOfLamps() -> Int
-    func setBrightness(lampId: Int, brightness: Double)
+    func setBrightness(lampId: Character, brightness: Double)
     func getBrightness(lampId: Int) -> Double?
 }

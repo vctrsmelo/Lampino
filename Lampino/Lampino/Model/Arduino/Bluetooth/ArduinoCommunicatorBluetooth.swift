@@ -37,6 +37,8 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     private var lamps: [(peripheral: CBPeripheral,characteristic: CBCharacteristic)] = []
     
+    var delegate: ArduinoCommunicatorDelegate?
+    
     // MARK: - Private Properties
     private var centralManager: CBCentralManager?
     
