@@ -12,8 +12,6 @@ fileprivate let BrightnessValidValues = 0.0...1.0
 
 struct Lamp {
 
-    var id: Int
-
     private var _brightness: Double
     
     /**

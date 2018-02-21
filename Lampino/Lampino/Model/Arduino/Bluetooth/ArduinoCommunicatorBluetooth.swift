@@ -32,7 +32,10 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     static let sharedInstance: ArduinoCommunicator = ArduinoCommunicatorBluetooth()
     
-    private var peripheralDelegate: ArduinoPeripheral = ArduinoPeripheral()
+    private let expectedPeripheralName = "KIT1"
+    private let expectedCharacteristicUUIDString = "DFB1"
+    
+    private var lamps: [(peripheral: CBPeripheral,characteristic: CBCharacteristic)] = []
     
     // MARK: - Private Properties
     private var centralManager: CBCentralManager?
@@ -42,69 +45,88 @@ class ArduinoCommunicatorBluetooth: NSObject {
         super.init()
         
         // Begin looking for elements
-        self.centralManager = CBCentralManager(delegate: self, queue: .main)
+        centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    // MARK: - Public
-    
-    /// Sends the bytes provided to Arduino using Bluetooth
-    private func send<T: DataConvertible>(value: T) {
-        if( self.isReady ) {
-            guard let characterist = self.characterist else { return }
-            self.peripheral?.writeValue(value.data, for: characterist, type: .withResponse)
-        }
-    }
-    
-    /// Read data from Arduino Module, if possible
-    private func read() {
-        if( self.isReady ) {
-            guard let characterist = self.characterist else { return }
-            self.peripheral?.readValue(for: characterist)
-        }
-    }
 }
 
 extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
     
-    // Called once the manager has beed updated
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print("State Updated")
-        
         switch central.state {
-        case .poweredOn:
-            print("Began Scanning...")
-            self.centralManager?.scanForPeripherals(withServices: nil, options: nil)
         case .poweredOff:
-            print("WARNING - Bluetooth is Disabled. Switch it on and try again")
+            centralManager?.stopScan()
+        case .poweredOn:
+            centralManager?.scanForPeripherals(withServices: nil)
         default:
-            print("WARNING: - state not supported \(String.init(describing: central.state))")
+            print("State not supported: \(central.state)")
         }
     }
+    
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
-        // We should only try to connect to the peripheral we're interested in
-        // In this case, we can use its name
-        if( peripheral.name == self.expectedPeripheralName ) {
-            print("Discovered \(self.expectedPeripheralName)")
-            self.peripheral = peripheral
-            
-            print("Attemping Connection...")
-            // Attemp connection
+        print("Discovered peripheral: \(peripheral.name ?? "ERROR")")
+        if peripheral.name == self.expectedPeripheralName {
             central.connect(peripheral, options: nil)
         }
     }
+    
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("Connected")
-        // Allow delegate to update status
-//        self.delegate?.communicatorDidConnect(self)
-        
-        // Once connection is stabilished, we can begin discovering services
-        peripheral.delegate = self.peripheralDelegate
-        
-        print("Discovering Services...")
         peripheral.discoverServices(nil)
     }
 }
+
+extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        guard let services = peripheral.services else { return }
+        
+        for service in services {
+            print(service)
+            peripheral.discoverCharacteristics(nil, for: service)
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        guard let characteristics = service.characteristics else { return }
+        
+        for characteristic in characteristics {
+            if (characteristic.uuid.uuidString == expectedCharacteristicUUIDString) {
+                print("Discovered characteristic \(characteristic), for Service \(service)")
+                lamps.append((peripheral,characteristic))
+                
+                if characteristic.properties.contains(.read) {
+                    peripheral.readValue(for: characteristic)
+                }
+                
+                if characteristic.properties.contains(.notify) {
+                    peripheral.setNotifyValue(true, for: characteristic)
+                }
+                
+                //read current brightness value
+                
+            }
+        }
+        
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        switch characteristic.uuid {
+        case expectedCharacteristicUUIDString:
+            print(characteristic.value ?? "no value")
+        default:
+            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
+        }
+    }
+    
+    /// Sends the bytes provided to Arduino using Bluetooth
+    func send(value: Int, peripheral: CBPeripheral) {
+        guard let lamp = lamps.filter({$0.peripheral == peripheral}).first else { return }
+        var valueToData = value
+        lamp.peripheral.writeValue(Data(bytes: &valueToData, count: MemoryLayout<Int>.size), for: lamp.characteristic, type: .withResponse)
+    }
+    
+}
+
 
 extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
     
@@ -126,6 +148,4 @@ extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
         // TODO: implement
         return nil
     }
-    
-    
 }
