@@ -1,13 +1,18 @@
-int led = 9;           // the PWM pin the LED is attached to
+int redLed = 11;
+int yellowLed = 10;
+int greenLed = 9;
+
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
 uint8_t byteRead = 0;
-bool readBrightCommand = false;
+int selectedLed = -1;
 
 // the setup routine runs once when you press reset:
 void setup() {
   // declare pin 9 to be an output:
-  pinMode(led, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
   Serial.begin(115200);
   Serial.flush();
 }
@@ -16,22 +21,25 @@ void setup() {
 void loop() {
     if(Serial.available() > 0 ) {
         byteRead = Serial.read();
-//        Serial.flush();
-//        analogWrite(led, byteRead);
 
-      Serial.println(byteRead);
-    
-      if ( readBrightCommand == true ) {
-        analogWrite(led, byteRead);
-        readBrightCommand = false;
-      }
+        Serial.println(byteRead);
 
-      if ( byteRead == 'A' ) {
-        readBrightCommand = true;
-      }
-//        if (byteRead >= 0 && byteRead <= 255) {
-//          analogWrite(led, byteRead);
-//        }
+        if (selectedLed != -1 && byteRead >= 0 && byteRead <= 255) {
+          analogWrite(selectedLed, byteRead);
+          selectedLed = -1;
+        }
+  
+        if ( byteRead == 'A' ) {
+          selectedLed = redLed;
+        }
+
+        if ( byteRead == 'B' ) {
+          selectedLed = greenLed;
+        }
+
+        if ( byteRead == 'C' ) {
+          selectedLed = yellowLed;
+        }
     }
    //delay(50);
 }

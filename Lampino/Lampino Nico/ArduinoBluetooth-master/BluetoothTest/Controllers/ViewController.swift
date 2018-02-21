@@ -19,7 +19,7 @@ final class ViewController: UIViewController {
     
     @IBOutlet weak var mySlider: UISlider!
     
-    var vai = true
+    var selectedLed = "A"
     
     // MARK: - View Controller Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +37,9 @@ final class ViewController: UIViewController {
         
         if abs(newValue - lastValue) >= 0.1 || newValue == 0 || newValue == 1 {
             lastValue = newValue
-            var bytes: [UInt8] = Array("A".utf8)
+            var bytes: [UInt8] = Array(selectedLed.utf8)
             bytes.append(UInt8(lastValue * 255))
+            self.communicator.send(value: Data(bytes: bytes))
         }
     }
     
@@ -53,6 +54,18 @@ final class ViewController: UIViewController {
             lastValue = 255
         }
         mySlider.setValue(lastValue, animated: true)
+    }
+    
+    @IBAction func redLedSelected(_ sender: Any) {
+        selectedLed = "A"
+    }
+    
+    @IBAction func greenLedSelected(_ sender: Any) {
+        selectedLed = "B"
+    }
+    
+    @IBAction func yellowLedSelected(_ sender: Any) {
+        selectedLed = "C"
     }
 }
 
