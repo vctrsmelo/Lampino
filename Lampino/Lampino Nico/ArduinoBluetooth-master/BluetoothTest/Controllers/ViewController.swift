@@ -11,7 +11,7 @@ import CoreBluetooth
 
 final class ViewController: UIViewController {
     // MARK: - Private Properties
-    private var communicator: ArduinoCommunicator!
+    private var lampsManager: LampsManager!
     
     private var loadingComponent: LoadingComponent!
     
@@ -26,21 +26,20 @@ final class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.loadingComponent = LoadingComponent()
-        
-        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
-        communicator.delegate = self
-        
         self.loadingComponent.addLoadingIndicator(to: self.view)
+        self.lampsManager = LampsManager(delegate: self)
+        
     }
     
     @IBAction func changedSlider(_ sender: UISlider) {
         let newValue = sender.value
         
         if abs(newValue - lastValue) >= 0.1 || newValue == 0 || newValue == 1 {
-            lastValue = newValue
-            var bytes: [UInt8] = Array("A".utf8)
-            bytes.append(UInt8(lastValue * 255))
-            self.communicator.send(value:Data(bytes:bytes))
+            lampsManager.updateBrightness(0, newBrightness: UInt8(lastValue * 255))
+//            lastValue = newValue
+//            var bytes: [UInt8] = Array("A".utf8)
+//            bytes.append(UInt8(lastValue * 255))
+//            lampsManager.updateBrightness("A", newBrightness: UInt8(lastValue * 255))
         }
     }
     
@@ -48,27 +47,21 @@ final class ViewController: UIViewController {
     @IBAction func updateTrafficLight(_ sender: UIButton) {
         //Send code that signifies arduino to update its state
         if lastValue > 0 {
-            self.communicator.send(value: UInt8(0))
+            lampsManager.updateBrightness(0, newBrightness: UInt8(0))
             lastValue = 0
         } else {
-            self.communicator.send(value: UInt8(255))
+            lampsManager.updateBrightness(0, newBrightness: UInt8(255))
             lastValue = 255
         }
         mySlider.setValue(lastValue, animated: true)
     }
 }
 
-extension ViewController: ArduinoCommunicatorDelegate {
-    func communicatorDidConnect(_ communicator: ArduinoCommunicator) {
+extension ViewController: LampsManagerDelegate {
+    
+    func didConnectToCommunicator() {
         self.loadingComponent.removeLoadingIndicators(from: self.view)
     }
     
-    func communicator(_ communicator: ArduinoCommunicator, didRead data: Data) {
-        print(#function)
-        print(String(data: data, encoding: .utf8)!)
-    }
-    func communicator(_ communicator: ArduinoCommunicator, didWrite data: Data) {
-        print(#function)
-        print(String(data: data, encoding: .utf8)!)
-    }
 }
+

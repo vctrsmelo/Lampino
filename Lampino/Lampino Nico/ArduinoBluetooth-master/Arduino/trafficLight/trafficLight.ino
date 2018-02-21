@@ -18,7 +18,7 @@ void loop() {
     byteRead = Serial.read();
     Serial.println(byteRead);
 
-    if( byteRead == 'A' ) {
+    if( byteRead == '0' ) {
       manager.switchMode();
     }
   } else {

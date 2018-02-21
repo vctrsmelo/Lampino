@@ -10,14 +10,12 @@ import Foundation
 
 protocol ArduinoCommunicatorDelegate {
     func communicatorDidConnect(_ communicator: ArduinoCommunicator)
-    func communicator(_ communicator: ArduinoCommunicator, didRead data: Data)
-    func communicator(_ communicator: ArduinoCommunicator, didWrite data: Data)
+    func communicator(_ communicator: ArduinoCommunicator, didReadBrightness brightness: UInt8, at lampId: UInt8)
+    func communicator(_ communicator: ArduinoCommunicator, didWriteBrightness brightness: UInt8, at lampId: UInt8)
 }
 
 protocol ArduinoCommunicator {
     var delegate: ArduinoCommunicatorDelegate? { get set }
-    func getLamp(atIndex: Int) -> Lamp?
-    func numberOfLamps() -> Int
-    func setBrightness(lampId: Character, brightness: Double)
-    func getBrightness(lampId: Int) -> Double?
+    func sendBrightness(lampId: UInt8, brightness: UInt8)
+    func getBrightness(lampId: UInt8) -> UInt8?
 }

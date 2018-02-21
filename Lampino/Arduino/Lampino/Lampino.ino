@@ -1,4 +1,4 @@
-int led = 9;           // the PWM pin the LED is attached to
+int led = 11;           // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
 uint8_t byteRead = 0;
@@ -14,6 +14,7 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+
     if(Serial.available() > 0 ) {
         byteRead = Serial.read();
 //        Serial.flush();
@@ -26,12 +27,12 @@ void loop() {
         readBrightCommand = false;
       }
 
-      if ( byteRead == 'A' ) {
+      if ( byteRead == 0 ) {
         readBrightCommand = true;
       }
 //        if (byteRead >= 0 && byteRead <= 255) {
 //          analogWrite(led, byteRead);
 //        }
     }
-   //delay(50);
+   delay(50);
 }

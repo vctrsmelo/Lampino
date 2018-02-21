@@ -16,6 +16,7 @@
 		EEA75019203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75015203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift */; };
 		EEA7501A203DEF4C00E84FAC /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75017203DEF4C00E84FAC /* ArduinoCommunicator.swift */; };
 		EEA7501B203DEF4C00E84FAC /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA75018203DEF4C00E84FAC /* Lamp.swift */; };
+		EEA7501D203DF37500E84FAC /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7501C203DF37500E84FAC /* LampsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EEA75015203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 		EEA75017203DEF4C00E84FAC /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EEA75018203DEF4C00E84FAC /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
+		EEA7501C203DF37500E84FAC /* LampsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				EEA75013203DEF4C00E84FAC /* Arduino */,
 				EEA75018203DEF4C00E84FAC /* Lamp.swift */,
+				EEA7501C203DF37500E84FAC /* LampsManager.swift */,
 			);
 			name = Model;
 			path = ../../../Lampino/Model;
@@ -213,6 +216,7 @@
 				0C380C101FE4467200BBCB96 /* ViewController.swift in Sources */,
 				EEA7501A203DEF4C00E84FAC /* ArduinoCommunicator.swift in Sources */,
 				EEA7501B203DEF4C00E84FAC /* Lamp.swift in Sources */,
+				EEA7501D203DF37500E84FAC /* LampsManager.swift in Sources */,
 				EEA75019203DEF4C00E84FAC /* ArduinoCommunicatorBluetooth.swift in Sources */,
 				0C971C892035FD36008EEA39 /* LoadingComponent.swift in Sources */,
 				0C380C0E1FE4467200BBCB96 /* AppDelegate.swift in Sources */,
@@ -353,7 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = "$(SRCROOT)/BluetoothTest/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -369,7 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = "$(SRCROOT)/BluetoothTest/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

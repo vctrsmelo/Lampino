@@ -6,11 +6,7 @@
 //  Copyright © 2018 Victor S Melo. All rights reserved.
 //
 
-import Foundation
-
 struct Lamp {
-
-    var lampId: Character
+    var id: UInt8
     var brightness: UInt8
-
 }
