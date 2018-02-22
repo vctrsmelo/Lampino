@@ -16,7 +16,7 @@
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
 		EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
 		EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F96C203F321A006A98FB /* LoadingComponent.swift */; };
-		EEE2F96F203F32CE006A98FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2F96E203F32CE006A98FB /* Main.storyboard */; };
+		EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2F970203F37D6006A98FB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 		EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EEE2F96C203F321A006A98FB /* LoadingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
-		EEE2F96E203F32CE006A98FB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EEE2F970203F37D6006A98FB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 		EE15FE0F203C9A1E00C90705 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				EEE2F96E203F32CE006A98FB /* Main.storyboard */,
+				EEE2F970203F37D6006A98FB /* Main.storyboard */,
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -218,7 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE2F96F203F32CE006A98FB /* Main.storyboard in Resources */,
+				EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
 			);

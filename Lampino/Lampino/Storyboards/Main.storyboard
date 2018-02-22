@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,34 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-Lq-5Xg">
-                                <rect key="frame" x="64" y="228" width="247" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ZXb-Lq-5Xg" secondAttribute="height" multiplier="603:512" id="KSe-RL-hef"/>
-                                </constraints>
-                                <state key="normal" title="Emergency" image="switch"/>
-                                <connections>
-                                    <action selector="updateTrafficLight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yaL-iO-ADy"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ink-Ir-psz">
                                 <rect key="frame" x="23" y="548" width="330" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="changedSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="iK4-XY-nzI"/>
-                                    <action selector="didEndDragging:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="nF3-f3-e96"/>
-                                    <action selector="dragiExit:" destination="BYZ-38-t0r" eventType="touchDragExit" id="oIE-PO-42C"/>
-                                    <action selector="finishedSliding:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="Kui-mC-O5C"/>
+                                    <action selector="changedSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="zGO-nV-qMw"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfP-Nv-jl1">
+                                <rect key="frame" x="38" y="262" width="76" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.32348558449999998" blue="0.32257132100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="A"/>
+                                <connections>
+                                    <action selector="redLedSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LuK-Ik-dJX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5l-fJ-lAv">
+                                <rect key="frame" x="236" y="262" width="76" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.97753510861865001" blue="0.0012503010419572247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="yellowLedSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYz-XZ-0CC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-ZM-GJX">
+                                <rect key="frame" x="135" y="262" width="76" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58437150719999997" green="0.95122975109999997" blue="0.57719689610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="B"/>
+                                <connections>
+                                    <action selector="greenLedSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EVQ-dW-1n7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ZXb-Lq-5Xg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0ic-zh-got"/>
-                            <constraint firstAttribute="trailing" secondItem="ZXb-Lq-5Xg" secondAttribute="trailing" constant="64" id="FHY-xL-mJo"/>
-                            <constraint firstItem="ZXb-Lq-5Xg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="64" id="hCx-61-efX"/>
-                            <constraint firstItem="ZXb-Lq-5Xg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rtg-Ng-WHO"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Traffic Light" largeTitleDisplayMode="always" id="blT-dA-aHa"/>
@@ -77,7 +84,4 @@
             <point key="canvasLocation" x="-343" y="132"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="switch" width="512" height="512"/>
-    </resources>
 </document>

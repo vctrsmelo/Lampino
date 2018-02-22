@@ -19,7 +19,7 @@ final class ViewController: UIViewController {
     
     @IBOutlet weak var mySlider: UISlider!
     
-    var vai = true
+    var selectedLed: UInt8 = 0
     
     // MARK: - View Controller Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -36,11 +36,7 @@ final class ViewController: UIViewController {
         
         if abs(newValue - lastValue) >= 0.1 || newValue == 0 || newValue == 1 {
             lastValue = newValue
-            lampsManager.updateBrightness(0, newBrightness: UInt8(lastValue * 255))
-            //            lastValue = newValue
-            //            var bytes: [UInt8] = Array("A".utf8)
-            //            bytes.append(UInt8(lastValue * 255))
-            //            lampsManager.updateBrightness("A", newBrightness: UInt8(lastValue * 255))
+            lampsManager.updateBrightness(selectedLed, newBrightness: UInt8(lastValue * 255))
         }
     }
     
@@ -48,13 +44,25 @@ final class ViewController: UIViewController {
     @IBAction func updateTrafficLight(_ sender: UIButton) {
         //Send code that signifies arduino to update its state
         if lastValue > 0 {
-            lampsManager.updateBrightness(0, newBrightness: UInt8(0))
+            lampsManager.updateBrightness(selectedLed, newBrightness: UInt8(0))
             lastValue = 0
         } else {
-            lampsManager.updateBrightness(0, newBrightness: UInt8(255))
+            lampsManager.updateBrightness(selectedLed, newBrightness: UInt8(255))
             lastValue = 255
         }
         mySlider.setValue(lastValue, animated: true)
+    }
+    
+    @IBAction func redLedSelected(_ sender: Any) {
+        selectedLed = 0
+    }
+    
+    @IBAction func greenLedSelected(_ sender: Any) {
+        selectedLed = 2
+    }
+    
+    @IBAction func yellowLedSelected(_ sender: Any) {
+        selectedLed = 1
     }
 }
 
