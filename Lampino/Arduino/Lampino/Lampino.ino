@@ -1,38 +1,45 @@
-int led = 11;           // the PWM pin the LED is attached to
+const int arraySize = 3;
+ 
+byte redLed = 11;
+byte yellowLed = 10;
+byte greenLed = 9;
+ 
 int brightness = 0;    // how bright the LED is
-int fadeAmount = 5;    // how many points to fade the LED by
-uint8_t byteRead = 0;
-bool readBrightCommand = false;
-
+byte byteRead = 0;
+int selectedLed = -1;
+ 
+byte leds[arraySize] = {redLed, yellowLed, greenLed};  
+ 
+const char communicationProtocol = 'X';
+ 
 // the setup routine runs once when you press reset:
 void setup() {
   // declare pin 9 to be an output:
-  pinMode(led, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
   Serial.begin(115200);
   Serial.flush();
 }
-
+ 
 // the loop routine runs over and over again forever:
 void loop() {
-
     if(Serial.available() > 0 ) {
+      
         byteRead = Serial.read();
-//        Serial.flush();
-//        analogWrite(led, byteRead);
-
-      Serial.println(byteRead);
-    
-      if ( readBrightCommand == true ) {
-        analogWrite(led, byteRead);
-        readBrightCommand = false;
-      }
-
-      if ( byteRead == 0 ) {
-        readBrightCommand = true;
-      }
-//        if (byteRead >= 0 && byteRead <= 255) {
-//          analogWrite(led, byteRead);
+ 
+//        Serial.println(byteRead);
+ 
+//        if ( byteRead == communicationProtocol ) {
+//           Serial.println(sizeOfArray(leds));
 //        }
+ 
+        if (selectedLed != -1) {
+          analogWrite(selectedLed, byteRead);
+          selectedLed = -1;
+        } else if ( byteRead < arraySize ) {
+          selectedLed = leds[byteRead];
+        }
     }
-   delay(50);
+   //delay(50);
 }
