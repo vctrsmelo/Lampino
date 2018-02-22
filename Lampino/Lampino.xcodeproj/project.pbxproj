@@ -11,12 +11,12 @@
 		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
-		EEE2F959203F2D7D006A98FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2F957203F2D7D006A98FB /* Main.storyboard */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
-		EEE2F962203F2F08006A98FB /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F961203F2F08006A98FB /* LoadingComponent.swift */; };
 		EEE2F964203F3014006A98FB /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
 		EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
+		EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F96C203F321A006A98FB /* LoadingComponent.swift */; };
+		EEE2F96F203F32CE006A98FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2F96E203F32CE006A98FB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +26,12 @@
 		EE15FDF4203C987B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEE2F958203F2D7D006A98FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Lampino Nico/ArduinoBluetooth-master/BluetoothTest/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
-		EEE2F961203F2F08006A98FB /* LoadingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
 		EEE2F963203F3014006A98FB /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 		EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
+		EEE2F96C203F321A006A98FB /* LoadingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
+		EEE2F96E203F32CE006A98FB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				EEE2F95A203F2EF9006A98FB /* Model */,
-				EEE2F960203F2F08006A98FB /* View */,
 				EE15FE0F203C9A1E00C90705 /* Storyboards */,
 				EE15FE0E203C9A1500C90705 /* View Controllers */,
+				EEE2F96B203F321A006A98FB /* View */,
 				EE15FE0D203C9A0D00C90705 /* Supporting Files */,
 				EE15FE0C203C9A0500C90705 /* Resources */,
 				EE15FE0B203C99FB00C90705 /* Application Delegate */,
@@ -110,7 +110,7 @@
 		EE15FE0F203C9A1E00C90705 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				EEE2F957203F2D7D006A98FB /* Main.storyboard */,
+				EEE2F96E203F32CE006A98FB /* Main.storyboard */,
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -151,14 +151,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		EEE2F960203F2F08006A98FB /* View */ = {
+		EEE2F96B203F321A006A98FB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EEE2F961203F2F08006A98FB /* LoadingComponent.swift */,
+				EEE2F96C203F321A006A98FB /* LoadingComponent.swift */,
 			);
-			name = View;
-			path = "Lampino Nico/ArduinoBluetooth-master/BluetoothTest/View";
-			sourceTree = SOURCE_ROOT;
+			path = View;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -219,7 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE2F959203F2D7D006A98FB /* Main.storyboard in Resources */,
+				EEE2F96F203F32CE006A98FB /* Main.storyboard in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
 			);
@@ -234,9 +233,9 @@
 			files = (
 				EEE2F964203F3014006A98FB /* Lamp.swift in Sources */,
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
+				EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */,
 				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
 				EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */,
-				EEE2F962203F2F08006A98FB /* LoadingComponent.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
 				EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */,
 			);
@@ -251,14 +250,6 @@
 				EE15FDF7203C987B00C90705 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		EEE2F957203F2D7D006A98FB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EEE2F958203F2D7D006A98FB /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

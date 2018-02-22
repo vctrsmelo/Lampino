@@ -35,11 +35,12 @@ final class ViewController: UIViewController {
         let newValue = sender.value
         
         if abs(newValue - lastValue) >= 0.1 || newValue == 0 || newValue == 1 {
+            lastValue = newValue
             lampsManager.updateBrightness(0, newBrightness: UInt8(lastValue * 255))
-//            lastValue = newValue
-//            var bytes: [UInt8] = Array("A".utf8)
-//            bytes.append(UInt8(lastValue * 255))
-//            lampsManager.updateBrightness("A", newBrightness: UInt8(lastValue * 255))
+            //            lastValue = newValue
+            //            var bytes: [UInt8] = Array("A".utf8)
+            //            bytes.append(UInt8(lastValue * 255))
+            //            lampsManager.updateBrightness("A", newBrightness: UInt8(lastValue * 255))
         }
     }
     
