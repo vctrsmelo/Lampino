@@ -30,14 +30,31 @@ class LampsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let lampConfiguration = segue.destination as? LampConfigurationViewController {
+            
+            guard let sender = sender as? Lamp else { return }
+            lampConfiguration.lamp = sender
+            lampConfiguration.delegate = self
+    
+        }
+        
     }
+    
 
+}
+
+extension LampsViewController: LampConfigurationViewControllerDelegate {
+    
+    func didUpdate(lamp: Lamp) {
+        guard let index = lamps.index(where: {$0.id == lamp.id }) else { return }
+        lamps[index] = lamp
+        print("configured lamp named \(lamp.name)")
+    }
+    
 }
 
 
@@ -55,6 +72,10 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         cell.configure(lamp: lamps[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
     }
     
 }

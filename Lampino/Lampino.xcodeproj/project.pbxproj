@@ -11,6 +11,7 @@
 		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
+		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
@@ -28,6 +29,7 @@
 		EE15FDF4203C987B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		EE15FE0E203C9A1500C90705 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE400CA22040A3A8008CD268 /* LampConfigurationViewController */,
 				EEBF15592040933700A0F4B1 /* LampsViewController */,
 				EE15FDEF203C987B00C90705 /* ViewController.swift */,
 				EEE2F96B203F321A006A98FB /* View */,
@@ -119,6 +122,14 @@
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EE400CA22040A3A8008CD268 /* LampConfigurationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */,
+			);
+			path = LampConfigurationViewController;
 			sourceTree = "<group>";
 		};
 		EEBF15592040933700A0F4B1 /* LampsViewController */ = {
@@ -252,6 +263,7 @@
 				EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */,
 				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
 				EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */,
+				EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
 				EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */,
 			);

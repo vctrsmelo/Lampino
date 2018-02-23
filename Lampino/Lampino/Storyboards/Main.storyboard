@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ebe-pn-be9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9bl-6q-w5N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YsZ-tv-zwT">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gYQ-ad-yEl">
                                     <size key="itemSize" width="181" height="181"/>
@@ -165,13 +165,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nDV-VS-JSt"/>
                     </view>
+                    <navigationItem key="navigationItem" id="icS-jQ-brY"/>
                     <connections>
                         <outlet property="lampsCollectionView" destination="YsZ-tv-zwT" id="MRb-eN-8lx"/>
+                        <segue destination="aaF-OJ-SIr" kind="show" identifier="lampConfiguration" id="gL1-dA-0Ct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-M8-5ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="867.61619190404804"/>
+            <point key="canvasLocation" x="472.80000000000001" y="867.61619190404804"/>
+        </scene>
+        <!--Lamp Configuration View Controller-->
+        <scene sceneID="eOk-Xg-IH1">
+            <objects>
+                <viewController id="aaF-OJ-SIr" customClass="LampConfigurationViewController" customModule="Lampino" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XKv-gK-fDb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YSk-fI-Iu8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSt-rw-u24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="852.3238380809596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfq-60-kXz">
@@ -190,6 +207,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hna-7p-P0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-343" y="132"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jSn-h3-bpx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9bl-6q-w5N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NHJ-dk-ZYl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ebe-pn-be9" kind="relationship" relationship="rootViewController" id="Owl-Gr-McY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJz-MX-Zkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-729" y="868"/>
         </scene>
     </scenes>
 </document>
