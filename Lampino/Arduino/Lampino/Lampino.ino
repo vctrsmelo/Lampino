@@ -1,3 +1,5 @@
+#include "LampController.hpp"
+
 const int arraySize = 3;
  
 byte redLed = 11;
