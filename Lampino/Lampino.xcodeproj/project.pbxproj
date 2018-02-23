@@ -11,6 +11,8 @@
 		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
+		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
+		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
 		EEE2F964203F3014006A98FB /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
@@ -26,6 +28,8 @@
 		EE15FDF4203C987B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
+		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
 		EEE2F963203F3014006A98FB /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
@@ -67,7 +71,6 @@
 				EEE2F95A203F2EF9006A98FB /* Model */,
 				EE15FE0F203C9A1E00C90705 /* Storyboards */,
 				EE15FE0E203C9A1500C90705 /* View Controllers */,
-				EEE2F96B203F321A006A98FB /* View */,
 				EE15FE0D203C9A0D00C90705 /* Supporting Files */,
 				EE15FE0C203C9A0500C90705 /* Resources */,
 				EE15FE0B203C99FB00C90705 /* Application Delegate */,
@@ -102,7 +105,9 @@
 		EE15FE0E203C9A1500C90705 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EEBF15592040933700A0F4B1 /* LampsViewController */,
 				EE15FDEF203C987B00C90705 /* ViewController.swift */,
+				EEE2F96B203F321A006A98FB /* View */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -114,6 +119,15 @@
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EEBF15592040933700A0F4B1 /* LampsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EEBF1557204091E800A0F4B1 /* LampsViewController.swift */,
+				EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */,
+			);
+			path = LampsViewController;
 			sourceTree = "<group>";
 		};
 		EEE2F95A203F2EF9006A98FB /* Model */ = {
@@ -231,8 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */,
 				EEE2F964203F3014006A98FB /* Lamp.swift in Sources */,
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
+				EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */,
 				EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */,
 				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
 				EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */,

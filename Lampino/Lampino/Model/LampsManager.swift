@@ -19,8 +19,8 @@ class LampsManager {
     
     var delegate: LampsManagerDelegate?
     
-    func addLamp(_ lampId: UInt8, brightness: UInt8) {
-        self.lamps.append(Lamp(id: lampId, brightness: brightness))
+    func addLamp(_ lampId: UInt8, name: String, brightness: UInt8) {
+        self.lamps.append(Lamp(id: lampId, name: name, brightness: brightness))
     }
     
     func updateBrightness(_ lampId: UInt8, newBrightness brightness: UInt8) {
@@ -32,7 +32,6 @@ class LampsManager {
         self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
         communicator!.delegate = self
     }
-    
 }
 
 extension LampsManager: ArduinoCommunicatorDelegate {
