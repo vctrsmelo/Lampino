@@ -15,7 +15,7 @@ byte leds[arraySize] = {redLed, yellowLed, greenLed};
 //const char communicationProtocol = 'X';
  
 // the setup routine runs once when you press reset
-LampController:: LampController controller(leds, arraySize);
+LampController::Controller controller(leds, arraySize);
 
 void setup() {
   // declare pin 9 to be an output:
@@ -32,7 +32,7 @@ void loop() {
       
         byteRead = Serial.read();
 
-        controller.received(byteRead);
+        controller.receivedByte(byteRead);
  
 //        Serial.println(byteRead);
  

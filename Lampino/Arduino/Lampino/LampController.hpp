@@ -17,30 +17,45 @@ namespace LampController
 	
 	enum Command: byte
 	{
-		normal = 255,
+		normal = 199,
 
-    sentinel = 254,
+    sentinel = 198,
 
 		getNumberOfLamps = 150,
-		getLampBrightness = 155,
-
-		setLampBrightness = 190
+   
+		getLampBrightness = 160,
+		setLampBrightness = 170
 	};
 
-	class LampController
+  enum CommandStage
+  {
+    started, readSomething, finishedReading
+  };
+
+	class Controller
 	{
         private:
         Lamp lamps[MAX_SIZE];
         byte lampsArraySize;
 
         Command mode = normal;
+        CommandStage commandStage = started;
 
-        Command convertToCommand(byte value);
+        byte indexForAnswer = -1;
+        byte valueForAnswer = -1;
+
+        Command convertToCommand(const byte value);
+
+        void readByte(const byte value);
+        void executeCurrentCommand();
+        
         void sendNumberOfLamps();
+        void sendLampBrightness();
+        void changeLampBrightness(); // not implemented
 
         public:
-		    LampController(const byte lamps[], const byte arraySize);
-		    void received(const byte command);
+		    Controller(const byte lamps[], const byte arraySize);
+		    void receivedByte(const byte value);
 	};
 
 }
