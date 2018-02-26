@@ -14,6 +14,8 @@
 		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
+		EECF2444204482B7007220F3 /* BrightnessSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF2443204482B7007220F3 /* BrightnessSlider.xib */; };
+		EECF2446204485A8007220F3 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF2445204485A8007220F3 /* BrightnessSliderView.swift */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
 		EEE2F964203F3014006A98FB /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
@@ -32,6 +34,8 @@
 		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
+		EECF2443204482B7007220F3 /* BrightnessSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessSlider.xib; sourceTree = "<group>"; };
+		EECF2445204485A8007220F3 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
 		EEE2F963203F3014006A98FB /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		EE400CA22040A3A8008CD268 /* LampConfigurationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EECF244220448297007220F3 /* Custom Views */,
 				EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */,
 			);
 			path = LampConfigurationViewController;
@@ -139,6 +144,15 @@
 				EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */,
 			);
 			path = LampsViewController;
+			sourceTree = "<group>";
+		};
+		EECF244220448297007220F3 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				EECF2443204482B7007220F3 /* BrightnessSlider.xib */,
+				EECF2445204485A8007220F3 /* BrightnessSliderView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		EEE2F95A203F2EF9006A98FB /* Model */ = {
@@ -244,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */,
+				EECF2444204482B7007220F3 /* BrightnessSlider.xib in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
 			);
@@ -256,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECF2446204485A8007220F3 /* BrightnessSliderView.swift in Sources */,
 				EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */,
 				EEE2F964203F3014006A98FB /* Lamp.swift in Sources */,
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
