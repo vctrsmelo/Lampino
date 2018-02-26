@@ -30,6 +30,9 @@ LampController::Command LampController::LampController::convertToCommand(byte va
       return setLampBrightness;
       break;
 
+     case 254:
+     return sentinel;
+
     case 255:
     default:
       return normal;

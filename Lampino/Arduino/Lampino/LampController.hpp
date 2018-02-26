@@ -19,6 +19,8 @@ namespace LampController
 	{
 		normal = 255,
 
+    sentinel = 254,
+
 		getNumberOfLamps = 150,
 		getLampBrightness = 155,
 
