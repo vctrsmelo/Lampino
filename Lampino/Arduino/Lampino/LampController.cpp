@@ -1,18 +1,6 @@
 #include "LampController.hpp"
 
-LampController::Controller::Controller(const byte lamps[], const byte arraySize)
-{
-	this->lampsArraySize = arraySize;
-
-    for (int i = 0; i < arraySize; ++i)
-    {
-    	Lamp newLamp;
-    	newLamp.pin = lamps[i];
-    	newLamp.brightness = 0;
-
-    	this->lamps[i] = newLamp;
-    }
-}
+// Command functions
 
 LampController::Command LampController::Controller::convertToCommand(const byte value)
 {
@@ -43,6 +31,32 @@ LampController::Command LampController::Controller::convertToCommand(const byte 
       return normal;
       break;
   }
+}
+
+// Controller Init
+
+LampController::Controller::Controller(const byte lamps[], const byte arraySize)
+{
+  this->lampsArraySize = arraySize;
+
+    for (int i = 0; i < arraySize; ++i)
+    {
+      Lamp newLamp;
+      newLamp.pin = lamps[i];
+      newLamp.brightness = 0;
+
+      this->lamps[i] = newLamp;
+    }
+}
+
+// Controller command parsing
+
+void LampController::Controller::resetState()
+{
+  this->indexForAnswer = -1;
+  this->valueForAnswer = -1;
+  this->mode = normal;
+  this->commandStage = started;
 }
 
 void LampController::Controller::readByte(const byte value)
@@ -98,22 +112,23 @@ void LampController::Controller::receivedByte(const byte value)
   }
 }
 
+// Specific functions
+
 void LampController::Controller::sendNumberOfLamps()
 {
   byte answer[2] = {this->lampsArraySize, sentinel};
 	Serial.write(answer, 2);
   
-  this->indexForAnswer = -1;
-  this->valueForAnswer = -1;
-  this->mode = normal;
-  this->commandStage = started;
+  this->resetState();
 }
 
 void LampController::Controller::sendLampBrightness()
 {
-  if(this->indexForAnswer > -1 && this->indexForAnswer < this->lampsArraySize)
+  int correctedIndex = this->indexForAnswer - 200;
+  
+  if(correctedIndex > -1 && correctedIndex < this->lampsArraySize)
   {
-    byte answer[2] = {this->lamps[this->indexForAnswer - 200].brightness, sentinel};
+    byte answer[2] = {this->lamps[correctedIndex].brightness, sentinel};
     
     Serial.write(answer, 2);
     
@@ -126,14 +141,11 @@ void LampController::Controller::sendLampBrightness()
       answer[i] = this->lamps[i].brightness;
     }
 
-    answer[this->lampsArraySize + 1] = sentinel;
+    answer[this->lampsArraySize] = sentinel;
 
     Serial.write(answer, this->lampsArraySize + 1);
   }
 
-    this->indexForAnswer = -1;
-    this->valueForAnswer = -1;
-    this->mode = normal;
-    this->commandStage = started;
+  this->resetState();
 }
 

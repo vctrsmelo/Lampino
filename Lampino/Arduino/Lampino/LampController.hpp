@@ -41,10 +41,12 @@ namespace LampController
         Command mode = normal;
         CommandStage commandStage = started;
 
-        byte indexForAnswer = -1;
-        byte valueForAnswer = -1;
+        int indexForAnswer = -1;
+        int valueForAnswer = -1;
 
         Command convertToCommand(const byte value);
+
+        void resetState();
 
         void readByte(const byte value);
         void executeCurrentCommand();
