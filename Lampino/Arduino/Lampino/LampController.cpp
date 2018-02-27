@@ -7,28 +7,28 @@ LampController::Command LampController::Controller::convertToCommand(const byte 
   switch(value)
   {
     case 150:
-      return getNumberOfLamps;
+      return Command::getNumberOfLamps;
       break;
 
     case 160:
-      return getLampBrightness;
+      return Command::getLampBrightness;
       break;
 
     case 170:
-      return setLampBrightness;
+      return Command::setLampBrightness;
       break;
 
     case 198:
-     return sentinel;
+     return Command::sentinel;
      break;
 
     case 199:
-      return normal;
+      return Command::normal;
       break;
 
     default:
       Serial.println("Invalid command");
-      return normal;
+      return Command::normal;
       break;
   }
 }
@@ -56,23 +56,23 @@ void LampController::Controller::resetState()
   this->indexForAnswer = -1;
   this->valueForAnswer = -1;
   this->mode = normal;
-  this->commandStage = started;
+  this->commandStage = CommandStage::started;
 }
 
 void LampController::Controller::readByte(const byte value)
 {
   switch(this->mode)
   {
-    case normal:
+    case Command::normal:
       this->mode = this->convertToCommand(value);
-      this->commandStage = started;
+      this->commandStage = CommandStage::started;
       break;
 
-    case getLampBrightness:
-      if(this->commandStage == started)
+    case Command::getLampBrightness:
+      if(this->commandStage == CommandStage::started)
       {
-        this->indexForAnswer = value;
-        this->commandStage = finishedReading;
+        this->indexForAnswer = value - this->indexCorrection;
+        this->commandStage = CommandStage::finishedReading;
       }
       break;
 
@@ -86,12 +86,12 @@ void LampController::Controller::executeCurrentCommand()
 {
   switch(this->mode)
   {
-    case getNumberOfLamps:
-      this->sendNumberOfLamps();
+    case Command::getNumberOfLamps:
+      this->getNumberOfLamps();
       break;
 
-    case getLampBrightness:
-      this->sendLampBrightness();
+    case Command::getLampBrightness:
+      this->getLampBrightness();
       break;
     
     default:
@@ -102,7 +102,7 @@ void LampController::Controller::executeCurrentCommand()
 
 void LampController::Controller::receivedByte(const byte value)
 {
-	if(value == sentinel)
+	if(value == Command::sentinel)
 	{
     this->executeCurrentCommand();
 	}
@@ -112,40 +112,60 @@ void LampController::Controller::receivedByte(const byte value)
   }
 }
 
-// Specific functions
+// Execute functions
 
-void LampController::Controller::sendNumberOfLamps()
+void LampController::Controller::sendAnswer(const byte answer)
 {
-  byte answer[2] = {this->lampsArraySize, sentinel};
-	Serial.write(answer, 2);
+  byte newAnswer[2] = {answer, Command::sentinel};
+  
+  Serial.write(newAnswer, 2);
+}
+
+void LampController::Controller::sendAnswer(const byte answer[], const byte answerSize)
+{
+  const byte newAnswerSize = answerSize + 1;
+  byte newAnswer[newAnswerSize];
+
+  for(int i = 0; i < newAnswerSize - 1; ++i)
+  {
+    newAnswer[i] = answer[i];
+  }
+
+  newAnswer[newAnswerSize - 1] = Command::sentinel;
+
+  Serial.write(newAnswer, newAnswerSize);
+}
+
+void LampController::Controller::getNumberOfLamps()
+{
+  this->sendAnswer(this->lampsArraySize);
   
   this->resetState();
 }
 
-void LampController::Controller::sendLampBrightness()
-{
-  int correctedIndex = this->indexForAnswer - 200;
-  
-  if(correctedIndex > -1 && correctedIndex < this->lampsArraySize)
+void LampController::Controller::getLampBrightness()
+{  
+  if(this->indexForAnswer > -1 && this->indexForAnswer < this->lampsArraySize)
   {
-    byte answer[2] = {this->lamps[correctedIndex].brightness, sentinel};
-    
-    Serial.write(answer, 2);
-    
-  } else {
-
-    byte answer[this->lampsArraySize + 1];
+    this->sendAnswer(this->lamps[this->indexForAnswer].brightness);
+  }
+  else
+  {
+    byte answer[this->lampsArraySize];
     
     for(int i = 0; i < this->lampsArraySize; ++i)
     {
       answer[i] = this->lamps[i].brightness;
     }
 
-    answer[this->lampsArraySize] = sentinel;
-
-    Serial.write(answer, this->lampsArraySize + 1);
+    this->sendAnswer(answer, this->lampsArraySize);
   }
 
   this->resetState();
+}
+
+void LampController::Controller::setLampBrightness()
+{
+  // not implemented
 }
 

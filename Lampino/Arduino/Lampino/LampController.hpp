@@ -41,6 +41,8 @@ namespace LampController
         Command mode = normal;
         CommandStage commandStage = started;
 
+        byte indexCorrection = 200;
+
         int indexForAnswer = -1;
         int valueForAnswer = -1;
 
@@ -50,10 +52,13 @@ namespace LampController
 
         void readByte(const byte value);
         void executeCurrentCommand();
+
+        void sendAnswer(const byte answer);
+        void sendAnswer(const byte answer[], const byte answerSize);
         
-        void sendNumberOfLamps();
-        void sendLampBrightness();
-        void changeLampBrightness(); // not implemented
+        void getNumberOfLamps();
+        void getLampBrightness();
+        void setLampBrightness();
 
         public:
 		    Controller(const byte lamps[], const byte arraySize);
