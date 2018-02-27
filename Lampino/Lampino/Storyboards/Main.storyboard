@@ -234,16 +234,67 @@
             </objects>
             <point key="canvasLocation" x="472.80000000000001" y="867.61619190404804"/>
         </scene>
-        <!--Lamp Configuration View Controller-->
+        <!--Lampino-->
         <scene sceneID="eOk-Xg-IH1">
             <objects>
                 <viewController id="aaF-OJ-SIr" customClass="LampConfigurationViewController" customModule="Lampino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XKv-gK-fDb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdD-KI-wQT" customClass="BrightnessSliderView" customModule="Lampino" customModuleProvider="target">
+                                <rect key="frame" x="30" y="305" width="315" height="75"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="kUO-NR-ckV"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGU-vP-v31">
+                                <rect key="frame" x="0.0" y="87" width="375" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="vSb-re-cuP"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDG-qY-VAy">
+                                <rect key="frame" x="0.0" y="239" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fGt-Vp-ayU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23h-03-gTf">
+                                <rect key="frame" x="164" y="479" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="iGU-vP-v31" secondAttribute="trailing" id="0eO-SC-JAr"/>
+                            <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="SDG-qY-VAy" secondAttribute="trailing" id="5ZE-bg-tnv"/>
+                            <constraint firstItem="SDG-qY-VAy" firstAttribute="top" secondItem="iGU-vP-v31" secondAttribute="bottom" constant="123" id="8qf-Yx-V02"/>
+                            <constraint firstItem="iGU-vP-v31" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" id="dLU-iW-TcH"/>
+                            <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="cdD-KI-wQT" secondAttribute="trailing" constant="30" id="fkz-Zv-Az3"/>
+                            <constraint firstItem="iGU-vP-v31" firstAttribute="centerX" secondItem="XKv-gK-fDb" secondAttribute="centerX" id="geo-Hs-nu9"/>
+                            <constraint firstItem="cdD-KI-wQT" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" constant="30" id="uN4-wM-WI1"/>
+                            <constraint firstItem="iGU-vP-v31" firstAttribute="top" secondItem="YSk-fI-Iu8" secondAttribute="top" constant="23" id="w49-bY-B93"/>
+                            <constraint firstItem="SDG-qY-VAy" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" id="yiO-9J-axF"/>
+                            <constraint firstItem="cdD-KI-wQT" firstAttribute="top" secondItem="SDG-qY-VAy" secondAttribute="bottom" constant="26" id="yyM-ZB-LHx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YSk-fI-Iu8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Lampino" id="G9D-Is-bCJ"/>
+                    <connections>
+                        <outlet property="brightnessPercentageLabel" destination="SDG-qY-VAy" id="vZy-tM-LcM"/>
+                        <outlet property="brightnessSliderView" destination="cdD-KI-wQT" id="Hgy-m8-ZWB"/>
+                        <outlet property="lampNameTextField" destination="iGU-vP-v31" id="zki-Am-S8M"/>
+                        <outlet property="onOffButton" destination="23h-03-gTf" id="aIm-lH-y5r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSt-rw-u24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

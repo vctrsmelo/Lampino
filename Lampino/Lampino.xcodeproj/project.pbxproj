@@ -12,9 +12,10 @@
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
 		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
+		EE65C9E62045CAB800A40F79 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE65C9E52045CAB800A40F79 /* BrightnessView.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
-		EECF2444204482B7007220F3 /* BrightnessSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF2443204482B7007220F3 /* BrightnessSlider.xib */; };
+		EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF2443204482B7007220F3 /* BrightnessSliderView.xib */; };
 		EECF2446204485A8007220F3 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF2445204485A8007220F3 /* BrightnessSliderView.swift */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
 		EEE2F964203F3014006A98FB /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
@@ -32,9 +33,10 @@
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
+		EE65C9E52045CAB800A40F79 /* BrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
-		EECF2443204482B7007220F3 /* BrightnessSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessSlider.xib; sourceTree = "<group>"; };
+		EECF2443204482B7007220F3 /* BrightnessSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessSliderView.xib; sourceTree = "<group>"; };
 		EECF2445204485A8007220F3 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
 		EEE2F963203F3014006A98FB /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
@@ -149,8 +151,9 @@
 		EECF244220448297007220F3 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				EECF2443204482B7007220F3 /* BrightnessSlider.xib */,
+				EECF2443204482B7007220F3 /* BrightnessSliderView.xib */,
 				EECF2445204485A8007220F3 /* BrightnessSliderView.swift */,
+				EE65C9E52045CAB800A40F79 /* BrightnessView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -258,7 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */,
-				EECF2444204482B7007220F3 /* BrightnessSlider.xib in Resources */,
+				EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
 			);
@@ -282,6 +285,7 @@
 				EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
 				EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */,
+				EE65C9E62045CAB800A40F79 /* BrightnessView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
