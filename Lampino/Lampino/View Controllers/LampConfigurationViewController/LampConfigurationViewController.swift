@@ -38,6 +38,10 @@ class LampConfigurationViewController: UIViewController {
     var lamp: Lamp?
     var delegate: LampConfigurationViewControllerDelegate?
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("""
@@ -64,8 +68,6 @@ class LampConfigurationViewController: UIViewController {
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationBar?.titleTextAttributes = textAttributes
         navigationBar?.tintColor = UIColor.white
-        
-        UIApplication.shared.statusBarStyle = .lightContent
 
         brightnessSliderView.setPercentValue(lamp.brightnessPercentage)
     }
