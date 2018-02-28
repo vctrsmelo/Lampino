@@ -6,53 +6,64 @@
 //  Copyright © 2018 Lampino Organization. All rights reserved.
 //
 
-import Foundation
-
-import Foundation
 import CoreBluetooth
 
-protocol DataConvertible {
-    var data: Data { get }
-}
-
-extension Data: DataConvertible {
-    var data: Data { return self }
-}
-extension String : DataConvertible {
-    var data: Data { return self.data(using: .utf8) ?? Data() }
-}
-
-extension UInt8: DataConvertible {
-    var data: Data {
-        return Data.init(bytes: [self])
+extension Array where Element == UInt8 {
+    func asData() -> Data {
+        return Data(bytes: self)
     }
 }
 
 class ArduinoCommunicatorBluetooth: NSObject {
     
+    private enum Command: UInt8 {
+        case getLampCount = 150
+        case getLampBrightness = 160
+        case setLampBrightness = 170
+        
+        case sentinel = 198
+    }
+    
     static let sharedInstance: ArduinoCommunicator = ArduinoCommunicatorBluetooth()
     
-    private let expectedPeripheralName = "LAMPINO"
-    private let expectedCharacteristicUUIDString = "DFB1"
-    
-    private var arduinoPeripheral: CBPeripheral?
-    private var characteristic: CBCharacteristic?
-    
-    
-    var delegate: ArduinoCommunicatorDelegate?
+    weak var delegate: ArduinoCommunicatorDelegate?
     
     // MARK: - Private Properties
+    
+    private let expectedPeripheralName = "LAMPINO"
+    private let expectedServiceCBUUID = CBUUID(string: "DFB0") // TODO: to make more generic should not test for especific uuids
+    private let expectedCharacteristicCBUUID = CBUUID(string: "DFB1")
+    
+    private var lastCommand: Command?
+    
+    private var arduinoPeripheral: CBPeripheral?
+    private var writeCharacteristic: CBCharacteristic?
+    
     private var centralManager: CBCentralManager?
     
     // MARK: - Private Methods
+    
     override private init() {
         super.init()
-        
-        // Begin looking for elements
-        centralManager = CBCentralManager(delegate: self, queue: nil)
-        centralManager?.scanForPeripherals(withServices: nil)
     }
     
+    private func execute(command: Command, with data: [UInt8]?) {
+        guard let arduino = self.arduinoPeripheral,
+            let characteristic = self.writeCharacteristic else {
+            print("[Error] Not properly initialized")
+            return
+        }
+        
+        var finalData = [command.rawValue]
+        if let data = data {
+            finalData.append(contentsOf: data)
+        }
+        finalData.append(Command.sentinel.rawValue)
+        
+        self.lastCommand = command
+        
+        arduino.writeValue(finalData.asData(), for: characteristic, type: .withResponse)
+    }
 }
 
 extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
@@ -60,11 +71,11 @@ extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOff:
-            centralManager?.stopScan()
             print("Bluetooth off")
+            centralManager?.stopScan()
         case .poweredOn:
             print("Bluetooth on")
-            centralManager?.scanForPeripherals(withServices: nil)
+            centralManager?.scanForPeripherals(withServices: [self.expectedServiceCBUUID])
         default:
             print("State not supported: \(central.state)")
         }
@@ -76,33 +87,42 @@ extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
             arduinoPeripheral = peripheral
             peripheral.delegate = self
             central.connect(peripheral, options: nil)
-            delegate?.communicatorDidConnect(self)
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        peripheral.discoverServices(nil)
+        peripheral.discoverServices([self.expectedServiceCBUUID])
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        self.delegate?.communicatorDidDisconnect(self)
     }
 }
 
 extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        guard let services = peripheral.services else { return }
+        guard let services = peripheral.services else {
+            print("[Error] Found no services")
+            return
+        }
         
         for service in services {
             print(service)
-            peripheral.discoverCharacteristics(nil, for: service)
+            peripheral.discoverCharacteristics([self.expectedCharacteristicCBUUID], for: service)
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        guard let characteristics = service.characteristics else { return }
+        guard let characteristics = service.characteristics else {
+            print("[Error] Found no characteristics")
+            return
+        }
         
         for characteristic in characteristics {
-            if (characteristic.uuid.uuidString == expectedCharacteristicUUIDString) {
+            if (characteristic.uuid == self.expectedCharacteristicCBUUID) {
                 print("Discovered characteristic \(characteristic), for Service \(service)")
-                self.characteristic = characteristic
+                self.writeCharacteristic = characteristic
                 
                 if characteristic.properties.contains(.notify) {
                     peripheral.setNotifyValue(true, for: characteristic)
@@ -115,57 +135,32 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        switch characteristic.uuid.uuidString {
-        case expectedCharacteristicUUIDString:
-            
-            print("Received")
-            let data = characteristic.value
-            
-            print(String(data: data!, encoding: .utf8) ?? "Not string")
-            print([UInt8](data!))
-            
-        default:
-            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
-        }
+        print("Received")
+        let data = characteristic.value
+        
+        print(String(data: data!, encoding: .utf8) ?? "Not string")
+        print([UInt8](data!))
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
-        let data = characteristic?.value
-        print("Updated")
-        print(String(data: data!, encoding: .utf8)!)
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        print(#function) // TODO: check for consistense
     }
-    
 }
 
 
 extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
-    func getNumberOfLamps() {
-        guard let arduino = arduinoPeripheral else { return }
-        guard let characteristic = characteristic else { return }
-        
-        print("Get number of lamps")
-        arduino.writeValue(Data(bytes: [150, 198]), for: characteristic, type: .withResponse)
+    func initBluetooth() {
+        centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    func sendBrightness(lampId: UInt8?, brightness: UInt8) {
-        guard let arduino = arduinoPeripheral else { return }
-        guard let characteristic = characteristic else { return }
-        
-        let bytes: [UInt8]
-        
-        if let lampId = lampId {
-            bytes = [170, brightness, lampId + 200, 198]
-        } else {
-            bytes = [170, brightness, 198]
-        }
-        
-        print("Send brightness for \(lampId as Any)")
-        arduino.writeValue(Data(bytes: bytes), for: characteristic, type: .withResponse)
+    func getNumberOfLamps() {
+        print("Get number of lamps")
+        self.execute(command: .getLampCount, with: nil)
     }
     
     func getBrightness(lampId: UInt8?) {
         guard let arduino = arduinoPeripheral else { return }
-        guard let characteristic = characteristic else { return }
+        guard let characteristic = writeCharacteristic else { return }
         
         let bytes: [UInt8]
         
@@ -179,4 +174,19 @@ extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
         arduino.writeValue(Data(bytes: bytes), for: characteristic, type: .withResponse)
     }
     
+    func setBrightness(lampId: UInt8?, brightness: UInt8) {
+        guard let arduino = arduinoPeripheral else { return }
+        guard let characteristic = writeCharacteristic else { return }
+        
+        let bytes: [UInt8]
+        
+        if let lampId = lampId {
+            bytes = [170, brightness, lampId + 200, 198]
+        } else {
+            bytes = [170, brightness, 198]
+        }
+        
+        print("Send brightness for \(lampId as Any)")
+        arduino.writeValue(Data(bytes: bytes), for: characteristic, type: .withResponse)
+    }
 }

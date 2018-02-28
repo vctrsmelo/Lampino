@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LampConfigurationViewControllerDelegate {
-    func didUpdate(lamp: Lamp)
-}
-
 class LampConfigurationViewController: UIViewController {
 
     @IBOutlet weak var lampNameTextField: UITextField!
@@ -36,7 +32,6 @@ class LampConfigurationViewController: UIViewController {
     }
     
     var lamp: Lamp?
-    var delegate: LampConfigurationViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,13 +63,6 @@ class LampConfigurationViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
 
         brightnessSliderView.setPercentValue(lamp.brightnessPercentage)
-    }
-    
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        guard let lamp = lamp else { return }
-        delegate?.didUpdate(lamp: lamp)
     }
     
     private func setButtonOn() {
