@@ -13,19 +13,15 @@ class LampsViewController: UIViewController {
     private var lampsManager: LampsManager!
     
     private var lamps: [Lamp] = [
-        Lamp.init(id: UInt8(0), name: "Lamp 0", brightness: 80),
-        Lamp.init(id: UInt8(1), name: "Lamp 1", brightness: 80),
-        Lamp.init(id: UInt8(2), name: "Lamp 2", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 80)
+        Lamp.init(id: UInt8(0), name: "Lamp 0", brightness: 50),
+        Lamp.init(id: UInt8(1), name: "Lamp 1", brightness: 60),
+        Lamp.init(id: UInt8(2), name: "Lamp 2", brightness: 100),
+        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 0),
+        Lamp.init(id: UInt8(4), name: "Lamp 4", brightness: 90),
+        Lamp.init(id: UInt8(5), name: "Lamp 5", brightness: 100),
+        Lamp.init(id: UInt8(6), name: "Lamp 6", brightness: 20),
+        Lamp.init(id: UInt8(7), name: "Lamp 7", brightness: 70),
+        Lamp.init(id: UInt8(8), name: "Lamp 8", brightness: 50)
     ]
     
     @IBOutlet weak var lampsCollectionView: UICollectionView!
@@ -99,6 +95,11 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         } else if indexPath.row == 4 {
             self.lampsManager.updateBrightness(UInt8(1), newBrightness: 50)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = self.lampsCollectionView.frame.width/2
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
 }
