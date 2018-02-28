@@ -1,0 +1,160 @@
+//
+//  SpeechRecognizingController.swift
+//  Lampino
+//
+//  Created by Bruno Scheltzke on 28/02/18.
+//  Copyright © 2018 Bruno Scheltzke. All rights reserved.
+//
+
+import Foundation
+import Speech
+
+class SpeechRecognizingController {
+    var delegate: SpeechRecognizable!
+    
+    private let audionEngine = AVAudioEngine()
+    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
+    private let request = SFSpeechAudioBufferRecognitionRequest()
+    private var recognitionTask: SFSpeechRecognitionTask?
+    
+    private var lampToModify: UInt8?
+    private var lampCommand: UInt8?
+    
+    private let allLampsToModify: UInt8 = 0
+    
+    func recordAndRecognizeSpeech() {
+        lampToModify = nil
+        lampCommand = nil
+        
+        let recordingFormat = audionEngine.inputNode.outputFormat(forBus: 0)
+        audionEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
+            self.request.append(buffer)
+        }
+        
+        audionEngine.prepare()
+        do{
+            try audionEngine.start()
+        } catch {
+            return print(error)
+        }
+        
+        guard let myRecognizer = SFSpeechRecognizer() else {
+            return
+        }
+        
+        if !myRecognizer.isAvailable {
+            return
+        }
+        
+        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
+            if let result = result {
+                let bestString = result.bestTranscription.formattedString
+                self.checkForLightsOrCommands(from: bestString)
+                
+            } else if let error = error {
+                print(error)
+            }
+        })
+    }
+    
+    
+    private func checkForLightsOrCommands(from sentence: String) {
+        let wordsSpoken = sentence.split(separator: " ")
+        let lastWordSpoken = wordsSpoken.last!
+        var secondToLastWordSpoken = ""
+        
+        if wordsSpoken.count > 1 {
+            secondToLastWordSpoken = String(wordsSpoken[wordsSpoken.count - 2])
+        }
+        
+        if lastWordSpoken.last! == "%" {
+            let possibleNumber = String(lastWordSpoken).split(separator: "%").first!
+            
+            if let percentage = Int(possibleNumber), percentage >= 0 && percentage <= 100 {
+                lampCommand = UInt8(percentage)
+            }
+        }
+        
+        switch lastWordSpoken {
+        case "light":
+            self.delegate.currentLamps.forEach { (light) in
+                if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
+                    lampToModify = light.id
+                }
+            }
+        case "lamp":
+            self.delegate.currentLamps.forEach { (light) in
+                if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
+                    lampToModify = light.id
+                }
+            }
+        case "lights":
+            lampToModify = allLampsToModify
+        case "lamps":
+            lampToModify = allLampsToModify
+        case "every":
+            lampToModify = allLampsToModify
+        case "all":
+            lampToModify = allLampsToModify
+        case "on":
+            lampCommand = UInt8(100)
+        case "off":
+            lampCommand = UInt8(0)
+        default:
+            break
+        }
+        
+        switch secondToLastWordSpoken {
+        case "light":
+            self.delegate.currentLamps.forEach { (light) in
+                if light.name.lowercased() == lastWordSpoken.lowercased() {
+                    lampToModify = light.id
+                }
+            }
+        case "lamp":
+            self.delegate.currentLamps.forEach { (light) in
+                if light.name.lowercased() == lastWordSpoken.lowercased() {
+                    lampToModify = light.id
+                }
+            }
+        default:
+            break
+        }
+        
+        if lampToModify != nil && lampCommand != nil {
+            stopRecording()
+            
+            if lampToModify == allLampsToModify {
+                lampToModify = nil
+            }
+            
+            delegate.didFind(command: lampCommand!, forLampId: lampToModify)
+        }
+    }
+    
+    func stopRecording() {
+        audionEngine.inputNode.removeTap(onBus: 0)
+        audionEngine.stop()
+        request.endAudio()
+        recognitionTask?.cancel()
+    }
+}
+
+protocol SpeechRecognizable {
+    /**
+        The lamps currently connected
+    */
+    var currentLamps: [Lamp] { get set }
+    
+    /**
+        Will be called whenever a lamp and a command is speech recognized
+     
+     @param command: UInt8 the command for the lamp from 0 to 100 to set its brightness
+     
+     @param id: UInt8 the lampId of the lamp to be configured. When set to nil, it means all lamps are to be configured
+    */
+    func didFind(command: UInt8, forLampId id: UInt8?)
+    
+    //TODO: error understanding command method
+    //TODO: timeout method
+}
