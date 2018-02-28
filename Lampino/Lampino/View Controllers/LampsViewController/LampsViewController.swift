@@ -11,15 +11,15 @@ import UIKit
 class LampsViewController: UIViewController {
     
     private var lamps: [Lamp] = [
-        Lamp.init(id: UInt8(0), name: "Lamp 0", brightness: 50),
-        Lamp.init(id: UInt8(1), name: "Lamp 1", brightness: 60),
-        Lamp.init(id: UInt8(2), name: "Lamp 2", brightness: 100),
-        Lamp.init(id: UInt8(3), name: "Lamp 3", brightness: 0),
-        Lamp.init(id: UInt8(4), name: "Lamp 4", brightness: 90),
-        Lamp.init(id: UInt8(5), name: "Lamp 5", brightness: 100),
-        Lamp.init(id: UInt8(6), name: "Lamp 6", brightness: 20),
-        Lamp.init(id: UInt8(7), name: "Lamp 7", brightness: 70),
-        Lamp.init(id: UInt8(8), name: "Lamp 8", brightness: 50)
+        Lamp.init(id: UInt8(0), name: "First Lamp", brightness: 50),
+        Lamp.init(id: UInt8(1), name: "Second Lamp", brightness: 60),
+        Lamp.init(id: UInt8(2), name: "Third Lamp", brightness: 100),
+        Lamp.init(id: UInt8(3), name: "Fourth Lamp", brightness: 0),
+        Lamp.init(id: UInt8(4), name: "Fifth Lamp", brightness: 90),
+        Lamp.init(id: UInt8(5), name: "Sixth Lamp", brightness: 100),
+        Lamp.init(id: UInt8(6), name: "Seventh Lamp", brightness: 20),
+        Lamp.init(id: UInt8(7), name: "Eigth Lamp", brightness: 70),
+        Lamp.init(id: UInt8(8), name: "Nineth Lamp", brightness: 50)
     ]
     
     @IBOutlet weak var lampsCollectionView: UICollectionView!
@@ -84,7 +84,11 @@ class LampsViewController: UIViewController {
 
 extension LampsViewController: SpeechRecognizable {
     func didFind(command: UInt8, forLampId id: UInt8?) {
-        //TODO: Send command to arduino
+        lampsManager.updateBrightness(id!, newBrightness: command)
+        turnMicOff()
+    }
+    
+    func didTimeout() {
         turnMicOff()
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import Speech
 
 class SpeechRecognizingController {
-    internal var delegate: SpeechRecognizable!
+    internal weak var delegate: SpeechRecognizable!
     
     private let audionEngine = AVAudioEngine()
     private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -22,10 +22,18 @@ class SpeechRecognizingController {
     
     private let allLampsToModify: UInt8 = 0
     
+    var timer: Timer?
+    
     /**
         Start recording and recognizing speech, searching for a lamp and command
     */
     func recordAndRecognizeSpeech() {
+        //6 seconds for the user say the command otherwise recording should be canceled
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false, block: { (timer) in
+                self.delegate.didTimeout()
+            })
+        }
         lampToModify = nil
         lampCommand = nil
         
@@ -53,17 +61,17 @@ class SpeechRecognizingController {
             if let result = result {
                 let bestString = result.bestTranscription.formattedString
                 self.checkForLightsOrCommands(from: bestString)
-                
             } else if let error = error {
                 print(error)
             }
         })
     }
-    
+
     /**
      Manually stop recording and recognizing speech
      */
     func stopRecording() {
+        timer?.invalidate()
         audionEngine.inputNode.removeTap(onBus: 0)
         audionEngine.stop()
         request.endAudio()
@@ -104,7 +112,7 @@ class SpeechRecognizingController {
     // MARK: Private Functions
     private func checkForLightsOrCommands(from sentence: String) {
         let wordsSpoken = sentence.split(separator: " ")
-        let lastWordSpoken = wordsSpoken.last!
+        let lastWordSpoken = wordsSpoken.last ?? " "
         var secondToLastWordSpoken = ""
         
         if wordsSpoken.count > 1 {
@@ -177,7 +185,7 @@ class SpeechRecognizingController {
     }
 }
 
-protocol SpeechRecognizable {
+protocol SpeechRecognizable: AnyObject {
     /**
         The lamp manager that contains the lamps currently connected
     */
@@ -191,6 +199,8 @@ protocol SpeechRecognizable {
     */
     func didFind(command: UInt8, forLampId id: UInt8?)
     
-    //TODO: error understanding command method
-    //TODO: timeout method
+    /**
+        Will be called whenever the 6 seconds time to say the command expires
+     */
+    func didTimeout()
 }
