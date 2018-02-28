@@ -32,7 +32,7 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     static let sharedInstance: ArduinoCommunicator = ArduinoCommunicatorBluetooth()
     
-    private let expectedPeripheralName = "BRUNO2"
+    private let expectedPeripheralName = "LAMPINO"
     private let expectedCharacteristicUUIDString = "DFB1"
     
     private var arduinoPeripheral: CBPeripheral?
@@ -104,16 +104,11 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
                 print("Discovered characteristic \(characteristic), for Service \(service)")
                 self.characteristic = characteristic
                 
-//                if characteristic.properties.contains(.read) {
-//                    peripheral.readValue(for: characteristic)
-//                }
-                
                 if characteristic.properties.contains(.notify) {
                     peripheral.setNotifyValue(true, for: characteristic)
                 }
                 
                 self.delegate?.communicatorDidDiscoverCharacteristics(self)
-                
             }
         }
         

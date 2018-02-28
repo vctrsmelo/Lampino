@@ -83,18 +83,7 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
-        if indexPath.row == 0 {
-            self.lampsManager.getBrightness(lampId: nil)
-        } else if indexPath.row == 1 {
-            self.lampsManager.getBrightness(lampId: UInt8(1))
-        } else if indexPath.row == 2 {
-            self.lampsManager.updateBrightness(nil, newBrightness: 0)
-        } else if indexPath.row == 3 {
-            self.lampsManager.updateBrightness(nil, newBrightness: 100)
-        } else if indexPath.row == 4 {
-            self.lampsManager.updateBrightness(UInt8(1), newBrightness: 50)
-        }
+        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
