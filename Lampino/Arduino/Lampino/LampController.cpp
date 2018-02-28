@@ -74,10 +74,35 @@ void LampController::Controller::readByte(const byte value)
         this->indexForAnswer = value - this->indexCorrection;
         this->commandStage = CommandStage::finishedReading;
       }
+      else
+      {
+        Serial.println("Invalid current");
+      }
+      break;
+
+    case Command::setLampBrightness:
+      switch(this->commandStage)
+      {
+        case CommandStage::started:
+          this->valueForAnswer = value;
+          this->commandStage = CommandStage::readSomething;
+          break;
+
+         case CommandStage::readSomething:
+          this->indexForAnswer = value - this->indexCorrection;
+          this->commandStage = CommandStage::finishedReading;
+          break;
+
+         case CommandStage::finishedReading:
+           Serial.println("Invalid current");
+           this->resetState();
+           break;
+      }
       break;
 
     default:
       Serial.println("Invalid current");
+      this->resetState();
       break;
   }
 }
@@ -93,9 +118,15 @@ void LampController::Controller::executeCurrentCommand()
     case Command::getLampBrightness:
       this->getLampBrightness();
       break;
+
+    case Command::setLampBrightness:
+      this->setLampBrightness();
+      break;
     
-    default:
+    case Command::normal:
+    case Command::sentinel:
       Serial.println("Invalid execute");
+      this->resetState();
       break;
   }
 }
@@ -112,7 +143,7 @@ void LampController::Controller::receivedByte(const byte value)
   }
 }
 
-// Execute functions
+// Execute functions helpers
 
 void LampController::Controller::sendAnswer(const byte answer)
 {
@@ -136,6 +167,28 @@ void LampController::Controller::sendAnswer(const byte answer[], const byte answ
   Serial.write(newAnswer, newAnswerSize);
 }
 
+void LampController::Controller::setLampBrightness(const byte index, const byte brightness)
+{
+  Lamp lamp = this->lamps[index];
+  lamp.brightness = brightness;
+  
+  analogWrite(lamp.pin, lamp.brightness);
+  
+  this->lamps[index] = lamp;
+}
+
+bool LampController::Controller::isValidIndex()
+{
+  return this->indexForAnswer > -1 && this->indexForAnswer < this->lampsArraySize;
+}
+
+bool LampController::Controller::isValidValue()
+{
+  return this->valueForAnswer > -1 && this->valueForAnswer < 101;
+}
+
+// Execute functions main functions
+
 void LampController::Controller::getNumberOfLamps()
 {
   this->sendAnswer(this->lampsArraySize);
@@ -145,7 +198,7 @@ void LampController::Controller::getNumberOfLamps()
 
 void LampController::Controller::getLampBrightness()
 {  
-  if(this->indexForAnswer > -1 && this->indexForAnswer < this->lampsArraySize)
+  if(this->isValidIndex())
   {
     this->sendAnswer(this->lamps[this->indexForAnswer].brightness);
   }
@@ -166,6 +219,22 @@ void LampController::Controller::getLampBrightness()
 
 void LampController::Controller::setLampBrightness()
 {
-  // not implemented
+  if(this->isValidIndex() && this->isValidValue())
+  {
+    this->setLampBrightness(this->indexForAnswer, this->valueForAnswer);
+  }
+  else if(this->isValidValue())
+  {
+    for(int i = 0; i < this->lampsArraySize; ++i)
+    {
+      this->setLampBrightness(i, this->valueForAnswer);
+    }
+  }
+  else
+  {
+    Serial.println("Invalid brightness");
+  }
+
+  this->resetState();
 }
 

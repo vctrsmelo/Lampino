@@ -1,7 +1,7 @@
 #ifndef _LAMP_CONTROLLER_H_
 #define _LAMP_CONTROLLER_H_
 
-#include "HardwareSerial.h"
+#include "Arduino.h"
 
 namespace LampController
 {
@@ -55,6 +55,11 @@ namespace LampController
 
         void sendAnswer(const byte answer);
         void sendAnswer(const byte answer[], const byte answerSize);
+
+        void setLampBrightness(const byte index, const byte brightness);
+
+        bool isValidIndex();
+        bool isValidValue();
         
         void getNumberOfLamps();
         void getLampBrightness();
