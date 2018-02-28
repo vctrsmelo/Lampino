@@ -39,6 +39,8 @@ class LampCollectionViewCell: UICollectionViewCell {
         brightnessPercentLabel.text = "\(lamp.brightnessPercentage)%"
         configureLampIcon()
         
+        configureAccessibility()
+        
     }
     
     private func configureLampIcon() {
@@ -46,6 +48,10 @@ class LampCollectionViewCell: UICollectionViewCell {
         lampIconOnImageView.isHidden = !(lamp.brightness > 0)
         lampIconOffImageView.isHidden = !lampIconOnImageView.isHidden
         
+    }
+    
+    private func configureAccessibility() {
+        self.isAccessibilityElement = true
     }
     
 }

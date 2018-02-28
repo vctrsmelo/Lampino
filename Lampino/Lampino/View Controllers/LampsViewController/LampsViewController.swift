@@ -32,6 +32,10 @@ class LampsViewController: UIViewController {
         self.lampsManager = LampsManager(delegate: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let lampConfiguration = segue.destination as? LampConfigurationViewController {
@@ -78,7 +82,6 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         cell.configure(lamp: lamps[indexPath.row])
-        
         return cell
     }
     
