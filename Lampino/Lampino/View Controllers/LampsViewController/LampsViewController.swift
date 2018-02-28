@@ -24,8 +24,20 @@ class LampsViewController: UIViewController {
     
     @IBOutlet weak var lampsCollectionView: UICollectionView!
     
+    @IBOutlet weak var microphoneButton: UIBarButtonItem!
+    var isMicButtonSelected = false
+    let blueColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
+    let yellowColor = UIColor(red: 241/255, green: 196/255, blue: 0, alpha: 1)
+    
+    var lampsManager: LampsManager = LampsManager()
+    
+    let speechController = SpeechRecognizingController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        speechController.delegate = self
+        lampsManager.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,10 +49,52 @@ class LampsViewController: UIViewController {
             lampConfiguration.delegate = self
     
         }
+
+    }
+    
+    @IBAction func didPressMicrophoneButton(_ sender: UIBarButtonItem) {
+        speechController.checkIfRecognitionIsAuthorized { (isAuthorized) in
+            if isAuthorized {
+                switch self.isMicButtonSelected {
+                case false:
+                    self.speechController.recordAndRecognizeSpeech()
+                    DispatchQueue.main.async {
+                        self.turnMicOn()
+                    }
+                case true:
+                    self.speechController.stopRecording()
+                    DispatchQueue.main.async {
+                        self.turnMicOff()
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func turnMicOff() {
+        microphoneButton.tintColor = blueColor
+        isMicButtonSelected = false
+    }
+    
+    fileprivate func turnMicOn() {
+        microphoneButton.tintColor = yellowColor
+        isMicButtonSelected = true
+    }
+}
+
+extension LampsViewController: SpeechRecognizable {
+    func didFind(command: UInt8, forLampId id: UInt8?) {
+        //TODO: Send command to arduino
+        turnMicOff()
+    }
+}
+
+extension LampsViewController: LampsManagerDelegate {
+    
+    func didConnectToCommunicator() {
         
     }
     
-
 }
 
 extension LampsViewController: LampConfigurationViewControllerDelegate {

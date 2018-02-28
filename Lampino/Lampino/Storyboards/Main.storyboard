@@ -224,9 +224,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nDV-VS-JSt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="icS-jQ-brY"/>
+                    <navigationItem key="navigationItem" id="icS-jQ-brY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Microphone" style="plain" id="0gU-rJ-Z5a">
+                            <color key="tintColor" red="0.26317465305328369" green="0.3594709038734436" blue="0.44275736808776855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didPressMicrophoneButton:" destination="Ebe-pn-be9" id="RSv-wL-tNt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lampsCollectionView" destination="YsZ-tv-zwT" id="MRb-eN-8lx"/>
+                        <outlet property="microphoneButton" destination="0gU-rJ-Z5a" id="vCl-NY-Bnq"/>
                         <segue destination="aaF-OJ-SIr" kind="show" identifier="lampConfiguration" id="gL1-dA-0Ct"/>
                     </connections>
                 </viewController>
@@ -341,5 +349,6 @@
         <image name="BrightnessIcon" width="132" height="135"/>
         <image name="LampIconOff" width="90" height="144"/>
         <image name="LampIconOn" width="150" height="177"/>
+        <image name="Microphone" width="21" height="33"/>
     </resources>
 </document>

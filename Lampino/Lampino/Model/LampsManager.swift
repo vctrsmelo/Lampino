@@ -14,7 +14,7 @@ protocol LampsManagerDelegate {
 
 class LampsManager {
     
-    private var lamps: [Lamp] = []
+    var lamps: [Lamp] = []
     private var communicator: ArduinoCommunicator?
     
     var delegate: LampsManagerDelegate?
@@ -29,6 +29,11 @@ class LampsManager {
     
     init(delegate: LampsManagerDelegate) {
         self.delegate = delegate
+        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
+        communicator!.delegate = self
+    }
+    
+    init() {
         self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
         communicator!.delegate = self
     }

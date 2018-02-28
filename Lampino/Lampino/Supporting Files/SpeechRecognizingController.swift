@@ -10,7 +10,7 @@ import Foundation
 import Speech
 
 class SpeechRecognizingController {
-    var delegate: SpeechRecognizable!
+    internal var delegate: SpeechRecognizable!
     
     private let audionEngine = AVAudioEngine()
     private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -60,7 +60,48 @@ class SpeechRecognizingController {
         })
     }
     
+    /**
+     Manually stop recording and recognizing speech
+     */
+    func stopRecording() {
+        audionEngine.inputNode.removeTap(onBus: 0)
+        audionEngine.stop()
+        request.endAudio()
+        recognitionTask?.cancel()
+    }
     
+    /**
+        Checks if speech recognition is allowed
+     
+     - Parameter completion: the completion handler with a boolean that says wether recognition was authorized or not
+    */
+    func checkIfRecognitionIsAuthorized(completion: @escaping (_ : Bool) -> Void) {
+        
+        SFSpeechRecognizer.requestAuthorization {
+            (authStatus) in
+            switch authStatus {
+            case .authorized:
+                print("Speech recognition authorized")
+                completion(true)
+            case .denied:
+                print("Speech recognition authorization denied")
+                completion(false)
+            case .restricted:
+                print("Not available on this device")
+                completion(false)
+            case .notDetermined:
+                print("Not determined")
+                SFSpeechRecognizer.requestAuthorization({ (status) in
+                    if status == .authorized {
+                        completion(true)
+                    }
+                })
+                completion(false)
+            }
+        }
+    }
+    
+    // MARK: Private Functions
     private func checkForLightsOrCommands(from sentence: String) {
         let wordsSpoken = sentence.split(separator: " ")
         let lastWordSpoken = wordsSpoken.last!
@@ -80,13 +121,13 @@ class SpeechRecognizingController {
         
         switch lastWordSpoken {
         case "light":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
             }
         case "lamp":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
@@ -109,13 +150,13 @@ class SpeechRecognizingController {
         
         switch secondToLastWordSpoken {
         case "light":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == lastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
             }
         case "lamp":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == lastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
@@ -134,23 +175,13 @@ class SpeechRecognizingController {
             delegate.didFind(command: lampCommand!, forLampId: lampToModify)
         }
     }
-    
-    /**
-        Manually stop recording and recognizing speech
-    */
-    func stopRecording() {
-        audionEngine.inputNode.removeTap(onBus: 0)
-        audionEngine.stop()
-        request.endAudio()
-        recognitionTask?.cancel()
-    }
 }
 
 protocol SpeechRecognizable {
     /**
-        The lamps currently connected
+        The lamp manager that contains the lamps currently connected
     */
-    var currentLamps: [Lamp] { get set }
+    var lampsManager: LampsManager { get set }
     
     /**
         Will be called whenever a lamp and a command is speech recognized
