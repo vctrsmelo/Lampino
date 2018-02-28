@@ -32,7 +32,7 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     static let sharedInstance: ArduinoCommunicator = ArduinoCommunicatorBluetooth()
     
-    private let expectedPeripheralName = "KIT1"
+    private let expectedPeripheralName = "BRUNO2"
     private let expectedCharacteristicUUIDString = "DFB1"
     
     private var arduinoPeripheral: CBPeripheral?
@@ -104,13 +104,15 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
                 print("Discovered characteristic \(characteristic), for Service \(service)")
                 self.characteristic = characteristic
                 
-                if characteristic.properties.contains(.read) {
-                    peripheral.readValue(for: characteristic)
-                }
+//                if characteristic.properties.contains(.read) {
+//                    peripheral.readValue(for: characteristic)
+//                }
                 
                 if characteristic.properties.contains(.notify) {
                     peripheral.setNotifyValue(true, for: characteristic)
                 }
+                
+                self.delegate?.communicatorDidDiscoverCharacteristics(self)
                 
             }
         }
@@ -120,7 +122,13 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         switch characteristic.uuid.uuidString {
         case expectedCharacteristicUUIDString:
-            print(characteristic.value ?? "no value")
+            
+            print("Received")
+            let data = characteristic.value
+            
+            print(String(data: data!, encoding: .utf8) ?? "Not string")
+            print([UInt8](data!))
+            
         default:
             print("Unhandled Characteristic UUID: \(characteristic.uuid)")
         }
@@ -128,6 +136,7 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
         let data = characteristic?.value
+        print("Updated")
         print(String(data: data!, encoding: .utf8)!)
     }
     
@@ -135,16 +144,44 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
 
 
 extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
-    func sendBrightness(lampId: UInt8, brightness: UInt8) {
+    func getNumberOfLamps() {
         guard let arduino = arduinoPeripheral else { return }
         guard let characteristic = characteristic else { return }
         
-        arduino.writeValue(Data(bytes: [lampId, brightness]), for: characteristic, type: .withResponse)
+        print("Get number of lamps")
+        arduino.writeValue(Data(bytes: [150, 198]), for: characteristic, type: .withResponse)
     }
     
-    func getBrightness(lampId: UInt8) -> UInt8? {
-        // TODO: implement
-        return UInt8.init(-2.0)
+    func sendBrightness(lampId: UInt8?, brightness: UInt8) {
+        guard let arduino = arduinoPeripheral else { return }
+        guard let characteristic = characteristic else { return }
+        
+        let bytes: [UInt8]
+        
+        if let lampId = lampId {
+            bytes = [170, brightness, lampId + 200, 198]
+        } else {
+            bytes = [170, brightness, 198]
+        }
+        
+        print("Send brightness for \(lampId as Any)")
+        arduino.writeValue(Data(bytes: bytes), for: characteristic, type: .withResponse)
+    }
+    
+    func getBrightness(lampId: UInt8?) {
+        guard let arduino = arduinoPeripheral else { return }
+        guard let characteristic = characteristic else { return }
+        
+        let bytes: [UInt8]
+        
+        if let lampId = lampId {
+            bytes = [160, lampId + 200, 198]
+        } else {
+            bytes = [160, 198]
+        }
+        
+        print("Get brightness for \(lampId as Any)")
+        arduino.writeValue(Data(bytes: bytes), for: characteristic, type: .withResponse)
     }
     
 }

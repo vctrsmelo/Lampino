@@ -10,6 +10,8 @@ import UIKit
 
 class LampsViewController: UIViewController {
     
+    private var lampsManager: LampsManager!
+    
     private var lamps: [Lamp] = [
         Lamp.init(id: UInt8(0), name: "Lamp 0", brightness: 80),
         Lamp.init(id: UInt8(1), name: "Lamp 1", brightness: 80),
@@ -30,6 +32,8 @@ class LampsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lampsManager = LampsManager(delegate: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +49,14 @@ class LampsViewController: UIViewController {
     }
     
 
+}
+
+extension LampsViewController: LampsManagerDelegate {
+    
+    func didConnectToCommunicator() {
+        print("did connect")
+    }
+    
 }
 
 extension LampsViewController: LampConfigurationViewControllerDelegate {
@@ -75,7 +87,18 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
+//        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
+        if indexPath.row == 0 {
+            self.lampsManager.getBrightness(lampId: nil)
+        } else if indexPath.row == 1 {
+            self.lampsManager.getBrightness(lampId: UInt8(1))
+        } else if indexPath.row == 2 {
+            self.lampsManager.updateBrightness(nil, newBrightness: 0)
+        } else if indexPath.row == 3 {
+            self.lampsManager.updateBrightness(nil, newBrightness: 100)
+        } else if indexPath.row == 4 {
+            self.lampsManager.updateBrightness(UInt8(1), newBrightness: 50)
+        }
     }
     
 }
