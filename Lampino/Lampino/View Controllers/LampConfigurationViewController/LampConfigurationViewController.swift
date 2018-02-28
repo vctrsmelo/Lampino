@@ -49,9 +49,28 @@ class LampConfigurationViewController: UIViewController {
 
         guard let lamp = lamp else { return }
         brightnessPercentageLabel.text = "\(lamp.brightnessPercentage)%"
+        lampNameTextField.text = lamp.name.uppercased()
         
         isOn = (lamp.brightnessPercentage > 0)
+        onOffButton.layer.borderColor = UIColor.white.cgColor
+        onOffButton.layer.borderWidth = 3
+        onOffButton.layer.cornerRadius = 15
+        
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+        
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationBar?.titleTextAttributes = textAttributes
+        navigationBar?.tintColor = UIColor.white
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+
+        brightnessSliderView.setPercentValue(lamp.brightnessPercentage)
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         guard let lamp = lamp else { return }
@@ -65,7 +84,11 @@ class LampConfigurationViewController: UIViewController {
     
     private func setButtonOff() {
         onOffButton.setTitle("OFF", for: .normal)
-        onOffButton.backgroundColor = BrightnessColor.off
+        onOffButton.backgroundColor = UIColor(red: 122/255, green: 135/255, blue: 158/255, alpha: 1)
+    }
+    
+    @IBAction func didTouchOnOffButton(_ sender: UIButton) {
+        isOn ? brightnessSliderView.setPercentValue(0) : brightnessSliderView.setPercentValue(100)
     }
     
 }

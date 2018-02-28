@@ -267,10 +267,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23h-03-gTf">
-                                <rect key="frame" x="164" y="479" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23h-03-gTf">
+                                <rect key="frame" x="114" y="480" width="146" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="0MX-LQ-RKV"/>
+                                    <constraint firstAttribute="height" constant="65" id="2R3-rX-fCD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="ON">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchOnOffButton:" destination="aaF-OJ-SIr" eventType="touchUpInside" id="Dqd-wX-wN0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
@@ -278,11 +287,13 @@
                             <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="iGU-vP-v31" secondAttribute="trailing" id="0eO-SC-JAr"/>
                             <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="SDG-qY-VAy" secondAttribute="trailing" id="5ZE-bg-tnv"/>
                             <constraint firstItem="SDG-qY-VAy" firstAttribute="top" secondItem="iGU-vP-v31" secondAttribute="bottom" constant="123" id="8qf-Yx-V02"/>
+                            <constraint firstItem="23h-03-gTf" firstAttribute="centerX" secondItem="XKv-gK-fDb" secondAttribute="centerX" id="OBT-1b-clk"/>
                             <constraint firstItem="iGU-vP-v31" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" id="dLU-iW-TcH"/>
                             <constraint firstItem="YSk-fI-Iu8" firstAttribute="trailing" secondItem="cdD-KI-wQT" secondAttribute="trailing" constant="30" id="fkz-Zv-Az3"/>
                             <constraint firstItem="iGU-vP-v31" firstAttribute="centerX" secondItem="XKv-gK-fDb" secondAttribute="centerX" id="geo-Hs-nu9"/>
                             <constraint firstItem="cdD-KI-wQT" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" constant="30" id="uN4-wM-WI1"/>
                             <constraint firstItem="iGU-vP-v31" firstAttribute="top" secondItem="YSk-fI-Iu8" secondAttribute="top" constant="23" id="w49-bY-B93"/>
+                            <constraint firstItem="YSk-fI-Iu8" firstAttribute="bottom" secondItem="23h-03-gTf" secondAttribute="bottom" constant="122" id="yOX-Se-Xue"/>
                             <constraint firstItem="SDG-qY-VAy" firstAttribute="leading" secondItem="YSk-fI-Iu8" secondAttribute="leading" id="yiO-9J-axF"/>
                             <constraint firstItem="cdD-KI-wQT" firstAttribute="top" secondItem="SDG-qY-VAy" secondAttribute="bottom" constant="26" id="yyM-ZB-LHx"/>
                         </constraints>

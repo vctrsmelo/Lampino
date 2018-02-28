@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaAccessibility
 
 protocol BrightnessSliderViewDelegate {
     func didChangePercentValue(_ newValue: Int)
@@ -16,7 +17,8 @@ class BrightnessSliderView: UIView {
     
     let nibName = "BrightnessSliderView"
     var contentView: UIView?
-    
+    var currentValue: Int = 0
+
     @IBOutlet weak var brightnessViewsContainerView: UIView!
     
     @IBOutlet weak var brightnessView1: BrightnessView!
@@ -43,13 +45,26 @@ class BrightnessSliderView: UIView {
                brightnessView10]
     }
     
+    override func accessibilityIncrement() {
+        if currentValue + 1 > 10 { return }
+        currentValue += 1
+        turnOnUntil(currentValue)
+        delegate?.didChangePercentValue(currentValue)
+    }
+    
+    override func accessibilityDecrement() {
+        if currentValue - 1 < 0 { return }
+        currentValue -= 1
+        turnOnUntil(currentValue)
+        delegate?.didChangePercentValue(currentValue)
+    }
+    
     private var brightnessBeingTouched: BrightnessView?
     
     var delegate: BrightnessSliderViewDelegate?
     
     func setPercentValue(_ newValue: Int) {
-        
-        turnOnUntil(newValue/100)
+        turnOnUntil(newValue/10)
         
         delegate?.didChangePercentValue(newValue)
     }
@@ -67,6 +82,8 @@ class BrightnessSliderView: UIView {
         brightnessViewsContainerView.layer.borderWidth = 3
         brightnessViewsContainerView.layer.cornerRadius = 8
         brightnessViewsContainerView.layer.masksToBounds = true
+        
+        initializeAccessibility()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -116,7 +133,6 @@ class BrightnessSliderView: UIView {
     }
     
     private func turnOnUntil(_ lampNumber: Int) {
-
         turnAllOff()
         
         if lampNumber == 0 {
@@ -126,17 +142,27 @@ class BrightnessSliderView: UIView {
         for i in 0 ..< lampNumber {
             brightnessViews[i].turnOn()
         }
-        
+
+        currentValue = lampNumber
         self.setNeedsDisplay()
     }
     
     private func turnAllOff() {
         brightnessViews.forEach({$0.turnOff()})
+        currentValue = 0
     }
     
     private func turnAllOn() {
         brightnessViews.forEach({$0.turnOn()})
+        currentValue = 100
     }
-
+    
+    
+    private func initializeAccessibility() {
+        
+        self.isAccessibilityElement = true
+        self.accessibilityTraits = UIAccessibilityTraitAdjustable
+        self.accessibilityLabel = NSLocalizedString("Brightness", comment: "Lamp Brightness Percentage")
+    }
     
 }
