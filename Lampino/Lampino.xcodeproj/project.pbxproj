@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848185CC204721620055A800 /* SpeechRecognizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848185CB204721620055A800 /* SpeechRecognizingController.swift */; };
 		EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDED203C987B00C90705 /* AppDelegate.swift */; };
 		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		848185CB204721620055A800 /* SpeechRecognizingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizingController.swift; sourceTree = "<group>"; };
 		EE15FDEA203C987B00C90705 /* Lampino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE15FDED203C987B00C90705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE15FDEF203C987B00C90705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		EE15FE0D203C9A0D00C90705 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				848185CB204721620055A800 /* SpeechRecognizingController.swift */,
 				EE15FDF9203C987B00C90705 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EECF2446204485A8007220F3 /* BrightnessSliderView.swift in Sources */,
+				848185CC204721620055A800 /* SpeechRecognizingController.swift in Sources */,
 				EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */,
 				EEE2F964203F3014006A98FB /* Lamp.swift in Sources */,
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
@@ -415,7 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;
@@ -430,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;
