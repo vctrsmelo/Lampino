@@ -22,6 +22,9 @@ class SpeechRecognizingController {
     
     private let allLampsToModify: UInt8 = 0
     
+    /**
+        Start recording and recognizing speech, searching for a lamp and command
+    */
     func recordAndRecognizeSpeech() {
         lampToModify = nil
         lampCommand = nil
@@ -132,6 +135,9 @@ class SpeechRecognizingController {
         }
     }
     
+    /**
+        Manually stop recording and recognizing speech
+    */
     func stopRecording() {
         audionEngine.inputNode.removeTap(onBus: 0)
         audionEngine.stop()
@@ -149,9 +155,8 @@ protocol SpeechRecognizable {
     /**
         Will be called whenever a lamp and a command is speech recognized
      
-     @param command: UInt8 the command for the lamp from 0 to 100 to set its brightness
-     
-     @param id: UInt8 the lampId of the lamp to be configured. When set to nil, it means all lamps are to be configured
+     - Parameter command: the command for the lamp from 0 to 100 to set its brightness
+     - Parameter id: the lampId of the lamp to be configured. When set to nil, it means all lamps are to be configured
     */
     func didFind(command: UInt8, forLampId id: UInt8?)
     
