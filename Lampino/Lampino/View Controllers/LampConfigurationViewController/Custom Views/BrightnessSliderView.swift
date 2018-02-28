@@ -17,7 +17,13 @@ class BrightnessSliderView: UIView {
     
     let nibName = "BrightnessSliderView"
     var contentView: UIView?
-    var currentValue: Int = 0
+    var currentValue: Int! {
+        didSet {
+            if currentValue == nil || currentValue == oldValue { return }
+            delegate?.didChangePercentValue(currentValue*10)
+
+        }
+    }
 
     @IBOutlet weak var brightnessViewsContainerView: UIView!
     
@@ -46,17 +52,13 @@ class BrightnessSliderView: UIView {
     }
     
     override func accessibilityIncrement() {
-        if currentValue + 1 > 10 { return }
-        currentValue += 1
-        turnOnUntil(currentValue)
-        delegate?.didChangePercentValue(currentValue)
+        if currentValue == 10 { return }
+        turnOnUntil(currentValue+1)
     }
     
     override func accessibilityDecrement() {
-        if currentValue - 1 < 0 { return }
-        currentValue -= 1
-        turnOnUntil(currentValue)
-        delegate?.didChangePercentValue(currentValue)
+        if currentValue == 0 { return }
+        turnOnUntil(currentValue-1)
     }
     
     private var brightnessBeingTouched: BrightnessView?
@@ -65,8 +67,6 @@ class BrightnessSliderView: UIView {
     
     func setPercentValue(_ newValue: Int) {
         turnOnUntil(newValue/10)
-        
-        delegate?.didChangePercentValue(newValue)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -90,17 +90,18 @@ class BrightnessSliderView: UIView {
         guard let firstTouch = touches.first else { return }
         
         for i in 0 ..< brightnessViews.count {
-            if i == 0 && firstTouch.location(in: self).x < (brightnessViews[0].frame.width+brightnessViews[0].frame.origin.x) {
+            if firstTouch.location(in: self).x < brightnessViews[0].frame.origin.x {
                 turnAllOff()
-                delegate?.didChangePercentValue(0)
                 break
             }
+            if firstTouch.location(in: self).x >= (brightnessViews[9].frame.width+brightnessViews[9].frame.origin.x) {
+                turnAllOn()
+                break
+            }
+            
             if brightnessViews[i].frame.contains(firstTouch.location(in: self)) {
                 turnOnUntil(i)
                 break
-            }
-            if i == 9 && firstTouch.location(in: self).x > (brightnessViews[9].frame.width+brightnessViews[9].frame.origin.x) {
-                turnAllOn()
             }
         }
     }
@@ -109,19 +110,18 @@ class BrightnessSliderView: UIView {
         guard let firstTouch = touches.first else { return }
         
         for i in 0 ..< brightnessViews.count {
-            if i == 0 && firstTouch.location(in: self).x < (brightnessViews[0].frame.width+brightnessViews[0].frame.origin.x) {
+            if firstTouch.location(in: self).x < brightnessViews[0].frame.origin.x {
                 turnAllOff()
-                delegate?.didChangePercentValue(0)
                 break
             }
+            if firstTouch.location(in: self).x >= (brightnessViews[9].frame.width+brightnessViews[9].frame.origin.x) {
+                turnAllOn()
+                break
+            }
+            
             if brightnessViews[i].frame.contains(firstTouch.location(in: self)) {
                 turnOnUntil(i)
-                delegate?.didChangePercentValue(i*10)
                 break
-            }
-            if i == 9 && firstTouch.location(in: self).x > (brightnessViews[9].frame.width+brightnessViews[9].frame.origin.x) {
-                turnAllOn()
-                delegate?.didChangePercentValue(100)
             }
         }
     }
@@ -133,11 +133,7 @@ class BrightnessSliderView: UIView {
     }
     
     private func turnOnUntil(_ lampNumber: Int) {
-        turnAllOff()
-        
-        if lampNumber == 0 {
-            return
-        }
+        brightnessViews.forEach({$0.turnOff()})
 
         for i in 0 ..< lampNumber {
             brightnessViews[i].turnOn()
@@ -151,10 +147,10 @@ class BrightnessSliderView: UIView {
         brightnessViews.forEach({$0.turnOff()})
         currentValue = 0
     }
-    
+
     private func turnAllOn() {
         brightnessViews.forEach({$0.turnOn()})
-        currentValue = 100
+        currentValue = 10
     }
     
     
