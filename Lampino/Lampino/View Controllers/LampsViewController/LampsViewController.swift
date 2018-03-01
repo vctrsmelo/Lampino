@@ -10,14 +10,22 @@ import UIKit
 
 class LampsViewController: UIViewController {
     
-    private var lampsManager: LampsManager!
-    
     @IBOutlet weak var lampsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var microphoneButton: UIBarButtonItem!
+    var isMicButtonSelected = false
+    let blueColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
+    let yellowColor = UIColor(red: 241/255, green: 196/255, blue: 0, alpha: 1)
+    
+    var lampsManager: LampsManager = LampsManager()
+    
+    let speechController = SpeechRecognizingController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.lampsManager = LampsManager(delegate: self)
+        speechController.delegate = self
+        lampsManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +37,46 @@ class LampsViewController: UIViewController {
             guard let sender = sender as? Lamp else { return }
             lampConfiguration.lamp = sender
         }
+    }
+    
+    @IBAction func didPressMicrophoneButton(_ sender: UIBarButtonItem) {
+        speechController.checkIfRecognitionIsAuthorized { (isAuthorized) in
+            if isAuthorized {
+                switch self.isMicButtonSelected {
+                case false:
+                    self.speechController.recordAndRecognizeSpeech()
+                    DispatchQueue.main.async {
+                        self.turnMicOn()
+                    }
+                case true:
+                    self.speechController.stopRecording()
+                    DispatchQueue.main.async {
+                        self.turnMicOff()
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func turnMicOff() {
+        microphoneButton.tintColor = blueColor
+        isMicButtonSelected = false
+    }
+    
+    fileprivate func turnMicOn() {
+        microphoneButton.tintColor = yellowColor
+        isMicButtonSelected = true
+    }
+}
+
+extension LampsViewController: SpeechRecognizable {
+    func didFind(command: UInt8, forLampId id: UInt8?) {
+        lampsManager.setBrightness(id, newBrightness: command)
+        turnMicOff()
+    }
+    
+    func didTimeout() {
+        turnMicOff()
     }
 }
 

@@ -19,7 +19,7 @@ class LampsManager {
     private(set) var isConnected = false
     private(set) var lamps: [Lamp] = []
     
-    private weak var delegate: LampsManagerDelegate?
+    internal weak var delegate: LampsManagerDelegate?
     
     private var communicator: ArduinoCommunicator?
     
@@ -33,6 +33,12 @@ class LampsManager {
         self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
         
         self.communicator?.delegate = self
+        self.communicator?.initBluetooth()
+    }
+    
+    init() {
+        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
+        communicator!.delegate = self
         self.communicator?.initBluetooth()
     }
 }
