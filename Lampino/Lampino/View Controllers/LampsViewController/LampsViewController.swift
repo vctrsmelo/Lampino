@@ -17,7 +17,7 @@ class LampsViewController: UIViewController {
     let blueColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
     let yellowColor = UIColor(red: 241/255, green: 196/255, blue: 0, alpha: 1)
     
-    var lampsManager: LampsManager = LampsManager()
+    var lampsManager = LampsManager.sharedInstance
     
     let speechController = SpeechRecognizingController()
     
@@ -71,7 +71,7 @@ class LampsViewController: UIViewController {
 
 extension LampsViewController: SpeechRecognizable {
     func didFind(command: UInt8, forLampId id: UInt8?) {
-        lampsManager.setBrightness(id, newBrightness: command)
+        lampsManager.setBrightness(command, to: id)
         turnMicOff()
     }
     

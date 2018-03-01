@@ -16,31 +16,26 @@ protocol LampsManagerDelegate: AnyObject {
 
 class LampsManager {
     
+    static let sharedInstance = LampsManager()
+    
     private(set) var isConnected = false
     private(set) var lamps: [Lamp] = []
     
-    internal weak var delegate: LampsManagerDelegate?
+    weak var delegate: LampsManagerDelegate?
     
     private var communicator: ArduinoCommunicator?
     
-    func setBrightness(_ brightness: UInt8, to lampId: UInt8?) {
-        self.communicator?.setBrightness(brightness, to: lampId)
-    }
-    
-    init(delegate: LampsManagerDelegate) {
-        self.delegate = delegate
-        
+    private init() {
         self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
         
         self.communicator?.delegate = self
         self.communicator?.initBluetooth()
     }
     
-    init() {
-        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
-        communicator!.delegate = self
-        self.communicator?.initBluetooth()
+    func setBrightness(_ brightness: UInt8, to lampId: UInt8?) {
+        self.communicator?.setBrightness(brightness, to: lampId)
     }
+    
 }
 
 extension LampsManager: ArduinoCommunicatorDelegate {
@@ -67,7 +62,11 @@ extension LampsManager: ArduinoCommunicatorDelegate {
         
         var index = 0
         for brightness in everyBrightness {
-            self.lamps[index].brightness = brightness // TODO: see if it works
+            
+            var lamp = self.lamps[index]
+            lamp.brightness = brightness
+            
+            self.lamps[index] = lamp // TODO: see if it works
             index += 1
         }
         

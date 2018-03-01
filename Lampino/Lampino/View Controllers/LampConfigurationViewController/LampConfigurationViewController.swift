@@ -16,7 +16,7 @@ class LampConfigurationViewController: UIViewController {
 
     @IBOutlet weak var onOffButton: UIButton!
     
-    private var isOn: Bool! {
+    private var isOn: Bool = false {
         didSet{
             guard let lamp = lamp else {
                 setButtonOff()
@@ -31,7 +31,7 @@ class LampConfigurationViewController: UIViewController {
         }
     }
     
-    var lamp: Lamp?
+    var lamp: Lamp!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,11 +84,11 @@ class LampConfigurationViewController: UIViewController {
 extension LampConfigurationViewController: BrightnessSliderViewDelegate {
     
     func didChangePercentValue(_ newValue: Int) {
-        self.lamp?.brightness = UInt8(newValue)
+        self.lamp.brightness = UInt8(newValue)
         brightnessPercentageLabel.text = "\(newValue)%"
         isOn = (newValue > 0)
         
-        
+        LampsManager.sharedInstance.setBrightness(self.lamp.brightness, to: self.lamp.id)
     }
 
 }
