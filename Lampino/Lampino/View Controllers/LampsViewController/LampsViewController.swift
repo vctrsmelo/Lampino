@@ -10,18 +10,6 @@ import UIKit
 
 class LampsViewController: UIViewController {
     
-    private var lamps: [Lamp] = [
-        Lamp.init(id: UInt8(0), name: "First Lamp", brightness: 50),
-        Lamp.init(id: UInt8(1), name: "Second Lamp", brightness: 60),
-        Lamp.init(id: UInt8(2), name: "Third Lamp", brightness: 100),
-        Lamp.init(id: UInt8(3), name: "Fourth Lamp", brightness: 0),
-        Lamp.init(id: UInt8(4), name: "Fifth Lamp", brightness: 90),
-        Lamp.init(id: UInt8(5), name: "Sixth Lamp", brightness: 100),
-        Lamp.init(id: UInt8(6), name: "Seventh Lamp", brightness: 20),
-        Lamp.init(id: UInt8(7), name: "Eigth Lamp", brightness: 70),
-        Lamp.init(id: UInt8(8), name: "Nineth Lamp", brightness: 50)
-    ]
-    
     @IBOutlet weak var lampsCollectionView: UICollectionView!
     
     @IBOutlet weak var microphoneButton: UIBarButtonItem!
@@ -40,16 +28,15 @@ class LampsViewController: UIViewController {
         lampsManager.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let lampConfiguration = segue.destination as? LampConfigurationViewController {
-            
             guard let sender = sender as? Lamp else { return }
             lampConfiguration.lamp = sender
-            lampConfiguration.delegate = self
-    
         }
-
     }
     
     @IBAction func didPressMicrophoneButton(_ sender: UIBarButtonItem) {
@@ -84,7 +71,7 @@ class LampsViewController: UIViewController {
 
 extension LampsViewController: SpeechRecognizable {
     func didFind(command: UInt8, forLampId id: UInt8?) {
-        lampsManager.updateBrightness(id!, newBrightness: command)
+        lampsManager.setBrightness(id, newBrightness: command)
         turnMicOff()
     }
     
@@ -94,28 +81,15 @@ extension LampsViewController: SpeechRecognizable {
 }
 
 extension LampsViewController: LampsManagerDelegate {
-    
-    func didConnectToCommunicator() {
-        
+    func updatedLamps() {
+        self.lampsCollectionView.reloadData()
     }
-    
 }
-
-extension LampsViewController: LampConfigurationViewControllerDelegate {
-    
-    func didUpdate(lamp: Lamp) {
-        guard let index = lamps.index(where: {$0.id == lamp.id }) else { return }
-        lamps[index] = lamp
-        print("configured lamp named \(lamp.name)")
-    }
-    
-}
-
 
 extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lamps.count
+        return self.lampsManager.lamps.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -123,13 +97,12 @@ extension LampsViewController: UICollectionViewDelegate, UICollectionViewDataSou
             fatalError("Could not dequeue Lamp Cell")
         }
         
-        cell.configure(lamp: lamps[indexPath.row])
-        
+        cell.configure(lamp: self.lampsManager.lamps[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "lampConfiguration", sender: lamps[indexPath.row])
+        performSegue(withIdentifier: "lampConfiguration", sender: self.lampsManager.lamps[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
