@@ -13,7 +13,7 @@
 
 ## Arduino
 ![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1826.JPG)
-- In the Arduino, set up 3 jumpers in the 8th, 9th and 10th pins.
+- In the Arduino, set up 3 jumpers in the 9th, 10th and 11th pins.
 - Set up another jumper in the ground pin (GND).
 - In the protoboard, connect the ground jumper in any column of the negative line .
 - Set up the leds as shown in the image.
