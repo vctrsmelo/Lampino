@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		848185CC204721620055A800 /* SpeechRecognizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848185CB204721620055A800 /* SpeechRecognizingController.swift */; };
 		EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDED203C987B00C90705 /* AppDelegate.swift */; };
-		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
 		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
 		EE55B6E4204871E6006C6C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6E6204871E6006C6C3C /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 		848185CB204721620055A800 /* SpeechRecognizingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizingController.swift; sourceTree = "<group>"; };
 		EE15FDEA203C987B00C90705 /* Lampino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE15FDED203C987B00C90705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EE15FDEF203C987B00C90705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			children = (
 				EE400CA22040A3A8008CD268 /* LampConfigurationViewController */,
 				EEBF15592040933700A0F4B1 /* LampsViewController */,
-				EE15FDEF203C987B00C90705 /* ViewController.swift */,
 				EEE2F96B203F321A006A98FB /* View */,
 			);
 			path = "View Controllers";
@@ -291,7 +288,6 @@
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
 				EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */,
 				EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */,
-				EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */,
 				EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */,
 				EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */,
 				EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */,
@@ -382,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -434,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -447,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;
@@ -462,7 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.Lampino;

@@ -10,7 +10,7 @@ import Foundation
 import Speech
 
 class SpeechRecognizingController {
-    var delegate: SpeechRecognizable!
+    internal weak var delegate: SpeechRecognizable!
     
     private let audionEngine = AVAudioEngine()
     private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -22,10 +22,20 @@ class SpeechRecognizingController {
     
     private let allLampsToModify: UInt8 = 0
     
+    var timer: Timer?
+    
     /**
         Start recording and recognizing speech, searching for a lamp and command
     */
     func recordAndRecognizeSpeech() {
+        
+        //6 seconds for the user say the command otherwise recording should be canceled
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false, block: { (timer) in
+                self.delegate.didTimeout()
+                self.stopRecording()
+            })
+        }
         lampToModify = nil
         lampCommand = nil
         
@@ -53,17 +63,58 @@ class SpeechRecognizingController {
             if let result = result {
                 let bestString = result.bestTranscription.formattedString
                 self.checkForLightsOrCommands(from: bestString)
-                
             } else if let error = error {
                 print(error)
             }
         })
     }
+
+    /**
+     Manually stop recording and recognizing speech
+     */
+    func stopRecording() {
+        timer?.invalidate()
+        audionEngine.inputNode.removeTap(onBus: 0)
+        audionEngine.stop()
+        request.endAudio()
+        recognitionTask?.cancel()
+    }
     
+    /**
+        Checks if speech recognition is allowed
+     
+     - Parameter completion: the completion handler with a boolean that says wether recognition was authorized or not
+    */
+    func checkIfRecognitionIsAuthorized(completion: @escaping (_ : Bool) -> Void) {
+        
+        SFSpeechRecognizer.requestAuthorization {
+            (authStatus) in
+            switch authStatus {
+            case .authorized:
+                print("Speech recognition authorized")
+                completion(true)
+            case .denied:
+                print("Speech recognition authorization denied")
+                completion(false)
+            case .restricted:
+                print("Not available on this device")
+                completion(false)
+            case .notDetermined:
+                print("Not determined")
+                SFSpeechRecognizer.requestAuthorization({ (status) in
+                    if status == .authorized {
+                        completion(true)
+                    }
+                })
+                completion(false)
+            }
+        }
+    }
     
+    // MARK: Private Functions
     private func checkForLightsOrCommands(from sentence: String) {
         let wordsSpoken = sentence.split(separator: " ")
-        let lastWordSpoken = wordsSpoken.last!
+        let lastWordSpoken = wordsSpoken.last ?? " "
         var secondToLastWordSpoken = ""
         
         if wordsSpoken.count > 1 {
@@ -80,13 +131,13 @@ class SpeechRecognizingController {
         
         switch lastWordSpoken {
         case "light":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
             }
         case "lamp":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == secondToLastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
@@ -109,13 +160,13 @@ class SpeechRecognizingController {
         
         switch secondToLastWordSpoken {
         case "light":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == lastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
             }
         case "lamp":
-            self.delegate.currentLamps.forEach { (light) in
+            self.delegate.lampsManager.lamps.forEach { (light) in
                 if light.name.lowercased() == lastWordSpoken.lowercased() {
                     lampToModify = light.id
                 }
@@ -134,23 +185,13 @@ class SpeechRecognizingController {
             delegate.didFind(command: lampCommand!, forLampId: lampToModify)
         }
     }
-    
-    /**
-        Manually stop recording and recognizing speech
-    */
-    func stopRecording() {
-        audionEngine.inputNode.removeTap(onBus: 0)
-        audionEngine.stop()
-        request.endAudio()
-        recognitionTask?.cancel()
-    }
 }
 
-protocol SpeechRecognizable {
+protocol SpeechRecognizable: AnyObject {
     /**
-        The lamps currently connected
+        The lamp manager that contains the lamps currently connected
     */
-    var currentLamps: [Lamp] { get set }
+    var lampsManager: LampsManager { get set }
     
     /**
         Will be called whenever a lamp and a command is speech recognized
@@ -160,6 +201,8 @@ protocol SpeechRecognizable {
     */
     func didFind(command: UInt8, forLampId id: UInt8?)
     
-    //TODO: error understanding command method
-    //TODO: timeout method
+    /**
+        Will be called whenever the 6 seconds time to say the command expires
+     */
+    func didTimeout()
 }

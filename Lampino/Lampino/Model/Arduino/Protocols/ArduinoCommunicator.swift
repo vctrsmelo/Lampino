@@ -8,14 +8,18 @@
 
 import Foundation
 
-protocol ArduinoCommunicatorDelegate {
+protocol ArduinoCommunicatorDelegate: AnyObject {
     func communicatorDidConnect(_ communicator: ArduinoCommunicator)
-    func communicator(_ communicator: ArduinoCommunicator, didReadBrightness brightness: UInt8, at lampId: UInt8)
-    func communicator(_ communicator: ArduinoCommunicator, didWriteBrightness brightness: UInt8, at lampId: UInt8)
+    func communicatorDidDisconnect(_ communicator: ArduinoCommunicator)
+    func communicator(_ communicator: ArduinoCommunicator, didReceive lampCount: UInt8)
+    func communicator(_ communicator: ArduinoCommunicator, didReceive everyBrightness: [UInt8])
+//    func communicator(_ communicator: ArduinoCommunicator, didReceive brightness: UInt8, for lampId: UInt8) // Not needed for now
 }
 
-protocol ArduinoCommunicator {
+protocol ArduinoCommunicator: AnyObject {
     var delegate: ArduinoCommunicatorDelegate? { get set }
-    func sendBrightness(lampId: UInt8, brightness: UInt8)
-    func getBrightness(lampId: UInt8) -> UInt8?
+    func initBluetooth()
+    func getNumberOfLamps()
+    func getBrightness(_ lampId: UInt8?)
+    func setBrightness(_ brightness: UInt8, to lampId: UInt8?)
 }

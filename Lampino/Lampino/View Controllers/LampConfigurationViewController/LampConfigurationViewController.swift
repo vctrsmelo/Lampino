@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LampConfigurationViewControllerDelegate {
-    func didUpdate(lamp: Lamp)
-}
-
 class LampConfigurationViewController: UIViewController {
 
     @IBOutlet weak var lampNameTextField: UITextField!
@@ -20,7 +16,7 @@ class LampConfigurationViewController: UIViewController {
 
     @IBOutlet weak var onOffButton: UIButton!
     
-    private var isOn: Bool! {
+    private var isOn: Bool = false {
         didSet{
             guard let lamp = lamp else {
                 setButtonOff()
@@ -35,8 +31,7 @@ class LampConfigurationViewController: UIViewController {
         }
     }
     
-    var lamp: Lamp?
-    var delegate: LampConfigurationViewControllerDelegate?
+    var lamp: Lamp!
     
     override func viewDidAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .lightContent
@@ -70,13 +65,6 @@ class LampConfigurationViewController: UIViewController {
         onOffButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        guard let lamp = lamp else { return }
-        delegate?.didUpdate(lamp: lamp)
-    }
-    
     private func setButtonOn() {
         onOffButton.setTitle(NSLocalizedString("ON", comment: ""), for: .normal)
         onOffButton.backgroundColor = BrightnessColor.on
@@ -96,9 +84,11 @@ class LampConfigurationViewController: UIViewController {
 extension LampConfigurationViewController: BrightnessSliderViewDelegate {
     
     func didChangePercentValue(_ newValue: Int) {
-        self.lamp?.brightness = UInt8(newValue)
+        self.lamp.brightness = UInt8(newValue)
         brightnessPercentageLabel.text = "\(newValue)%"
         isOn = (newValue > 0)
+        
+        LampsManager.sharedInstance.setBrightness(self.lamp.brightness, to: self.lamp.id)
     }
 
 }
