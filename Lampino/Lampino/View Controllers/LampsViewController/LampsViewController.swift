@@ -33,6 +33,16 @@ class LampsViewController: UIViewController {
 }
 
 extension LampsViewController: LampsManagerDelegate {
+    func didConnect() {
+        // TODO: user feedback
+        self.lampsCollectionView.reloadData()
+    }
+    
+    func didDisconnect() {
+        // TODO user feedback
+        self.lampsCollectionView.reloadData()
+    }
+    
     func updatedLamps() {
         self.lampsCollectionView.reloadData()
     }

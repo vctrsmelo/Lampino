@@ -9,27 +9,22 @@
 import Foundation
 
 protocol LampsManagerDelegate: AnyObject {
+    func didConnect()
+    func didDisconnect()
     func updatedLamps()
 }
 
 class LampsManager {
     
-    private var numberOfLamps: UInt8 = 0
+    private(set) var isConnected = false
     private(set) var lamps: [Lamp] = []
-    private var communicator: ArduinoCommunicator?
     
     private weak var delegate: LampsManagerDelegate?
     
-//    func addLamp(_ lampId: UInt8, name: String, brightness: UInt8) {
-//        self.lamps.append(Lamp(id: lampId, name: name, brightness: brightness))
-//    }
+    private var communicator: ArduinoCommunicator?
     
-    func setBrightness(_ lampId: UInt8?, newBrightness brightness: UInt8) {
-        communicator?.setBrightness(lampId: lampId, brightness: brightness)
-    }
-    
-    func getBrightness(lampId: UInt8?) {
-        communicator?.getBrightness(lampId: lampId)
+    func setBrightness(_ brightness: UInt8, to lampId: UInt8?) {
+        self.communicator?.setBrightness(brightness, to: lampId)
     }
     
     init(delegate: LampsManagerDelegate) {
@@ -43,23 +38,39 @@ class LampsManager {
 }
 
 extension LampsManager: ArduinoCommunicatorDelegate {
-    func communicatorDidDiscoverCharacteristics(_ communicator: ArduinoCommunicator) {
+    
+    func communicatorDidConnect(_ communicator: ArduinoCommunicator) {
         communicator.getNumberOfLamps()
     }
     
     func communicatorDidDisconnect(_ communicator: ArduinoCommunicator) {
         self.lamps = []
-        self.delegate?.updatedLamps()
+        self.isConnected = false
+        self.delegate?.didDisconnect()
     }
     
-    func communicator(_ communicator: ArduinoCommunicator, didReceive numberOfLamps: UInt8) {
-        self.numberOfLamps = numberOfLamps
-        communicator.getBrightness(lampId: nil)
+    func communicator(_ communicator: ArduinoCommunicator, didReceive lampCount: UInt8) {
+        communicator.getBrightness(nil)
     }
     
-    func communicator(_ communicator: ArduinoCommunicator, didReadBrightness brightness: UInt8, at lampId: UInt8) {
-        guard var lamp = lamps.first(where: {$0.id == lampId}) else { return }
-        lamp.brightness = brightness
-        print("Leu")
+    func communicator(_ communicator: ArduinoCommunicator, didReceive everyBrightness: [UInt8]) {
+        
+        while self.lamps.count < everyBrightness.count {
+            self.lamps.append(Lamp(id: UInt8(self.lamps.count)))
+        }
+        
+        var index = 0
+        for brightness in everyBrightness {
+            self.lamps[index].brightness = brightness // TODO: see if it works
+            index += 1
+        }
+        
+        if self.isConnected {
+            self.delegate?.updatedLamps()
+            
+        } else {
+            self.isConnected = true
+            self.delegate?.didConnect()
+        }
     }
 }

@@ -87,6 +87,8 @@ extension LampConfigurationViewController: BrightnessSliderViewDelegate {
         self.lamp?.brightness = UInt8(newValue)
         brightnessPercentageLabel.text = "\(newValue)%"
         isOn = (newValue > 0)
+        
+        
     }
 
 }
