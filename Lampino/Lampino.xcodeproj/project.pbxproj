@@ -10,11 +10,11 @@
 		848185CC204721620055A800 /* SpeechRecognizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848185CB204721620055A800 /* SpeechRecognizingController.swift */; };
 		EE15FDEE203C987B00C90705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDED203C987B00C90705 /* AppDelegate.swift */; };
 		EE15FDF0203C987B00C90705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15FDEF203C987B00C90705 /* ViewController.swift */; };
-		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
 		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
 		EE55B6E4204871E6006C6C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6E6204871E6006C6C3C /* Main.storyboard */; };
 		EE55B6EA204873C1006C6C3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6EC204873C1006C6C3C /* Localizable.strings */; };
+		EE55B6EF20489114006C6C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6EE20489114006C6C3C /* Assets.xcassets */; };
 		EE65C9E62045CAB800A40F79 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE65C9E52045CAB800A40F79 /* BrightnessView.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
@@ -32,7 +32,6 @@
 		EE15FDEA203C987B00C90705 /* Lampino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE15FDED203C987B00C90705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE15FDEF203C987B00C90705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EE15FDF4203C987B00C90705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		EE55B6E7204871E9006C6C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE55B6EB204873C1006C6C3C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EE55B6ED204873CD006C6C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE55B6EE20489114006C6C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE65C9E52045CAB800A40F79 /* BrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		EE15FE0C203C9A0500C90705 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EE15FDF4203C987B00C90705 /* Assets.xcassets */,
+				EE55B6EE20489114006C6C3C /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 				EE55B6E4204871E6006C6C3C /* Main.storyboard in Resources */,
 				EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
-				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
+				EE55B6EF20489114006C6C3C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
