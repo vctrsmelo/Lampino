@@ -35,7 +35,7 @@ It is necessary to rename Ble Link in order to connect it to the app.
 and hit send
 - Type in 
 ```
-AT+LAMPINO
+AT+NAME=LAMPINO
 ```
 to rename the bluetooth component and hit enter
 - Type in 
@@ -56,7 +56,10 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Go to Sketch > Upload
 - After finished uploading, put the two yellow jumpers back and keep the Arduino connected.
 
-## Xcode
+## Iphone App - Coming soon
+Download the iPhone app - Yet to be released - and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
+
+## Or Xcode
 - Download Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
 - Go to File > Open > Location_Where_You_Downloaded_The_Project > Lampino > Lampino.xcodeproj
 - Connect an iPhone through an USB port
@@ -64,9 +67,6 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Go to Project > Run
 
 The app should be installed in your iPhone and automatically connect with the Arduino. The app should show the three connected leds.
-
-## Iphone App - Coming soon
-Download the iPhone app - Yet to be released - and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
 
 # Commands
 ## Format
