@@ -11,7 +11,7 @@
 - 4 Wires
 - 3 330 ohm Resistors
 
-# Arduino
+## Arduino
 ![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1826.JPG)
 - In the Arduino, set up 3 jumpers in the 8th, 9th and 10th pins.
 - Set up another jumper in the ground pin (GND).
@@ -22,7 +22,7 @@
 - Connect one resistor in the same line as the ground jumper and in the same column as on of the leds connector.
 - Do the same for the other resistors and leds.
 
-# BLE Link
+## BLE Link
 It is necessary to rename Ble Link in order to connect it to the app.
 - Connect the BLE link to your computer with an USB cable
 - Open the Arduino IDE
@@ -44,7 +44,7 @@ AT+NAME=?
 ```
 and hit enter to make sure you were able to rename the component successfully. You should be able to see LAMPINO on your monitor 
 
-# Project
+## Project
 - Download the project https://github.com/vicmelo/Lampino.git
 - Open the Arduino IDE
 - Go to File > Open > Location_Where_You_Downloaded_The_Project > Lampino > Arduino > Lampino > Lampino.ino
@@ -56,7 +56,7 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Go to Sketch > Upload
 - After finished uploading, put the two yellow jumpers back and keep the Arduino connected.
 
-# Xcode
+## Xcode
 - Download Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
 - Go to File > Open > Location_Where_You_Downloaded_The_Project > Lampino > Lampino.xcodeproj
 - Connect an iPhone through an USB port
@@ -65,7 +65,7 @@ and hit enter to make sure you were able to rename the component successfully. Y
 
 The app should be installed in your iPhone and automatically connect with the Arduino. The app should show the three connected leds.
 
-# Iphone App - Coming soon
+## Iphone App - Coming soon
 Download the iPhone app - Yet to be released - and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
 
 # Commands
