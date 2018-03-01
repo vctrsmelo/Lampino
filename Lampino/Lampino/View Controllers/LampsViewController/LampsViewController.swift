@@ -30,6 +30,8 @@ class LampsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
+        
+        self.lampsCollectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

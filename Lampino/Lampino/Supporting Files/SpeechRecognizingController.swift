@@ -28,12 +28,12 @@ class SpeechRecognizingController {
         Start recording and recognizing speech, searching for a lamp and command
     */
     func recordAndRecognizeSpeech() {
-        audionEngine.inputNode.removeTap(onBus: 0)
         
         //6 seconds for the user say the command otherwise recording should be canceled
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false, block: { (timer) in
                 self.delegate.didTimeout()
+                self.stopRecording()
             })
         }
         lampToModify = nil

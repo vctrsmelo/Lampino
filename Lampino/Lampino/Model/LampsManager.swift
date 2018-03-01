@@ -33,6 +33,20 @@ class LampsManager {
     }
     
     func setBrightness(_ brightness: UInt8, to lampId: UInt8?) {
+        
+        if let lampId = lampId {
+            self.lamps[Int(lampId)].brightness = brightness
+        } else {
+            
+            var index = 0
+            for _ in self.lamps {
+                self.lamps[index].brightness = brightness
+                index += 1
+            }
+        }
+        
+        self.delegate?.updatedLamps()
+        
         self.communicator?.setBrightness(brightness, to: lampId)
     }
     
@@ -62,11 +76,7 @@ extension LampsManager: ArduinoCommunicatorDelegate {
         
         var index = 0
         for brightness in everyBrightness {
-            
-            var lamp = self.lamps[index]
-            lamp.brightness = brightness
-            
-            self.lamps[index] = lamp // TODO: see if it works
+            self.lamps[index].brightness = brightness
             index += 1
         }
         
