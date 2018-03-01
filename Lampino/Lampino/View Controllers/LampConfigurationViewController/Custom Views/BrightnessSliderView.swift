@@ -158,7 +158,7 @@ class BrightnessSliderView: UIView {
         
         self.isAccessibilityElement = true
         self.accessibilityTraits = UIAccessibilityTraitAdjustable
-        self.accessibilityLabel = NSLocalizedString("Brightness", comment: "Lamp Brightness Percentage")
+        
     }
     
 }

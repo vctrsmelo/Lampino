@@ -35,7 +35,7 @@ class LampCollectionViewCell: UICollectionViewCell {
     func configure(lamp: Lamp) {
         self.lamp = lamp
         lampNameLabel.text = lamp.name
-        lampOnOffLabel.text = (lamp.brightness > 0) ? "ON" : "OFF"
+        lampOnOffLabel.text = (lamp.brightness > 0) ? NSLocalizedString("ON", comment: "") : NSLocalizedString("OFF", comment: "")
         brightnessPercentLabel.text = "\(lamp.brightnessPercentage)%"
         configureLampIcon()
         
@@ -52,6 +52,13 @@ class LampCollectionViewCell: UICollectionViewCell {
     
     private func configureAccessibility() {
         self.isAccessibilityElement = true
+        
+        if lamp.brightness > 0 {
+            self.accessibilityLabel = "\(NSLocalizedString("Lamp selected. It's name is", comment: "")): \(lamp.name). \(NSLocalizedString("It's on", comment: "")). \(NSLocalizedString("It's current brightness is", comment: "")): \(lamp.brightness)%"
+        } else {
+            self.accessibilityLabel = "\(NSLocalizedString("Lamp selected. It's name is", comment: "")): \(lamp.name). \(NSLocalizedString("It's off", comment: ""))."
+        }
+        self.accessibilityHint = NSLocalizedString("Tap to configure", comment: "")
     }
     
 }

@@ -44,11 +44,7 @@ class LampConfigurationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("""
-            Lamp Configuration called:
-            \(lamp?.name ?? "NO NAME")
-            \(lamp?.brightnessPercentage ?? -1)%
-        """)
+        
         brightnessSliderView.delegate = self
 
         guard let lamp = lamp else { return }
@@ -70,6 +66,8 @@ class LampConfigurationViewController: UIViewController {
         navigationBar?.tintColor = UIColor.white
 
         brightnessSliderView.setPercentValue(lamp.brightnessPercentage)
+        
+        onOffButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     
@@ -80,12 +78,12 @@ class LampConfigurationViewController: UIViewController {
     }
     
     private func setButtonOn() {
-        onOffButton.setTitle("ON", for: .normal)
+        onOffButton.setTitle(NSLocalizedString("ON", comment: ""), for: .normal)
         onOffButton.backgroundColor = BrightnessColor.on
     }
     
     private func setButtonOff() {
-        onOffButton.setTitle("OFF", for: .normal)
+        onOffButton.setTitle(NSLocalizedString("OFF", comment: ""), for: .normal)
         onOffButton.backgroundColor = UIColor(red: 122/255, green: 135/255, blue: 158/255, alpha: 1)
     }
     

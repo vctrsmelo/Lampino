@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Lampino
+
+  Created by Victor S Melo on 01/03/18.
+  Copyright © 2018 Lampino Organization. All rights reserved.
+*/
+
+"ON" = "LIGADA";
+"OFF" = "DESLIGADA";
+"Lamp selected. It's name is" = "Lâmpada selecionada. Seu nome é";
+"It's current brightness is" = "Seu brilho atual é de";
+"It's on" = "Ela está ligada";
+"It's off" = "Ela está desligada";
+"Tap to configure" = "Toque para configurar";

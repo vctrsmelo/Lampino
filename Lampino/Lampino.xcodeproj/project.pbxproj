@@ -13,6 +13,8 @@
 		EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF4203C987B00C90705 /* Assets.xcassets */; };
 		EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */; };
 		EE400CA42040A3C3008CD268 /* LampConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */; };
+		EE55B6E4204871E6006C6C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6E6204871E6006C6C3C /* Main.storyboard */; };
+		EE55B6EA204873C1006C6C3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6EC204873C1006C6C3C /* Localizable.strings */; };
 		EE65C9E62045CAB800A40F79 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE65C9E52045CAB800A40F79 /* BrightnessView.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
@@ -23,7 +25,6 @@
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
 		EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
 		EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F96C203F321A006A98FB /* LoadingComponent.swift */; };
-		EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2F970203F37D6006A98FB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,11 @@
 		EE15FDF7203C987B00C90705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE15FDF9203C987B00C90705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE400CA32040A3C3008CD268 /* LampConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampConfigurationViewController.swift; sourceTree = "<group>"; };
+		EE55B6E2204870C3006C6C3C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		EE55B6E5204871E6006C6C3C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		EE55B6E7204871E9006C6C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE55B6EB204873C1006C6C3C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EE55B6ED204873CD006C6C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE65C9E52045CAB800A40F79 /* BrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -45,7 +51,6 @@
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 		EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EEE2F96C203F321A006A98FB /* LoadingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
-		EEE2F970203F37D6006A98FB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,7 @@
 			children = (
 				848185CB204721620055A800 /* SpeechRecognizingController.swift */,
 				EE15FDF9203C987B00C90705 /* Info.plist */,
+				EE55B6EC204873C1006C6C3C /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,7 +133,7 @@
 		EE15FE0F203C9A1E00C90705 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				EEE2F970203F37D6006A98FB /* Main.storyboard */,
+				EE55B6E6204871E6006C6C3C /* Main.storyboard */,
 				EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -263,7 +269,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE2F971203F37D6006A98FB /* Main.storyboard in Resources */,
+				EE55B6EA204873C1006C6C3C /* Localizable.strings in Resources */,
+				EE55B6E4204871E6006C6C3C /* Main.storyboard in Resources */,
 				EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE15FDF5203C987B00C90705 /* Assets.xcassets in Resources */,
@@ -300,8 +307,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE15FDF7203C987B00C90705 /* Base */,
+				EE55B6E2204870C3006C6C3C /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EE55B6E6204871E6006C6C3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE55B6E5204871E6006C6C3C /* pt-BR */,
+				EE55B6E7204871E9006C6C3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE55B6EC204873C1006C6C3C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE55B6EB204873C1006C6C3C /* pt-BR */,
+				EE55B6ED204873CD006C6C3C /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -311,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -368,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
