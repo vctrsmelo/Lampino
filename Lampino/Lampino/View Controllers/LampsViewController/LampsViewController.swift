@@ -14,6 +14,8 @@ class LampsViewController: UIViewController {
     
     @IBOutlet weak var microphoneButton: UIBarButtonItem!
     
+    let loadingComponent = LoadingComponent()
+    
     var isMicButtonSelected = false
     let blueColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
     let yellowColor = UIColor(red: 241/255, green: 196/255, blue: 0, alpha: 1)
@@ -25,12 +27,23 @@ class LampsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.loadingComponent.addLoadingIndicator(to: self.view)
+        
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+        
         speechController.delegate = self
         lampsManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         UIApplication.shared.statusBarStyle = .default
+        
+        self.navigationController?.navigationBar.tintColor = self.blueColor
         
         self.lampsCollectionView.reloadData()
     }
@@ -85,12 +98,12 @@ extension LampsViewController: SpeechRecognizable {
 
 extension LampsViewController: LampsManagerDelegate {
     func didConnect() {
-        // TODO: user feedback
+        self.loadingComponent.removeLoadingIndicators(from: self.view)
         self.lampsCollectionView.reloadData()
     }
     
     func didDisconnect() {
-        // TODO user feedback
+        self.loadingComponent.addLoadingIndicator(to: self.view)
         self.lampsCollectionView.reloadData()
     }
     

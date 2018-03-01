@@ -171,6 +171,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="icS-jQ-brY">
                         <barButtonItem key="rightBarButtonItem" image="Microphone" id="JRq-QO-v2W">
+                            <color key="tintColor" red="0.26317465305328369" green="0.3594709038734436" blue="0.44275736808776855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="didPressMicrophoneButton:" destination="Ebe-pn-be9" id="TKg-I1-yad"/>
                             </connections>

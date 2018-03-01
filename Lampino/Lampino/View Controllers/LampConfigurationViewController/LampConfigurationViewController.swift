@@ -33,8 +33,15 @@ class LampConfigurationViewController: UIViewController {
     
     var lamp: Lamp!
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        let navigationBar = self.navigationController?.navigationBar
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationBar?.titleTextAttributes = textAttributes
+        navigationBar?.tintColor = UIColor.white
     }
     
     override func viewDidLoad() {
@@ -50,15 +57,6 @@ class LampConfigurationViewController: UIViewController {
         onOffButton.layer.borderColor = UIColor.white.cgColor
         onOffButton.layer.borderWidth = 3
         onOffButton.layer.cornerRadius = 15
-        
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.setBackgroundImage(UIImage(), for: .default)
-        navigationBar?.shadowImage = UIImage()
-        navigationBar?.isTranslucent = true
-        
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-        navigationBar?.titleTextAttributes = textAttributes
-        navigationBar?.tintColor = UIColor.white
 
         brightnessSliderView.setPercentValue(lamp.brightnessPercentage)
         
