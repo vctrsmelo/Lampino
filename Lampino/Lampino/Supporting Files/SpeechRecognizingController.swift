@@ -62,6 +62,7 @@ class SpeechRecognizingController {
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
             if let result = result {
                 let bestString = result.bestTranscription.formattedString
+                print(bestString)
                 self.checkForLightsOrCommands(from: bestString)
             } else if let error = error {
                 print(error)
