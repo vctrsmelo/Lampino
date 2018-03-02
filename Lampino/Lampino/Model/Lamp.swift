@@ -12,6 +12,7 @@ struct Lamp {
     
     static var maxBrightness: Int = 100
     
+    
     let id: UInt8
     var name: String
     var brightness: UInt8
@@ -19,13 +20,12 @@ struct Lamp {
         return Int(brightness)*100/Lamp.maxBrightness
     }
     
-    private static var numberFormatter = NumberFormatter()
+    private static var defaultNames = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"]
     
     init(id: UInt8, name: String? = nil, brightness: UInt8 = 0) {
-        Lamp.numberFormatter.numberStyle = .spellOut
         
         self.id = id
-        self.name = name ?? Lamp.numberFormatter.string(from: NSNumber(value: id + 1))!
+        self.name = name ?? Lamp.defaultNames[Int(id)]
         self.brightness = brightness
     }
 }
