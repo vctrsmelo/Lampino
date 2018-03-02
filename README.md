@@ -12,7 +12,7 @@
 - 3 330 ohm Resistors
 
 ## Arduino
-![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1826.JPG)
+![alt text](https://raw.github.com/vicmelo/Lampino/master/IMG_1826.JPG)
 - In the Arduino, set up 3 jumpers in the 9th, 10th and 11th pins.
 - Set up another jumper in the ground pin (GND).
 - In the protoboard, connect the ground jumper in any column of the negative line .
@@ -55,7 +55,7 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Connect the Arduino through an USB port
 - Select your port on Tools > Port (It will probably be something ending with “Arduino/Genuino Uno") 
 - Remove the two yellow jumpers shown in the image
-![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1825.JPG)
+![alt text](https://raw.github.com/vicmelo/Lampino/master/IMG_1825.JPG)
 - Go to Sketch > Verify
 - Go to Sketch > Upload
 - After finished uploading, put the two yellow jumpers back and keep the Arduino connected.
