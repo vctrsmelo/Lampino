@@ -24,15 +24,19 @@
 
 ## BLE Link
 It is necessary to rename Ble Link in order to connect it to the app.
+The complete instructions can be found here https://www.dfrobot.com/wiki/index.php/Bluno_SKU:DFR0267#Configure_the_BLE_through_AT_command
+But basically what you'll have to do is:
 - Connect the BLE link to your computer with an USB cable
 - Open the Arduino IDE
 - Go to Tools > Port > Make sure the correct board is selected
 - Open the serial monitor - Tools > Serial Monitor
+- Make sure the "No line ending" and "115200 baud" options are selected
 - Type in 
 ```
 +++
 ```
-and hit send
+and hit send, you should see a message saying "Enter AT mode"
+- Change the line ending option to "Both NL & CR"
 - Type in 
 ```
 AT+NAME=LAMPINO
