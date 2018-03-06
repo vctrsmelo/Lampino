@@ -294,15 +294,47 @@
 		FC13F9CF204F0D9500F58B3E /* Lampino Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				FC13F9D0204F0D9500F58B3E /* InterfaceController.swift */,
-				FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */,
-				FC13F9D4204F0D9500F58B3E /* NotificationController.swift */,
-				FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */,
+				FC13F9EA204F131000F58B3E /* Screens */,
+				FC13F9E9204F130100F58B3E /* Notifications */,
+				FC13F9E8204F12FA00F58B3E /* Complications */,
 				FC13F9D8204F0D9500F58B3E /* Assets.xcassets */,
+				FC13F9E7204F104800F58B3E /* Supporting Files */,
+			);
+			path = "Lampino Watch Extension";
+			sourceTree = "<group>";
+		};
+		FC13F9E7204F104800F58B3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */,
 				FC13F9DA204F0D9500F58B3E /* Info.plist */,
 				FC13F9DB204F0D9500F58B3E /* PushNotificationPayload.apns */,
 			);
-			path = "Lampino Watch Extension";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC13F9E8204F12FA00F58B3E /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */,
+			);
+			path = Complications;
+			sourceTree = "<group>";
+		};
+		FC13F9E9204F130100F58B3E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D4204F0D9500F58B3E /* NotificationController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		FC13F9EA204F131000F58B3E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D0204F0D9500F58B3E /* InterfaceController.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,7 +737,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
-				INFOPLIST_FILE = "Lampino Watch Extension/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -723,7 +755,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
-				INFOPLIST_FILE = "Lampino Watch Extension/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
