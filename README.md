@@ -1,7 +1,7 @@
 # Setup
 ## Requirements
 - Arduino IDE - https://www.arduino.cc/en/Main/OldSoftwareReleases
-- iPhone app - Yet to be released
+- iPhone app - https://itunes.apple.com/us/app/lampino/id1355074045?mt=8
 - or Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
 - Project code - https://github.com/vicmelo/Lampino.git
 - 1 Arduino Uno
@@ -12,8 +12,8 @@
 - 3 330 ohm Resistors
 
 ## Arduino
-![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1826.JPG)
-- In the Arduino, set up 3 jumpers in the 8th, 9th and 10th pins.
+![alt text](https://raw.github.com/vicmelo/Lampino/master/IMG_1826.JPG)
+- In the Arduino, set up 3 jumpers in the 9th, 10th and 11th pins.
 - Set up another jumper in the ground pin (GND).
 - In the protoboard, connect the ground jumper in any column of the negative line .
 - Set up the leds as shown in the image.
@@ -24,18 +24,22 @@
 
 ## BLE Link
 It is necessary to rename Ble Link in order to connect it to the app.
+The complete instructions can be found here https://www.dfrobot.com/wiki/index.php/Bluno_SKU:DFR0267#Configure_the_BLE_through_AT_command
+But basically what you'll have to do is:
 - Connect the BLE link to your computer with an USB cable
 - Open the Arduino IDE
 - Go to Tools > Port > Make sure the correct board is selected
 - Open the serial monitor - Tools > Serial Monitor
+- Make sure the "No line ending" and "115200 baud" options are selected
 - Type in 
 ```
 +++
 ```
-and hit send
+and hit send, you should see a message saying "Enter AT mode"
+- Change the line ending option to "Both NL & CR"
 - Type in 
 ```
-AT+LAMPINO
+AT+NAME=LAMPINO
 ```
 to rename the bluetooth component and hit enter
 - Type in 
@@ -51,12 +55,16 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Connect the Arduino through an USB port
 - Select your port on Tools > Port (It will probably be something ending with “Arduino/Genuino Uno") 
 - Remove the two yellow jumpers shown in the image
-![alt text](https://raw.github.com/vicmelo/Lampino/feature/SpeechRecognition/IMG_1825.JPG)
+![alt text](https://raw.github.com/vicmelo/Lampino/master/IMG_1825.JPG)
 - Go to Sketch > Verify
 - Go to Sketch > Upload
 - After finished uploading, put the two yellow jumpers back and keep the Arduino connected.
 
-## Xcode
+## Iphone App
+Download the iPhone app - https://itunes.apple.com/us/app/lampino/id1355074045?mt=8 -
+and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
+
+## Or Xcode
 - Download Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
 - Go to File > Open > Location_Where_You_Downloaded_The_Project > Lampino > Lampino.xcodeproj
 - Connect an iPhone through an USB port
@@ -64,9 +72,6 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Go to Project > Run
 
 The app should be installed in your iPhone and automatically connect with the Arduino. The app should show the three connected leds.
-
-## Iphone App - Coming soon
-Download the iPhone app - Yet to be released - and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
 
 # Commands
 ## Format
