@@ -192,7 +192,7 @@ protocol SpeechRecognizable: AnyObject {
     /**
         The lamp manager that contains the lamps currently connected
     */
-    var lampsManager: LampsManager { get set }
+    var lampsManager: LampsManager { get }
     
     /**
         Will be called whenever a lamp and a command is speech recognized

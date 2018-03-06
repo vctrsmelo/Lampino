@@ -20,7 +20,7 @@ class LampsViewController: UIViewController {
     let blueColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
     let yellowColor = UIColor(red: 241/255, green: 196/255, blue: 0, alpha: 1)
     
-    var lampsManager = LampsManager.sharedInstance
+    let lampsManager = LampsManager.sharedInstance
     
     let speechController = SpeechRecognizingController()
     
