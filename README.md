@@ -1,7 +1,7 @@
 # Setup
 ## Requirements
 - Arduino IDE - https://www.arduino.cc/en/Main/OldSoftwareReleases
-- iPhone app - Yet to be released
+- iPhone app - https://itunes.apple.com/us/app/lampino/id1355074045?mt=8
 - or Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
 - Project code - https://github.com/vicmelo/Lampino.git
 - 1 Arduino Uno
@@ -60,8 +60,9 @@ and hit enter to make sure you were able to rename the component successfully. Y
 - Go to Sketch > Upload
 - After finished uploading, put the two yellow jumpers back and keep the Arduino connected.
 
-## Iphone App - Coming soon
-Download the iPhone app - Yet to be released - and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
+## Iphone App
+Download the iPhone app - https://itunes.apple.com/us/app/lampino/id1355074045?mt=8 -
+and open it. The app should automatically connect with the Arduino and it should show the three connected leds.
 
 ## Or Xcode
 - Download Xcode - https://itunes.apple.com/br/app/xcode/id497799835?l=en&mt=12
