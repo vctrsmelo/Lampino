@@ -45,7 +45,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gv8-SQ-NF7">
                                                                     <rect key="frame" x="0.0" y="0.0" width="72.5" height="107"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIGADA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-BB-cQ8">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIGADA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-BB-cQ8">
                                                                             <rect key="frame" x="0.0" y="73" width="72.5" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="24" id="oNs-5J-vvi"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-M8-5ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472.80000000000001" y="867.61619190404804"/>
+            <point key="canvasLocation" x="-7" y="868"/>
         </scene>
         <!--Lampino-->
         <scene sceneID="eOk-Xg-IH1">
@@ -213,11 +213,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23h-03-gTf">
-                                <rect key="frame" x="114" y="480" width="146" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="0MX-LQ-RKV"/>
-                                    <constraint firstAttribute="height" constant="65" id="2R3-rX-fCD"/>
-                                </constraints>
+                                <rect key="frame" x="118" y="485" width="138" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="LIGADA">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSt-rw-u24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="852.3238380809596"/>
+            <point key="canvasLocation" x="774" y="868"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jSn-h3-bpx">
@@ -272,7 +268,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJz-MX-Zkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-729" y="868"/>
+            <point key="canvasLocation" x="-820" y="868"/>
         </scene>
     </scenes>
     <resources>

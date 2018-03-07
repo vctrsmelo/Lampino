@@ -24,7 +24,65 @@
 		EEE2F968203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
 		EEE2F96A203F3046006A98FB /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
 		EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F96C203F321A006A98FB /* LoadingComponent.swift */; };
+		FC13F9C3204F0D9400F58B3E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC13F9C1204F0D9400F58B3E /* Interface.storyboard */; };
+		FC13F9C5204F0D9500F58B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC13F9C4204F0D9400F58B3E /* Assets.xcassets */; };
+		FC13F9CC204F0D9500F58B3E /* Lampino Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FC13F9D1204F0D9500F58B3E /* LampsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */; };
+		FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */; };
+		FC13F9D5204F0D9500F58B3E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D4204F0D9500F58B3E /* NotificationController.swift */; };
+		FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */; };
+		FC13F9D9204F0D9500F58B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC13F9D8204F0D9500F58B3E /* Assets.xcassets */; };
+		FC13F9DE204F0D9500F58B3E /* Lampino Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FC13F9BF204F0D9400F58B3E /* Lampino Watch.app */; };
+		FC13F9EB204F1E6100F58B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6EE20489114006C6C3C /* Assets.xcassets */; };
+		FC13F9EC204F1E6200F58B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE55B6EE20489114006C6C3C /* Assets.xcassets */; };
+		FC13F9EE204F1F2800F58B3E /* ArduinoCommunicatorBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */; };
+		FC13F9EF204F1F2800F58B3E /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
+		FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
+		FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
+		FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A9924204F2F29008EB4AD /* LampCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC13F9CD204F0D9500F58B3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE15FDE2203C987B00C90705 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC13F9CA204F0D9500F58B3E;
+			remoteInfo = "Lampino Watch Extension";
+		};
+		FC13F9DC204F0D9500F58B3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE15FDE2203C987B00C90705 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC13F9BE204F0D9400F58B3E;
+			remoteInfo = "Lampino Watch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC13F9E4204F0D9500F58B3E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FC13F9CC204F0D9500F58B3E /* Lampino Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC13F9E6204F0D9500F58B3E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FC13F9DE204F0D9500F58B3E /* Lampino Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		848185CB204721620055A800 /* SpeechRecognizingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizingController.swift; sourceTree = "<group>"; };
@@ -49,10 +107,30 @@
 		EEE2F966203F3035006A98FB /* ArduinoCommunicatorBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorBluetooth.swift; sourceTree = "<group>"; };
 		EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicator.swift; sourceTree = "<group>"; };
 		EEE2F96C203F321A006A98FB /* LoadingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
+		FC13F9BF204F0D9400F58B3E /* Lampino Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lampino Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC13F9C2204F0D9400F58B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FC13F9C4204F0D9400F58B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC13F9C6204F0D9500F58B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Lampino Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsInterfaceController.swift; sourceTree = "<group>"; };
+		FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FC13F9D4204F0D9500F58B3E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		FC13F9D8204F0D9500F58B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC13F9DA204F0D9500F58B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC13F9DB204F0D9500F58B3E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		FC3A9924204F2F29008EB4AD /* LampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE15FDE7203C987B00C90705 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC13F9C8204F0D9500F58B3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,7 +143,10 @@
 		EE15FDE1203C987B00C90705 = {
 			isa = PBXGroup;
 			children = (
+				FC13F9ED204F1E7200F58B3E /* Common */,
 				EE15FDEC203C987B00C90705 /* Lampino */,
+				FC13F9C0204F0D9400F58B3E /* Lampino Watch */,
+				FC13F9CF204F0D9500F58B3E /* Lampino Watch Extension */,
 				EE15FDEB203C987B00C90705 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				EE15FDEA203C987B00C90705 /* Lampino.app */,
+				FC13F9BF204F0D9400F58B3E /* Lampino Watch.app */,
+				FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,11 +164,9 @@
 		EE15FDEC203C987B00C90705 /* Lampino */ = {
 			isa = PBXGroup;
 			children = (
-				EEE2F95A203F2EF9006A98FB /* Model */,
 				EE15FE0F203C9A1E00C90705 /* Storyboards */,
 				EE15FE0E203C9A1500C90705 /* View Controllers */,
 				EE15FE0D203C9A0D00C90705 /* Supporting Files */,
-				EE15FE0C203C9A0500C90705 /* Resources */,
 				EE15FE0B203C99FB00C90705 /* Application Delegate */,
 			);
 			path = Lampino;
@@ -97,14 +178,6 @@
 				EE15FDED203C987B00C90705 /* AppDelegate.swift */,
 			);
 			path = "Application Delegate";
-			sourceTree = "<group>";
-		};
-		EE15FE0C203C9A0500C90705 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EE55B6EE20489114006C6C3C /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		EE15FE0D203C9A0D00C90705 /* Supporting Files */ = {
@@ -164,21 +237,21 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		EEE2F95A203F2EF9006A98FB /* Model */ = {
+		EEE2F95A203F2EF9006A98FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				EEE2F95B203F2EF9006A98FB /* Arduino */,
 				EEE2F95E203F2EF9006A98FB /* LampsManager.swift */,
 				EEE2F963203F3014006A98FB /* Lamp.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EEE2F95B203F2EF9006A98FB /* Arduino */ = {
 			isa = PBXGroup;
 			children = (
 				EEE2F95C203F2EF9006A98FB /* Bluetooth */,
-				EEE2F95D203F2EF9006A98FB /* Protocols */,
+				EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */,
 			);
 			path = Arduino;
 			sourceTree = "<group>";
@@ -191,20 +264,78 @@
 			path = Bluetooth;
 			sourceTree = "<group>";
 		};
-		EEE2F95D203F2EF9006A98FB /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		EEE2F96B203F321A006A98FB /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EEE2F96C203F321A006A98FB /* LoadingComponent.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FC13F9C0204F0D9400F58B3E /* Lampino Watch */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9C1204F0D9400F58B3E /* Interface.storyboard */,
+				FC13F9C4204F0D9400F58B3E /* Assets.xcassets */,
+				FC13F9C6204F0D9500F58B3E /* Info.plist */,
+			);
+			path = "Lampino Watch";
+			sourceTree = "<group>";
+		};
+		FC13F9CF204F0D9500F58B3E /* Lampino Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9EA204F131000F58B3E /* Screens */,
+				FC13F9E9204F130100F58B3E /* Notifications */,
+				FC13F9E8204F12FA00F58B3E /* Complications */,
+				FC13F9D8204F0D9500F58B3E /* Assets.xcassets */,
+				FC13F9E7204F104800F58B3E /* Supporting Files */,
+			);
+			path = "Lampino Watch Extension";
+			sourceTree = "<group>";
+		};
+		FC13F9E7204F104800F58B3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */,
+				FC13F9DA204F0D9500F58B3E /* Info.plist */,
+				FC13F9DB204F0D9500F58B3E /* PushNotificationPayload.apns */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC13F9E8204F12FA00F58B3E /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */,
+			);
+			path = Complications;
+			sourceTree = "<group>";
+		};
+		FC13F9E9204F130100F58B3E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D4204F0D9500F58B3E /* NotificationController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		FC13F9EA204F131000F58B3E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */,
+				FC3A9924204F2F29008EB4AD /* LampCell.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FC13F9ED204F1E7200F58B3E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2F95A203F2EF9006A98FB /* Models */,
+				EE55B6EE20489114006C6C3C /* Assets.xcassets */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,15 +348,51 @@
 				EE15FDE6203C987B00C90705 /* Sources */,
 				EE15FDE7203C987B00C90705 /* Frameworks */,
 				EE15FDE8203C987B00C90705 /* Resources */,
+				FC13F9E6204F0D9500F58B3E /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC13F9DD204F0D9500F58B3E /* PBXTargetDependency */,
 			);
 			name = Lampino;
 			productName = Lampino;
 			productReference = EE15FDEA203C987B00C90705 /* Lampino.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FC13F9BE204F0D9400F58B3E /* Lampino Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC13F9E5204F0D9500F58B3E /* Build configuration list for PBXNativeTarget "Lampino Watch" */;
+			buildPhases = (
+				FC13F9BD204F0D9400F58B3E /* Resources */,
+				FC13F9E4204F0D9500F58B3E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC13F9CE204F0D9500F58B3E /* PBXTargetDependency */,
+			);
+			name = "Lampino Watch";
+			productName = "Lampino Watch";
+			productReference = FC13F9BF204F0D9400F58B3E /* Lampino Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FC13F9CA204F0D9500F58B3E /* Lampino Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC13F9E3204F0D9500F58B3E /* Build configuration list for PBXNativeTarget "Lampino Watch Extension" */;
+			buildPhases = (
+				FC13F9C7204F0D9500F58B3E /* Sources */,
+				FC13F9C8204F0D9500F58B3E /* Frameworks */,
+				FC13F9C9204F0D9500F58B3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lampino Watch Extension";
+			productName = "Lampino Watch Extension";
+			productReference = FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -238,6 +405,14 @@
 				ORGANIZATIONNAME = "Lampino Organization";
 				TargetAttributes = {
 					EE15FDE9203C987B00C90705 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					FC13F9BE204F0D9400F58B3E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					FC13F9CA204F0D9500F58B3E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -257,6 +432,8 @@
 			projectRoot = "";
 			targets = (
 				EE15FDE9203C987B00C90705 /* Lampino */,
+				FC13F9BE204F0D9400F58B3E /* Lampino Watch */,
+				FC13F9CA204F0D9500F58B3E /* Lampino Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -271,6 +448,25 @@
 				EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */,
 				EE15FDF8203C987B00C90705 /* LaunchScreen.storyboard in Resources */,
 				EE55B6EF20489114006C6C3C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC13F9BD204F0D9400F58B3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC13F9C5204F0D9500F58B3E /* Assets.xcassets in Resources */,
+				FC13F9EC204F1E6200F58B3E /* Assets.xcassets in Resources */,
+				FC13F9C3204F0D9400F58B3E /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC13F9C9204F0D9500F58B3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC13F9EB204F1E6100F58B3E /* Assets.xcassets in Resources */,
+				FC13F9D9204F0D9500F58B3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +492,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC13F9C7204F0D9500F58B3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC13F9D5204F0D9500F58B3E /* NotificationController.swift in Sources */,
+				FC13F9EF204F1F2800F58B3E /* ArduinoCommunicator.swift in Sources */,
+				FC13F9EE204F1F2800F58B3E /* ArduinoCommunicatorBluetooth.swift in Sources */,
+				FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */,
+				FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */,
+				FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */,
+				FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */,
+				FC13F9D1204F0D9500F58B3E /* LampsInterfaceController.swift in Sources */,
+				FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC13F9CE204F0D9500F58B3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC13F9CA204F0D9500F58B3E /* Lampino Watch Extension */;
+			targetProxy = FC13F9CD204F0D9500F58B3E /* PBXContainerItemProxy */;
+		};
+		FC13F9DD204F0D9500F58B3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC13F9BE204F0D9400F58B3E /* Lampino Watch */;
+			targetProxy = FC13F9DC204F0D9500F58B3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EE15FDF6203C987B00C90705 /* LaunchScreen.storyboard */ = {
@@ -324,6 +549,14 @@
 				EE55B6ED204873CD006C6C3C /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		FC13F9C1204F0D9400F58B3E /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC13F9C2204F0D9400F58B3E /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -449,7 +682,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,7 +697,81 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FC13F9DF204F0D9500F58B3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				IBSC_MODULE = Lampino_Watch_Extension;
+				INFOPLIST_FILE = "Lampino Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		FC13F9E0204F0D9500F58B3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				IBSC_MODULE = Lampino_Watch_Extension;
+				INFOPLIST_FILE = "Lampino Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		FC13F9E1204F0D9500F58B3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		FC13F9E2204F0D9500F58B3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -485,6 +792,24 @@
 			buildConfigurations = (
 				EE15FDFD203C987B00C90705 /* Debug */,
 				EE15FDFE203C987B00C90705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC13F9E3204F0D9500F58B3E /* Build configuration list for PBXNativeTarget "Lampino Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC13F9E1204F0D9500F58B3E /* Debug */,
+				FC13F9E2204F0D9500F58B3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC13F9E5204F0D9500F58B3E /* Build configuration list for PBXNativeTarget "Lampino Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC13F9DF204F0D9500F58B3E /* Debug */,
+				FC13F9E0204F0D9500F58B3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
