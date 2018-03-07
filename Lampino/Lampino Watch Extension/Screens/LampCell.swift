@@ -30,6 +30,6 @@ class LampCell: NSObject {
         }
         
         self.name.setText(lamp.name)
-        self.brightness.setText("\(lamp.brightness)%")
+//        self.brightness.setText("\(lamp.brightness)%")
     }
 }

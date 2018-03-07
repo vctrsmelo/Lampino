@@ -18,6 +18,8 @@
 		EEA138B2205060E60008EF01 /* ArduinoCommunicatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA138B1205060E60008EF01 /* ArduinoCommunicatorMock.swift */; };
 		EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF1557204091E800A0F4B1 /* LampsViewController.swift */; };
 		EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */; };
+		EECE30D62050668600AF665B /* ArduinoCommunicatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA138B1205060E60008EF01 /* ArduinoCommunicatorMock.swift */; };
+		EECE30D8205072EC00AF665B /* LampInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECE30D7205072EC00AF665B /* LampInterfaceController.swift */; };
 		EECF2444204482B7007220F3 /* BrightnessSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF2443204482B7007220F3 /* BrightnessSliderView.xib */; };
 		EECF2446204485A8007220F3 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF2445204485A8007220F3 /* BrightnessSliderView.swift */; };
 		EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
@@ -102,6 +104,7 @@
 		EEA138B1205060E60008EF01 /* ArduinoCommunicatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoCommunicatorMock.swift; sourceTree = "<group>"; };
 		EEBF1557204091E800A0F4B1 /* LampsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsViewController.swift; sourceTree = "<group>"; };
 		EEBF155B2040936500A0F4B1 /* LampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCollectionViewCell.swift; sourceTree = "<group>"; };
+		EECE30D7205072EC00AF665B /* LampInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampInterfaceController.swift; sourceTree = "<group>"; };
 		EECF2443204482B7007220F3 /* BrightnessSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessSliderView.xib; sourceTree = "<group>"; };
 		EECF2445204485A8007220F3 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
 		EEE2F95E203F2EF9006A98FB /* LampsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LampsManager.swift; sourceTree = "<group>"; };
@@ -336,6 +339,7 @@
 			children = (
 				FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */,
 				FC3A9924204F2F29008EB4AD /* LampCell.swift */,
+				EECE30D7205072EC00AF665B /* LampInterfaceController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -511,6 +515,8 @@
 				FC13F9D5204F0D9500F58B3E /* NotificationController.swift in Sources */,
 				FC13F9EF204F1F2800F58B3E /* ArduinoCommunicator.swift in Sources */,
 				FC13F9EE204F1F2800F58B3E /* ArduinoCommunicatorBluetooth.swift in Sources */,
+				EECE30D8205072EC00AF665B /* LampInterfaceController.swift in Sources */,
+				EECE30D62050668600AF665B /* ArduinoCommunicatorMock.swift in Sources */,
 				FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */,
 				FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */,
 				FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */,

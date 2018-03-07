@@ -26,7 +26,7 @@ class LampsManager {
     private var communicator: ArduinoCommunicator?
     
     private init() {
-        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
+        self.communicator = ArduinoCommunicatorMock()
         
         self.communicator?.delegate = self
         self.communicator?.initBluetooth()

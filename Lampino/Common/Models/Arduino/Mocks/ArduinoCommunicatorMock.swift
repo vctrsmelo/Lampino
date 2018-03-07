@@ -13,7 +13,8 @@ class ArduinoCommunicatorMock: ArduinoCommunicator {
     
     var lamps: [Lamp] = [
             Lamp(id: 0, name: "Alpha", brightness: 100),
-            Lamp(id: 1, name: "Bravo", brightness: 80)
+            Lamp(id: 1, name: "Bravo", brightness: 0),
+            Lamp(id: 2, name: "Bravo", brightness: 50)
     ]
     
     func initBluetooth() {
