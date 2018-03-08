@@ -36,14 +36,17 @@ class LampInterfaceController: WKInterfaceController {
                 if var _currentBrightnessValue = _currentBrightnessValue {
                     if _currentBrightnessValue == 0 {
                         _currentBrightnessValue = 10
+                        brightnessSlider.setValue(_currentBrightnessValue)
                     }
                     lamp.brightness = UInt8(_currentBrightnessValue*Float(Lamp.maxBrightness)/10.0)
+                    LampsManager.sharedInstance.setBrightness(lamp.id, to: lamp.brightness)
                 }
                 
             } else {
                 onOffButton.setBackgroundImageNamed("OFF")
                 brightnessSlider.setColor(UIColor.offColor)
                 lamp.brightness = 0
+                LampsManager.sharedInstance.setBrightness(lamp.id, to: lamp.brightness)
             }
         }
     }
@@ -86,10 +89,6 @@ class LampInterfaceController: WKInterfaceController {
     }
     
     @IBAction func didChangeSlider(_ value: Float) {
-        if !isOn {
-            return
-        }
-
         _currentBrightnessValue = value
         isOn = (value != 0.0)
     }
