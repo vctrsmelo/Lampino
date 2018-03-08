@@ -27,12 +27,10 @@ class NotificationManager: NSObject {
     private let center = UNUserNotificationCenter.current()
     
     private override init() {
-        super.init()
-        
-        self.requestAuthorization()
+        super.init()        
     }
     
-    private func requestAuthorization() {
+    func requestAuthorization() {
         let options: UNAuthorizationOptions = [.alert, .sound]
         
         self.center.requestAuthorization(options: options) { _, _ in
