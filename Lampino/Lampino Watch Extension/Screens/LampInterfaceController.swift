@@ -39,14 +39,14 @@ class LampInterfaceController: WKInterfaceController {
                         brightnessSlider.setValue(_currentBrightnessValue)
                     }
                     lamp.brightness = UInt8(_currentBrightnessValue*Float(Lamp.maxBrightness)/10.0)
-                    LampsManager.sharedInstance.setBrightness(lamp.id, to: lamp.brightness)
+                    LampsManager.sharedInstance.setBrightness(lamp.brightness, to: lamp.id)
                 }
                 
             } else {
                 onOffButton.setBackgroundImageNamed("OFF")
                 brightnessSlider.setColor(UIColor.offColor)
                 lamp.brightness = 0
-                LampsManager.sharedInstance.setBrightness(lamp.id, to: lamp.brightness)
+                LampsManager.sharedInstance.setBrightness(lamp.brightness, to: lamp.id)
             }
         }
     }
