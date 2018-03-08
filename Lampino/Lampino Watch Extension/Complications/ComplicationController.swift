@@ -8,6 +8,9 @@
 
 import ClockKit
 
+let ComplicationCurrentEntry = "ComplicationCurrentEntry"
+let ComplicationTextData = "ComplicationTextData"
+let ComplicationShortTextData = "ComplicationShortTextData"
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
@@ -33,7 +36,23 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+
+        var entry: CLKComplicationTimelineEntry?
+        let now = Date()
+        
+        switch complication.family {
+        case .circularSmall:
+            let circularTemplate = CLKComplicationTemplateCircularSmallSimpleImage()
+            circularTemplate.imageProvider =  CLKImageProvider.init(onePieceImage: #imageLiteral(resourceName: "Complication/Circular"))
+            entry = CLKComplicationTimelineEntry(date: now, complicationTemplate: circularTemplate)
+        case .modularSmall:
+            let modularTemplate = CLKComplicationTemplateCircularSmallSimpleImage()
+            modularTemplate.imageProvider =  CLKImageProvider.init(onePieceImage: #imageLiteral(resourceName: "Complication/Modular"))
+            entry = CLKComplicationTimelineEntry(date: now, complicationTemplate: modularTemplate)
+        default:
+            break
+        }
+        handler(entry)
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -51,6 +70,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
         handler(nil)
+    }
+    
+    private func getCircularSmallTimelyEntry() {
+        
     }
     
 }
