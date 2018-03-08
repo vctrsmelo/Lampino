@@ -30,7 +30,6 @@
 		FC13F9C3204F0D9400F58B3E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC13F9C1204F0D9400F58B3E /* Interface.storyboard */; };
 		FC13F9C5204F0D9500F58B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC13F9C4204F0D9400F58B3E /* Assets.xcassets */; };
 		FC13F9CC204F0D9500F58B3E /* Lampino Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC13F9D1204F0D9500F58B3E /* LampsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */; };
 		FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */; };
 		FC13F9D5204F0D9500F58B3E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D4204F0D9500F58B3E /* NotificationController.swift */; };
 		FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */; };
@@ -117,7 +116,6 @@
 		FC13F9C4204F0D9400F58B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC13F9C6204F0D9500F58B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC13F9CB204F0D9500F58B3E /* Lampino Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Lampino Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampsInterfaceController.swift; sourceTree = "<group>"; };
 		FC13F9D2204F0D9500F58B3E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		FC13F9D4204F0D9500F58B3E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		FC13F9D6204F0D9500F58B3E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 		FC13F9EA204F131000F58B3E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FC13F9D0204F0D9500F58B3E /* LampsInterfaceController.swift */,
 				FC3A9924204F2F29008EB4AD /* LampCell.swift */,
 				EECE30D7205072EC00AF665B /* LampInterfaceController.swift */,
 			);
@@ -521,7 +518,6 @@
 				FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */,
 				FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */,
 				FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */,
-				FC13F9D1204F0D9500F58B3E /* LampsInterfaceController.swift in Sources */,
 				FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

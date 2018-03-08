@@ -9,42 +9,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Lamps-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller title="Lamps" id="AgC-eL-Hgc" customClass="LampsInterfaceController" customModule="Lampino_Watch" customModuleProvider="target">
-                    <items>
-                        <table alignment="center" id="jdS-KA-TCl">
-                            <items>
-                                <tableRow identifier="lampCell" id="mBW-XY-6nz" customClass="LampCell" customModule="Lampino_Watch_Extension">
-                                    <group key="rootItem" width="1" height="68" alignment="left" layout="vertical" id="vFu-7u-o4Y">
-                                        <items>
-                                            <group width="1" alignment="left" id="y1j-y2-Ua2">
-                                                <items>
-                                                    <label alignment="left" verticalAlignment="center" text="LampName" textAlignment="left" id="yYY-Yq-dax">
-                                                        <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                                    </label>
-                                                </items>
-                                            </group>
-                                            <slider width="1" alignment="left" value="1" maximum="3" steps="3" id="zQx-TO-zf7"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="group" destination="vFu-7u-o4Y" id="voA-MK-feO"/>
-                                        <outlet property="name" destination="yYY-Yq-dax" id="b0Y-ox-NuW"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="lampsTable" destination="jdS-KA-TCl" id="hJ0-qp-j2r"/>
-                        <segue destination="hWu-eu-B3B" kind="relationship" relationship="nextPage" id="MQh-kO-0MX"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>
