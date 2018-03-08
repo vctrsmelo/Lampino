@@ -17,33 +17,53 @@ class WKLampsManager {
 class LampInterfaceController: WKInterfaceController {
     
     @IBOutlet var nameLabel: WKInterfaceLabel!
-    @IBOutlet var onOffSwitch: WKInterfaceSwitch!
-    
+    @IBOutlet var onOffButton: WKInterfaceButton!
     @IBOutlet var brightnessSlider: WKInterfaceSlider!
+    
+    private var _currentBrightnessValue: Float!
+    
+    private var isOn: Bool! {
+        didSet {
+            if oldValue == isOn {
+                return
+            }
+            
+            if isOn {
+                onOffButton.setBackgroundImageNamed("ON")
+                brightnessSlider.setColor(UIColor.onColor)
+                
+
+                if var _currentBrightnessValue = _currentBrightnessValue {
+                    if _currentBrightnessValue == 0 {
+                        _currentBrightnessValue = 10
+                    }
+                    lamp.brightness = UInt8(_currentBrightnessValue*Float(Lamp.maxBrightness)/10.0)
+                }
+                
+            } else {
+                onOffButton.setBackgroundImageNamed("OFF")
+                brightnessSlider.setColor(UIColor.offColor)
+                lamp.brightness = 0
+            }
+        }
+    }
     
     var lamp: Lamp! {
         didSet {
             nameLabel.setText(lamp.name)
-            
-            if lamp.brightness > 0 {
-                onOffSwitch.setOn(true)
-                onOffSwitch.setTitle("ON")
-            } else {
-                onOffSwitch.setOn(false)
-                brightnessSlider.setHidden(true)
-                onOffSwitch.setTitle("OFF")
-            }
-            brightnessSlider.setValue(Float(lamp.brightness))
         }
     }
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        self.setTitle("Lamps")
+        
         if let lamp = context as? Lamp {
-        
             self.lamp = lamp
-        
+            _currentBrightnessValue = Float(lamp.brightnessPercentage)/10.0
+            brightnessSlider.setValue(_currentBrightnessValue)
+            isOn = (lamp.brightness > 0)
         }
         
         if WKLampsManager.alreadyLoaded {
@@ -54,7 +74,7 @@ class LampInterfaceController: WKInterfaceController {
         
         let namesAndContexts = LampsManager.sharedInstance.lamps.map { return (name: "LampPage", context: $0 as AnyObject)}
         WKInterfaceController.reloadRootControllers(withNamesAndContexts: namesAndContexts)
-        
+
     }
     
     override func willActivate() {
@@ -65,26 +85,27 @@ class LampInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
     }
     
-    @IBAction func didChangeOnOffSwitch(_ value: Bool) {
-        if value {
-            brightnessSlider.setHidden(false)
-            onOffSwitch.setTitle("ON")
-            brightnessSlider.setValue(10)
-        } else {
-            brightnessSlider.setHidden(true)
-            onOffSwitch.setTitle("OFF")
-            brightnessSlider.setValue(0)
+    @IBAction func didChangeSlider(_ value: Float) {
+        if !isOn {
+            return
         }
+
+        _currentBrightnessValue = value
+        isOn = (value != 0.0)
     }
     
-    @IBAction func didChangeSlider(_ value: Float) {
+    @IBAction func onOffButtonTouched() {
         
-        if value == 0.0 {
-            onOffSwitch.setTitle("OFF")
-            onOffSwitch.setOn(false)
-        } else {
-            onOffSwitch.setTitle("ON")
-            onOffSwitch.setOn(true)
-        }
+        isOn = !isOn
+    }
+}
+
+extension UIColor {
+    static var onColor: UIColor {
+        return UIColor(red: 241/255, green: 196/255, blue: 0/255, alpha: 1)
+    }
+    
+    static var offColor: UIColor {
+        return UIColor(red: 236/255, green: 240/255, blue: 241/255, alpha: 1)
     }
 }
