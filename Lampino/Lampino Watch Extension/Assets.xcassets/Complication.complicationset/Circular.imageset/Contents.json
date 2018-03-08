@@ -2,13 +2,13 @@
   "images" : [
     {
       "idiom" : "watch",
-      "filename" : "Group.png",
+      "filename" : "ComplicationIcon.png",
       "screen-width" : "<=145",
       "scale" : "2x"
     },
     {
       "idiom" : "watch",
-      "filename" : "Group-1.png",
+      "filename" : "ComplicationIcon-1.png",
       "screen-width" : ">145",
       "scale" : "2x"
     }

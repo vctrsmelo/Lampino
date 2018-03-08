@@ -40,14 +40,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var entry: CLKComplicationTimelineEntry?
         let now = Date()
         
+        let imageProvider =  CLKImageProvider.init(onePieceImage: #imageLiteral(resourceName: "Complication/Modular"))
+        let yellowColor = UIColor.init(red: 241/255, green: 196/255, blue: 0/255, alpha: 1)
+        imageProvider.tintColor = yellowColor
+        
         switch complication.family {
         case .circularSmall:
             let circularTemplate = CLKComplicationTemplateCircularSmallSimpleImage()
-            circularTemplate.imageProvider =  CLKImageProvider.init(onePieceImage: #imageLiteral(resourceName: "Complication/Circular"))
+            circularTemplate.imageProvider =  imageProvider
             entry = CLKComplicationTimelineEntry(date: now, complicationTemplate: circularTemplate)
         case .modularSmall:
-            let modularTemplate = CLKComplicationTemplateCircularSmallSimpleImage()
-            modularTemplate.imageProvider =  CLKImageProvider.init(onePieceImage: #imageLiteral(resourceName: "Complication/Modular"))
+            let modularTemplate = CLKComplicationTemplateModularSmallSimpleImage()
+            modularTemplate.imageProvider = imageProvider
             entry = CLKComplicationTimelineEntry(date: now, complicationTemplate: modularTemplate)
         default:
             break
