@@ -73,7 +73,7 @@ class LampInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        crownSequencer.focus()
+        self.crownSequencer.focus()
     }
     
     override func didDeactivate() {
