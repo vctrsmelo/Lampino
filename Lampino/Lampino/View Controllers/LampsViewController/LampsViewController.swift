@@ -22,7 +22,7 @@ class LampsViewController: UIViewController {
     
     let lampsManager = LampsManager.sharedInstance
     
-    let speechController = SpeechRecognizingController()
+    let speechManager = SpeechRecognizingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class LampsViewController: UIViewController {
         navigationBar?.shadowImage = UIImage()
         navigationBar?.isTranslucent = true
         
-        speechController.delegate = self
+        speechManager.delegate = self
         lampsManager.delegate = self
     }
     
@@ -56,16 +56,16 @@ class LampsViewController: UIViewController {
     }
     
     @IBAction func didPressMicrophoneButton(_ sender: UIBarButtonItem) {
-        speechController.checkIfRecognitionIsAuthorized { (isAuthorized) in
+        speechManager.checkIfRecognitionIsAuthorized { (isAuthorized) in
             if isAuthorized {
                 switch self.isMicButtonSelected {
                 case false:
-                    self.speechController.recordAndRecognizeSpeech()
+                    self.speechManager.recordAndRecognizeSpeech()
                     DispatchQueue.main.async {
                         self.turnMicOn()
                     }
                 case true:
-                    self.speechController.stopRecording()
+                    self.speechManager.stopRecording()
                     DispatchQueue.main.async {
                         self.turnMicOff()
                     }

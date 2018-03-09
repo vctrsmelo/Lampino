@@ -45,7 +45,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gv8-SQ-NF7">
                                                                     <rect key="frame" x="0.0" y="0.0" width="72.5" height="107"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-BB-cQ8">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-BB-cQ8">
                                                                             <rect key="frame" x="0.0" y="73" width="72.5" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="24" id="oNs-5J-vvi"/>
@@ -114,7 +114,7 @@
                                                                 <constraint firstItem="UVf-EJ-a0O" firstAttribute="width" secondItem="Gv8-SQ-NF7" secondAttribute="width" id="0Nr-0r-1g0"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lamp Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UzY-oT-JV1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lamp Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UzY-oT-JV1">
                                                             <rect key="frame" x="13" y="9" width="119" height="29"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="29" id="Xbz-fy-Bcm"/>
@@ -223,7 +223,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23h-03-gTf">
                                 <rect key="frame" x="114.5" y="480" width="146" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="0MX-LQ-RKV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="146" id="0MX-LQ-RKV"/>
                                     <constraint firstAttribute="height" constant="65" id="2R3-rX-fCD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>

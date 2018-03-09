@@ -1,5 +1,5 @@
 //
-//  SpeechRecognizingController.swift
+//  SpeechRecognizingManager.swift
 //  Lampino
 //
 //  Created by Bruno Scheltzke on 28/02/18.
@@ -9,7 +9,7 @@
 import Foundation
 import Speech
 
-class SpeechRecognizingController {
+class SpeechRecognizingManager {
     internal weak var delegate: SpeechRecognizable!
     
     private let audionEngine = AVAudioEngine()
