@@ -21,6 +21,10 @@ class ArduinoCommunicatorMock: ArduinoCommunicator {
         delegate?.communicatorDidConnect(self)
     }
     
+    func disconnect() {
+        self.delegate?.communicatorDidDisconnect(self)
+    }
+    
     func getNumberOfLamps() {
         delegate?.communicator(self, didReceive: UInt8(lamps.count))
     }

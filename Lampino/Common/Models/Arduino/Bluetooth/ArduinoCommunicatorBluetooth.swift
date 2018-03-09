@@ -57,6 +57,10 @@ class ArduinoCommunicatorBluetooth: NSObject {
     
     // MARK: - Private Methods
     
+    private override init() {
+        super.init()
+    }
+    
     private func execute(command: Command) {
         guard let arduino = self.arduinoPeripheral,
             let characteristic = self.writeCharacteristic else {
@@ -132,7 +136,8 @@ extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
         switch central.state {
         case .poweredOff:
             print("Bluetooth off")
-            centralManager?.stopScan()
+            self.arduinoPeripheral = nil
+            
         case .poweredOn:
             print("Bluetooth on")
             centralManager?.scanForPeripherals(withServices: [self.expectedServiceCBUUID])
@@ -142,8 +147,9 @@ extension ArduinoCommunicatorBluetooth: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("Discovered peripheral: \(peripheral.name ?? "ERROR")")
+        
         if peripheral.name == self.expectedPeripheralName {
-            print("Discovered peripheral: \(peripheral.name ?? "ERROR")")
             arduinoPeripheral = peripheral
             peripheral.delegate = self
             central.connect(peripheral, options: nil)
@@ -229,7 +235,17 @@ extension ArduinoCommunicatorBluetooth: CBPeripheralDelegate {
 
 extension ArduinoCommunicatorBluetooth: ArduinoCommunicator {
     func initBluetooth() {
-        centralManager = CBCentralManager(delegate: self, queue: nil)
+        self.centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    func disconnect() {
+        guard let arduino = self.arduinoPeripheral else {
+            print("[Notice] No arduino to disconnect")
+            return
+        }
+        
+        self.centralManager?.cancelPeripheralConnection(arduino)
+        self.arduinoPeripheral = nil
     }
     
     func getNumberOfLamps() {

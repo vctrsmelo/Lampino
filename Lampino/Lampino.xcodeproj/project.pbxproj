@@ -41,6 +41,8 @@
 		FC13F9EF204F1F2800F58B3E /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
 		FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
 		FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
+		FCE7896D205080770068811A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7896C205080770068811A /* NotificationManager.swift */; };
+		FCE7896E205080770068811A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7896C205080770068811A /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,7 @@
 		FC13F9D8204F0D9500F58B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC13F9DA204F0D9500F58B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC13F9DB204F0D9500F58B3E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		FCE7896C205080770068811A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,7 @@
 			children = (
 				EEE2F95B203F2EF9006A98FB /* Arduino */,
 				EEE2F95E203F2EF9006A98FB /* LampsManager.swift */,
+				FCE7896C205080770068811A /* NotificationManager.swift */,
 				EEE2F963203F3014006A98FB /* Lamp.swift */,
 			);
 			path = Models;
@@ -490,6 +494,7 @@
 				848185CC204721620055A800 /* SpeechRecognizingController.swift in Sources */,
 				EEBF1558204091E800A0F4B1 /* LampsViewController.swift in Sources */,
 				EEE2F964203F3014006A98FB /* Lamp.swift in Sources */,
+				FCE7896D205080770068811A /* NotificationManager.swift in Sources */,
 				EEE2F95F203F2EF9006A98FB /* LampsManager.swift in Sources */,
 				EEBF155D2040936500A0F4B1 /* LampCollectionViewCell.swift in Sources */,
 				EEE2F96D203F321A006A98FB /* LoadingComponent.swift in Sources */,
@@ -512,6 +517,7 @@
 				EECE30D8205072EC00AF665B /* LampInterfaceController.swift in Sources */,
 				EECE30D62050668600AF665B /* ArduinoCommunicatorMock.swift in Sources */,
 				FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */,
+				FCE7896E205080770068811A /* NotificationManager.swift in Sources */,
 				FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */,
 				FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */,
 				FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */,

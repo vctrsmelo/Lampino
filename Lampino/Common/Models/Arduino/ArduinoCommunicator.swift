@@ -19,6 +19,7 @@ protocol ArduinoCommunicatorDelegate: AnyObject {
 protocol ArduinoCommunicator: AnyObject {
     var delegate: ArduinoCommunicatorDelegate? { get set }
     func initBluetooth()
+    func disconnect()
     func getNumberOfLamps()
     func getBrightness(_ lampId: UInt8?)
     func setBrightness(_ brightness: UInt8, to lampId: UInt8?)
