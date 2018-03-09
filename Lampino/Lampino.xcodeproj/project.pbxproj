@@ -187,6 +187,7 @@
 		EE15FE0D203C9A0D00C90705 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE55B6EE20489114006C6C3C /* Assets.xcassets */,
 				848185CB204721620055A800 /* SpeechRecognizingController.swift */,
 				EE15FDF9203C987B00C90705 /* Info.plist */,
 				EE55B6EC204873C1006C6C3C /* Localizable.strings */,
@@ -346,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				EEE2F95A203F2EF9006A98FB /* Models */,
-				EE55B6EE20489114006C6C3C /* Assets.xcassets */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -692,7 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
@@ -707,7 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "Lampino/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino;
@@ -723,7 +723,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				IBSC_MODULE = Lampino_Watch_Extension;
 				INFOPLIST_FILE = "Lampino Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp;
@@ -742,7 +742,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				IBSC_MODULE = Lampino_Watch_Extension;
 				INFOPLIST_FILE = "Lampino Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp;
@@ -760,7 +760,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;
@@ -778,7 +778,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
 				INFOPLIST_FILE = "$(SRCROOT)/Lampino Watch Extension/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.victormelo.Lampino.watchkitapp.watchkitextension;

@@ -81,7 +81,6 @@ class LampInterfaceController: WKInterfaceController {
     }
     
     private func reloadData() {
-        print(#function)
         let namesAndContexts = LampsManager.sharedInstance.lamps.map { return (name: "LampPage", context: $0 as AnyObject)}
         
         if namesAndContexts.isEmpty {
@@ -93,7 +92,6 @@ class LampInterfaceController: WKInterfaceController {
     }
     
     @IBAction func didChangeSlider(_ value: Float) {
-        print(value)
         _currentBrightnessValue = value
         isOn = (value != 0.0)
     }
@@ -137,17 +135,14 @@ extension LampInterfaceController: WKCrownDelegate {
 
 extension LampInterfaceController: LampsManagerDelegate {
     func didConnect() {
-        print(#function)
         self.reloadData()
     }
     
     func didDisconnect() {
-        print(#function)
         self.reloadData()
     }
     
     func didReceiveNewBrightness() {
-        print(#function)
         self.reloadData()
     }
 }
