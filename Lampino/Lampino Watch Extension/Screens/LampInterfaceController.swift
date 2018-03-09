@@ -20,6 +20,8 @@ class LampInterfaceController: WKInterfaceController {
     private var _currentBrightnessValue: Float = 0
     private var lampId: UInt8 = 0
     
+    private var rotationAcumulator: Double = 0
+    
     private var isOn: Bool! {
         didSet {
             
@@ -113,15 +115,22 @@ extension UIColor {
 
 extension LampInterfaceController: WKCrownDelegate {
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
+        
+        self.rotationAcumulator += rotationalDelta
+        
         let currentValue = self._currentBrightnessValue
         
-        if rotationalDelta > 0.1 && currentValue < 10 {
-            self.brightnessSlider.setValue(currentValue + 1)
-            self.didChangeSlider(currentValue + 1)
+        if self.rotationAcumulator > 0.1 && currentValue < 9 {
+            self.rotationAcumulator = 0
             
-        } else if rotationalDelta < -0.1 && currentValue > 0 {
-            self.brightnessSlider.setValue(currentValue - 1)
-            self.didChangeSlider(currentValue - 1)
+            self.brightnessSlider.setValue(currentValue + 2)
+            self.didChangeSlider(currentValue + 2)
+            
+        } else if self.rotationAcumulator < -0.1 && currentValue > 1 {
+            self.rotationAcumulator = 0
+            
+            self.brightnessSlider.setValue(currentValue - 2)
+            self.didChangeSlider(currentValue - 2)
         }
     }
 }
