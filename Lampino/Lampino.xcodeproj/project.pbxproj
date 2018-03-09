@@ -41,7 +41,6 @@
 		FC13F9EF204F1F2800F58B3E /* ArduinoCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F969203F3046006A98FB /* ArduinoCommunicator.swift */; };
 		FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F95E203F2EF9006A98FB /* LampsManager.swift */; };
 		FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2F963203F3014006A98FB /* Lamp.swift */; };
-		FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A9924204F2F29008EB4AD /* LampCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +121,6 @@
 		FC13F9D8204F0D9500F58B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC13F9DA204F0D9500F58B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC13F9DB204F0D9500F58B3E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		FC3A9924204F2F29008EB4AD /* LampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,7 +333,6 @@
 		FC13F9EA204F131000F58B3E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FC3A9924204F2F29008EB4AD /* LampCell.swift */,
 				EECE30D7205072EC00AF665B /* LampInterfaceController.swift */,
 			);
 			path = Screens;
@@ -516,7 +513,6 @@
 				EECE30D62050668600AF665B /* ArduinoCommunicatorMock.swift in Sources */,
 				FC13F9F0204F1F2800F58B3E /* LampsManager.swift in Sources */,
 				FC13F9D7204F0D9500F58B3E /* ComplicationController.swift in Sources */,
-				FC3A9925204F2F29008EB4AD /* LampCell.swift in Sources */,
 				FC13F9D3204F0D9500F58B3E /* ExtensionDelegate.swift in Sources */,
 				FC13F9F1204F1F2800F58B3E /* Lamp.swift in Sources */,
 			);

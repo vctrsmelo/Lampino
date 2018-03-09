@@ -11,7 +11,7 @@ import Foundation
 protocol LampsManagerDelegate: AnyObject {
     func didConnect()
     func didDisconnect()
-    func updatedLamps()
+    func didReceiveNewBrightness()
 }
 
 class LampsManager {
@@ -26,7 +26,7 @@ class LampsManager {
     private var communicator: ArduinoCommunicator?
     
     private init() {
-        self.communicator = ArduinoCommunicatorMock()
+        self.communicator = ArduinoCommunicatorBluetooth.sharedInstance
         
         self.communicator?.delegate = self
         self.communicator?.initBluetooth()
@@ -44,9 +44,7 @@ class LampsManager {
                 index += 1
             }
         }
-        
-        self.delegate?.updatedLamps()
-        
+                
         self.communicator?.setBrightness(brightness, to: lampId)
     }
     
@@ -81,7 +79,7 @@ extension LampsManager: ArduinoCommunicatorDelegate {
         }
         
         if self.isConnected {
-            self.delegate?.updatedLamps()
+            self.delegate?.didReceiveNewBrightness()
             
         } else {
             self.isConnected = true

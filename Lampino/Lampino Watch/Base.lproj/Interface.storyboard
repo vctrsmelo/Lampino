@@ -28,9 +28,9 @@
         <!--LampPage-->
         <scene sceneID="ECh-qC-bim">
             <objects>
-                <controller identifier="LampPage" spacing="0.0" id="hWu-eu-B3B" customClass="LampInterfaceController" customModule="Lampino_Watch_Extension">
+                <controller identifier="LampPage" title="LampPage" spacing="0.0" id="hWu-eu-B3B" customClass="LampInterfaceController" customModule="Lampino_Watch_Extension">
                     <items>
-                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" spacing="10" id="hPb-yZ-qSX">
+                        <group width="1" alignment="left" verticalAlignment="center" hidden="YES" layout="vertical" spacing="10" id="hPb-yZ-qSX">
                             <items>
                                 <label alignment="left" text="Bedroom Lamp" textAlignment="left" id="fwl-is-Wfc"/>
                                 <button width="45" height="45" alignment="center" backgroundImage="ON" id="XpS-7O-Fju">
@@ -52,10 +52,13 @@
                             <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <edgeInsets key="margins" left="7" right="7" top="7" bottom="7"/>
                         </group>
+                        <label alignment="center" verticalAlignment="center" text="Not connected or no lamp to show 🙁" textAlignment="center" numberOfLines="0" id="dzV-1f-gH4"/>
                     </items>
                     <connections>
                         <outlet property="brightnessSlider" destination="AAM-bv-8Nc" id="GEw-cg-XUg"/>
+                        <outlet property="lampGroup" destination="hPb-yZ-qSX" id="P82-7B-p4C"/>
                         <outlet property="nameLabel" destination="fwl-is-Wfc" id="qo0-ck-o0m"/>
+                        <outlet property="noLampsLabel" destination="dzV-1f-gH4" id="Nnl-lZ-vaT"/>
                         <outlet property="onOffButton" destination="XpS-7O-Fju" id="O9c-Z8-tZA"/>
                     </connections>
                 </controller>

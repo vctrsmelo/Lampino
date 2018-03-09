@@ -107,7 +107,7 @@ extension LampsViewController: LampsManagerDelegate {
         self.lampsCollectionView.reloadData()
     }
     
-    func updatedLamps() {
+    func didReceiveNewBrightness() {
         self.lampsCollectionView.reloadData()
     }
 }
